@@ -46,6 +46,18 @@ iA Presenter lets you build presentations fast—on any device, even your phone.
 ### section header
 
 ---
+ 
+###### with context 
+### section header
+
+These are speaker notes
+---
+ 
+###### with context 
+### section header
+	All slide content must either be indented or have a markdown tag
+
+---
 ### Lorem ipsum dolor
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt[][#citation] ut labore et dolore magna aliqua.
 	[#citation]: always cite provenance from the storyBASE and explain context. 
