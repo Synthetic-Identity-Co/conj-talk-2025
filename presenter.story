@@ -1,5 +1,5 @@
 ---
-id: README
+id: conj-talk-2025
 title: "Immutable Selves Talk"
 version: 0.1.0
 description: "IA presenter template for talk presentation"
