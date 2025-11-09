@@ -1,0 +1,26 @@
+name: Validate SPARQL transactions
+on:
+  pull_request:
+    paths: [ "**/storyBASE/**/.sparql" ]
+  push:
+    branches: [ main ]
+    paths: [ "**/.storyBASE/**/*.sparql" ]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - run: npm init -y --yes && npm i sparqljs glob@10
+      - name: Validate .sparql
+        run: |
+          node -e "
+          const { Parser } = require('sparqljs'); const glob = require('glob'); const fs = require('fs');
+          const files = glob.sync('.storyBASE/**/*.sparql', { nodir:true }); const errors=[];
+          for (const f of files){ try{
+            const t = fs.readFileSync(f,'utf8'); try{ new Parser({update:true}).parseUpdate(t); }
+            catch(e){ new Parser({update:false}).parse(t); } console.log('✔',f);
+          }catch(e){ console.error('✖',f,e.message); errors.push([f,e.message]); } }
+          if(errors.length){ console.error('FAIL',errors); process.exit(1) }
+          "
