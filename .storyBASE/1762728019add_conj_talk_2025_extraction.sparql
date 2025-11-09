@@ -1,0 +1,184 @@
+PREFIX sb: <http://storybase.org/ontology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX storytwin: <http://storytwin.org/ontology#>
+PREFIX narr: <http://storybase.org/narrative#>
+
+INSERT DATA {
+  # Transaction-level provenance
+  narr:Tx_20251109T223928Z_conj2025 a prov:Activity ;
+    prov:wasAssociatedWith <http://storytwin.org/agent/n8n.storyTWIN/MCP> ;
+    prov:wasAttributedTo <http://storybase.org/user/pleasetrythisathome> ;
+    prov:generatedAtTime "2025-11-09T22:39:28.133Z"^^xsd:dateTime ;
+    sb:originPath "/"^^xsd:string ;
+    sb:originRef "main"^^xsd:string ;
+    rdfs:label "Conj Talk 2025 Extraction Transaction" ;
+    rdfs:comment "First extraction for Conj Talk 2025 proposal. Captures narrative architecture (Opportunity, Strategy, Product, Proof, Architecture, Organization), style observations, rubric assessments, and style metrics." ;
+    prov:used "anthropic/claude-sonnet-4.5"^^xsd:string .
+
+  # Sample Record
+  <urn:uuid:conj-talk-2025-extraction> a sb:SampleRecord ;
+    sb:recordedAt "2025-01-01T00:00:00Z"^^xsd:dateTime ;
+    sb:inputLength 3421 ;
+    rdfs:label "Conj Talk 2025: Immutable Selves" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  # Opportunity
+  <urn:uuid:opportunity-identity-vulnerability> a sb:Opportunity ;
+    rdfs:label "Identity Vulnerability Crisis" ;
+    sb:description "Centralized, mutable identity systems vulnerable to deepfakes, synthetic identities, and impersonation fraud" ;
+    sb:marketContext "Enterprise identity and authentication" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  # Strategy
+  <urn:uuid:strategy-functional-immutable-identity> a sb:Strategy ;
+    rdfs:label "Functional Immutable Identity Architecture" ;
+    sb:description "Applies Clojure principles (immutability, explicit state, functional composition, data-first design, knowledge graphs) to create trustworthy identity systems" ;
+    sb:approach "Models identity as append-only event logs, authentication as pure functions, delegation as auditable chains" ;
+    sb:differentiator "Immutable facts at the edge, verifiable receipts, graph-based resolution" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  # Products
+  <urn:uuid:product-vouch-io> a sb:Product ;
+    rdfs:label "Vouch.io Identity Platform" ;
+    sb:description "Enterprise identity platform using immutable event logs and delegation chains" ;
+    sb:productType "Identity and authentication system" ;
+    sb:note "Past work, speaker now strategic advisor" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  <urn:uuid:product-sic> a sb:Product ;
+    rdfs:label "Sic AI Memory Platform" ;
+    sb:description "AI memory company using narrative-driven knowledge graphs to create AI individuals with deterministic individuality and provenance" ;
+    sb:productType "AI memory and agent individuality system" ;
+    sb:capability "Persistent logs and knowledge graphs for agent memory, narrative-driven provenance and shareable perspective" ;
+    sb:note "Current work, speaker is founder" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  # Proof
+  <urn:uuid:proof-conj-2025-talk> a sb:Proof ;
+    rdfs:label "Conj 2025 Experience Report" ;
+    sb:description "Conference talk and experience report" ;
+    sb:artifact "Threaded diagrams from model to implementation, optional short demo with canned fallback" ;
+    sb:audience "Clojure developers and functional programming practitioners" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  # Architecture
+  <urn:uuid:architecture-immutable-identity> a sb:Architecture ;
+    rdfs:label "Immutable Identity System Patterns" ;
+    sb:component "Append-only event logs with verifiable receipts, authentication as pure function at the edge, delegation as signed append-only events, knowledge graphs for entity and role resolution" ;
+    sb:principle "Immutability, functional composition, explicit state management, data-first design" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  # Organizations
+  <urn:uuid:org-sic> a sb:Organization ;
+    rdfs:label "Sic (AI Memory Company)" ;
+    sb:role "Founder" ;
+    sb:capability "Narrative-driven knowledge graphs for AI individuals" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  <urn:uuid:org-vouch-io> a sb:Organization ;
+    rdfs:label "Vouch.io" ;
+    sb:role "Former Chief Strategist, current strategic advisor" ;
+    sb:capability "Enterprise identity and delegation" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  # Style Observations
+  <urn:uuid:style-obs-1> a sb:StyleObservation ;
+    rdfs:label "Brand name styling: Vouch.io" ;
+    sb:observation "Brand name uses domain extension styling" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  <urn:uuid:style-obs-2> a sb:StyleObservation ;
+    rdfs:label "Technical term: append-only event logs" ;
+    sb:observation "Core concept from functional programming" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  <urn:uuid:style-obs-3> a sb:StyleObservation ;
+    rdfs:label "Technical term: authentication as pure functions" ;
+    sb:observation "Applies functional programming paradigm to identity" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  <urn:uuid:style-obs-4> a sb:StyleObservation ;
+    rdfs:label "Brand name: Sic" ;
+    sb:observation "Terse with Latin reference" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  <urn:uuid:style-obs-5> a sb:StyleObservation ;
+    rdfs:label "Technical term: persistent logs and knowledge graphs" ;
+    sb:observation "Data architecture terminology" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  <urn:uuid:style-obs-6> a sb:StyleObservation ;
+    rdfs:label "Rhetorical structure: triadic enumeration" ;
+    sb:observation "Deterministic individuality, narrative-driven provenance, and shareable perspective" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  <urn:uuid:style-obs-7> a sb:StyleObservation ;
+    rdfs:label "Rhetorical structure: problem to solution bridge" ;
+    sb:observation "We move from a simple mental model to concrete system patterns you can adopt today" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  <urn:uuid:style-obs-8> a sb:StyleObservation ;
+    rdfs:label "Technical reframing: identity" ;
+    sb:observation "Identity as an evolving log of facts rather than a static profile" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  <urn:uuid:style-obs-9> a sb:StyleObservation ;
+    rdfs:label "Technical reframing: trust" ;
+    sb:observation "Trust as provenance that you can compute" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  <urn:uuid:style-obs-10> a sb:StyleObservation ;
+    rdfs:label "List structure: parallel construction" ;
+    sb:observation "Actionable takeaways use parallel construction" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  <urn:uuid:style-obs-11> a sb:StyleObservation ;
+    rdfs:label "Personal identity lens" ;
+    sb:observation "As a trans woman, her lived experience informs a clear, practical framing of identity as contextual and evolving" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  # Rubric Assessments
+  <urn:uuid:rubric-clarity> a sb:RubricAssessment ;
+    rdfs:label "Clarity Assessment" ;
+    sb:dimension "Clarity" ;
+    sb:score "4.5"^^xsd:decimal ;
+    sb:maxScore "5"^^xsd:decimal ;
+    sb:rationale "Clear problem statement, well-structured proposal, actionable takeaways; minor density in technical sections" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  <urn:uuid:rubric-technical-depth> a sb:RubricAssessment ;
+    rdfs:label "Technical Depth Assessment" ;
+    sb:dimension "Technical Depth" ;
+    sb:score "4.8"^^xsd:decimal ;
+    sb:maxScore "5"^^xsd:decimal ;
+    sb:rationale "Strong grounding in Clojure principles, concrete system patterns, dual case studies (Vouch.io, Sic), verifiable architecture" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  <urn:uuid:rubric-narrative-coherence> a sb:RubricAssessment ;
+    rdfs:label "Narrative Coherence Assessment" ;
+    sb:dimension "Narrative Coherence" ;
+    sb:score "4.6"^^xsd:decimal ;
+    sb:maxScore "5"^^xsd:decimal ;
+    sb:rationale "Coherent arc from problem (deepfakes) through strategy (immutability) to proof (talk structure); dual product lens adds depth" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  <urn:uuid:rubric-audience-engagement> a sb:RubricAssessment ;
+    rdfs:label "Audience Engagement Assessment" ;
+    sb:dimension "Audience Engagement" ;
+    sb:score "4.3"^^xsd:decimal ;
+    sb:maxScore "5"^^xsd:decimal ;
+    sb:rationale "Actionable takeaways, optional demo, clear attendee value; could strengthen emotional hook beyond technical urgency" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+
+  # Style Metrics
+  <urn:uuid:style-metrics> a sb:StyleMetrics ;
+    rdfs:label "Style Metrics for Conj Talk 2025" ;
+    sb:averageSentenceLength "22.4"^^xsd:decimal ;
+    sb:technicalDensity "0.68"^^xsd:decimal ;
+    sb:activeVoiceRatio "0.71"^^xsd:decimal ;
+    sb:note "Moderate sentence length, high technical density, strong active voice in takeaways" ;
+    prov:wasGeneratedBy narr:Tx_20251109T223928Z_conj2025 .
+}
