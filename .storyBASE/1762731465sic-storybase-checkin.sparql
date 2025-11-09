@@ -1,0 +1,238 @@
+PREFIX sb: <http://storybase.synthetic-identity.co/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+INSERT DATA {
+  <http://storybase.synthetic-identity.co/sample/2025-01-29T000000Z_sic-storybase-checkin> a sb:Sample ;
+    rdfs:label "SIC / storyBASE / as written.ai Product & Strategy Check-in" ;
+    sb:description "Spoken transcript with conversational register and technical depth on storyBASE product evolution." ;
+    sb:timestamp "2025-01-29T00:00:00Z"^^xsd:dateTime ;
+    sb:inputLength 18437 ;
+    sb:attributedTo <http://storybase.synthetic-identity.co/actor/scarlet-dame> ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/opportunity/storybase-market> a sb:Opportunity ;
+    rdfs:label "storyBASE Market Opportunity" ;
+    sb:description "High-quality AI output requires extensive context; current models use search, but RDF-based narrative source of truth enables specific, controllable, versionable AI memory." ;
+    sb:marketContext "AI prompt engineering and organizational memory" ;
+    sb:relatedTo <http://storybase.synthetic-identity.co/concept/ai-context-requirements> ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/thesis/timing-storybase> a sb:TimingThesis ;
+    rdfs:label "storyBASE Timing Thesis" ;
+    sb:description "Convergence of prompt engineering maturity, multi-agent workflows, and demand for organizational AI memory creates window for narrative-driven context management." ;
+    sb:timestampWindow "2024-2026" ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/actor/primary-storybase> a sb:PrimaryActor ;
+    rdfs:label "storyBASE Primary Actors" ;
+    sb:description "Programming-literate entrepreneurs, designers, developers, consultants who manipulate worldview and see perspective changes." ;
+    sb:relatedTo <http://storybase.synthetic-identity.co/concept/personas-jobs-to-be-done> ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/thesis/positioning-storybase> a sb:PositioningThesis ;
+    rdfs:label "storyBASE Positioning Thesis" ;
+    sb:description "Extend software development rigor (versioning, branching, collaboration) into strategy, content, marketing, organizational operations via RDF narrative source of truth." ;
+    sb:relatedTo <http://storybase.synthetic-identity.co/concept/moat-leverage> ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/leverage/moat-storybase> a sb:MoatLeverage ;
+    rdfs:label "storyBASE Moat Leverage" ;
+    sb:description "Git-native, versionable, branchable AI memory encoding style, conviction, narrative metrics; replaces brittle role prompts with deep, operable persona descriptions." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/tagline/storybase> a sb:Tagline ;
+    rdfs:label "storyBASE Tagline" ;
+    sb:description "AI that tells you a story as written" ;
+    sb:note "User-facing brand as written.ai; Latin i.e. meaning." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/product/what-is-storybase> a sb:ProductOverview ;
+    rdfs:label "storyBASE What Is It" ;
+    sb:description "RDF narrative source of truth (storyBASE) that steers AI output, making it specific, controllable, aligned with organizational worldview." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/mission/storybase> a sb:Mission ;
+    rdfs:label "storyBASE Mission" ;
+    sb:description "Extend software development rigor into strategy, content, marketing; provide versionable, collaborative, narrative-driven AI memory." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/product/overview-storybase> a sb:ProductOverview ;
+    rdfs:label "storyBASE Product Overview" ;
+    sb:description "Initial prototype in n8n; tools include compile, ontology, extract, diff, tx, commit; MCP server; open WebUI at as written.ai; GitHub Actions for story generation." ;
+    sb:relatedTo <http://storybase.synthetic-identity.co/module/storybase-capabilities> , <http://storybase.synthetic-identity.co/dependency/storybase-integrations> ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/module/storybase-capabilities> a sb:ModuleCapabilities ;
+    rdfs:label "storyBASE Modules Capabilities" ;
+    sb:description "Compile (replay transactions to Turtle snapshot), extract (RDF from input), diff (semantic comparison), tx (propose transaction), commit (append-only to Git), story generation (YAML front matter + prompt to model outputs)." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/dependency/storybase-integrations> a sb:DependenciesIntegrations ;
+    rdfs:label "storyBASE Dependencies Integrations" ;
+    sb:description "n8n workflows, MCP server, GitHub (version control), Apache Jena/Riot (future RDF ops), Docker Compose, Open WebUI, Outseta (auth/billing), Helicone (API monitoring), Open Router (model access)." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/roadmap/narrative-storybase> a sb:NarrativeDrivenRoadmap ;
+    rdfs:label "storyBASE Narrative-Driven Roadmap" ;
+    sb:description "Move transactions from SPARQL to named graphs (TriG); add SHACL validation; implement evolved individuation pipeline (snapshot + message to transaction); file ingestion via GitHub; storyBASE marketplace; cost pass-through billing." ;
+    sb:relatedTo <http://storybase.synthetic-identity.co/core/narrative-expansion> ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/architecture/topology-storybase> a sb:SystemTopology ;
+    rdfs:label "storyBASE System Topology" ;
+    sb:description "n8n agent orchestrates tools; MCP server exposes to frontends (Agent.ai, ChatGPT, Open WebUI); transactions in .storybase directories; hierarchical compile; Docker Compose on Digital Ocean." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/model/data-lifecycle-storybase> a sb:DataModelLifecycle ;
+    rdfs:label "storyBASE Data Model Lifecycle" ;
+    sb:description "Append-only transaction log; immutable files; snapshot = replay of sorted transactions; provenance in TX step; future named graphs for add/remove." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/integration/points-storybase> a sb:IntegrationPoints ;
+    rdfs:label "storyBASE Integration Points" ;
+    sb:description "GitHub (OAuth, webhooks, Actions); Open Router (API proxy via Helicone); Outseta (OIDC, billing); MCP protocol (tool exposure); future GitHub Apps with scoped credentials." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/topology/role-storybase> a sb:RoleTopology ;
+    rdfs:label "storyBASE Role Topology" ;
+    sb:description "Programming-literate users; admin vs. read-write vs. read-only modes; GitHub role-based access; future scoped permissions via GitHub Apps." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/process/storybase> a sb:Process ;
+    rdfs:label "storyBASE Process" ;
+    sb:description "Interactive individuation (extract → diff → tx → review → commit) vs. automated ingestion (file upload → extraction → PR); story generation triggered by transaction or .story file changes." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/case/studies-storybase> a sb:CaseStudies ;
+    rdfs:label "storyBASE Case Studies" ;
+    sb:description "Planned demo: Crooked Media podcast transcripts auto-ingested; stories auto-update; perspectival operations (e.g., start with NPR, evolve with OpenAI)." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/style/observation/1> a sb:StyleObservation ;
+    rdfs:label "Brand name stylization" ;
+    sb:description "CamelCase 'storyBASE' with internal capitalization." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/style/observation/2> a sb:StyleObservation ;
+    rdfs:label "Idiolect phrasing" ;
+    sb:description "Conversational filler 'you know' signals informal register." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/style/observation/3> a sb:StyleObservation ;
+    rdfs:label "Verb choice" ;
+    sb:description "Power verb 'extend' frames value proposition." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/style/observation/4> a sb:StyleObservation ;
+    rdfs:label "Simile" ;
+    sb:description "Implicit comparison: AI without context = generic output." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/style/observation/5> a sb:StyleObservation ;
+    rdfs:label "Tone direct personal" ;
+    sb:description "First-person 'I' and 'So I don't know' signal informal, direct tone." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/style/observation/6> a sb:StyleObservation ;
+    rdfs:label "Jargon policy" ;
+    sb:description "Technical jargon (RDF, canonization, skolemization) used without definition; assumes literate audience." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/style/observation/7> a sb:StyleObservation ;
+    rdfs:label "Sentence length variation" ;
+    sb:description "Short, punchy sentence breaks up technical explanation." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/style/observation/8> a sb:StyleObservation ;
+    rdfs:label "Parallelism" ;
+    sb:description "Parallel structure 'extract … diff … tx' reinforces workflow sequence." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/style/observation/9> a sb:StyleObservation ;
+    rdfs:label "Rhetorical question" ;
+    sb:description "Rhetorical framing transitions to roadmap discussion." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/style/observation/10> a sb:StyleObservation ;
+    rdfs:label "Caret bracket marker" ;
+    sb:description "Citation marker present but unfilled; signals placeholder." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/metrics/style> a sb:StyleMetrics ;
+    rdfs:label "Style metrics" ;
+    sb:description "Average sentence length 35.2, active voice ratio 0.72, jargon density 0.18, type-token ratio 0.42" ;
+    sb:note "Conversational transcript with high jargon and active voice." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/rubric/register-fit> a sb:RubricAssessment ;
+    rdfs:label "Rubric assessment (Register Fit)" ;
+    sb:score 3.5 ;
+    sb:maxScore 5 ;
+    sb:description "Conversational, informal; first-person 'I'; fillers; direct but not concise; fits spoken context." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/rubric/phrasing> a sb:RubricAssessment ;
+    rdfs:label "Rubric assessment (Phrasing)" ;
+    sb:score 3.0 ;
+    sb:maxScore 5 ;
+    sb:description "Domain verbs ('compile', 'extract'); some stock phrases; idiolect emerging." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/rubric/cadence> a sb:RubricAssessment ;
+    rdfs:label "Rubric assessment (Cadence)" ;
+    sb:score 3.0 ;
+    sb:maxScore 5 ;
+    sb:description "Sentence length varies; some punchy breaks; rhythm uneven due to spoken delivery." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/rubric/strategic-alignment> a sb:RubricAssessment ;
+    rdfs:label "Rubric assessment (Strategic Alignment)" ;
+    sb:score 4.0 ;
+    sb:maxScore 5 ;
+    sb:description "Clear positioning; mission and moat articulated; roadmap detailed; aligns with narrative anchor." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/rubric/audience-tailoring> a sb:RubricAssessment ;
+    rdfs:label "Rubric assessment (Audience Tailoring)" ;
+    sb:score 3.5 ;
+    sb:maxScore 5 ;
+    sb:description "Assumes programming-literate audience; jargon without definition; some context-setting." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/rubric/resonance> a sb:RubricAssessment ;
+    rdfs:label "Rubric assessment (Resonance)" ;
+    sb:score 3.0 ;
+    sb:maxScore 5 ;
+    sb:description "Light analogies; planned demos add resonance; could use more stories." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/rubric/flow> a sb:RubricAssessment ;
+    rdfs:label "Rubric assessment (Flow)" ;
+    sb:score 3.0 ;
+    sb:maxScore 5 ;
+    sb:description "Logical progression; some digressions; transitions implicit; spoken delivery affects coherence." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/rubric/novelty> a sb:RubricAssessment ;
+    rdfs:label "Rubric assessment (Novelty)" ;
+    sb:score 3.5 ;
+    sb:maxScore 5 ;
+    sb:description "Brand stylization distinct; 'individuation pipeline' novel; some generic constructions." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/rubric/accuracy> a sb:RubricAssessment ;
+    rdfs:label "Rubric assessment (Accuracy)" ;
+    sb:score 4.0 ;
+    sb:maxScore 5 ;
+    sb:description "Technical details specific (n8n, Apache Jena, Outseta, Helicone); named entities correct; citation marker present but unfilled." ;
+    prov:wasGeneratedBy <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> .
+
+  <http://storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin> a sb:Transaction ;
+    prov:wasAssociatedWith "n8n.storyTWIN/MCP" ;
+    prov:wasAttributedTo "pleasetrythisathome" ;
+    prov:generatedAtTime "2025-11-09T23:37:05.079Z"^^xsd:dateTime ;
+    sb:originPath ""^^xsd:string ;
+    sb:originRef "main"^^xsd:string .
+}
