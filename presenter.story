@@ -8,7 +8,10 @@ model:
   - anthropic/claude-sonnet-4.5
 ---
 
-Use the storyBASE to draft the talk using the provided format. Cite important claims with footnotes to the storyBASE and explain context in the footnote.
+Use the storyBASE to draft the talk using the provided format. 
+Focus on presenting clear narrative statements in the slide copy and provide a brief talk track for each slide.
+
+Cite important claims with footnotes to the storyBASE and explain context in the footnote.
 
 ***Below is the IA presenter presentation format for reference. The slides are examples, not a rigid template.***
 
