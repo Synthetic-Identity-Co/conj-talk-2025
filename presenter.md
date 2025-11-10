@@ -1,303 +1,298 @@
-# SIC
-# AI memory that tells your story, as written.
-###### storyBASE: Git-native RDF knowledge graphs for narrative-driven AI
-
-storyBASE is an RDF narrative source of truth that steers AI output, making it specific, controllable, and aligned with organizational worldview[^product-overview]. This presentation introduces the system architecture, narrative framework, and proof of concept.
-
-[^product-overview]: From storyBASE Product Overview: "RDF narrative source of truth (storyBASE) that steers AI output, making it specific, controllable, aligned with organizational worldview." The system extends software development rigor (versioning, branching, collaboration) into strategy, content, and marketing via append-only transaction logs compiled into Turtle snapshots.
-
----
-
 # storyBASE
 ## AI memory that tells your story, as written.
 
----
-
-###### The Problem
-## AI without context is generic
-
-High-quality AI output requires extensive context; current models use search, but RDF-based narrative source of truth enables specific, controllable, versionable AI memory[^opportunity].
-
-[^opportunity]: From storyBASE Market Opportunity: "High-quality AI output requires extensive context; current models use search, but RDF-based narrative source of truth enables specific, controllable, versionable AI memory." Market context is AI prompt engineering and organizational memory, with timing thesis centered on 2024-2026 convergence of prompt engineering maturity, multi-agent workflows, and demand for organizational AI memory.
+A Git-native RDF knowledge graph for narrative-driven AI memory and organizational strategy.
 
 ---
 
-### The Opportunity
-	Convergence of prompt engineering maturity, multi-agent workflows, and demand for organizational AI memory creates a window for narrative-driven context management[^timing].
+## What is storyBASE?
 
-The market opportunity sits at the intersection of AI prompt engineering and organizational memory. Current approaches rely on brittle role prompts and search-based context retrieval. storyBASE replaces these with deep, operable persona descriptions encoded in versionable RDF graphs.
+storyBASE is an RDF narrative source of truth that steers AI output, making it specific, controllable, and aligned with organizational worldview[^what-is]. It extends software development rigor—versioning, branching, collaboration—into strategy, content, marketing, and organizational operations[^positioning].
 
-[^timing]: From storyBASE Timing Thesis: "Convergence of prompt engineering maturity, multi-agent workflows, and demand for organizational AI memory creates window for narrative-driven context management" with timestamp window 2024-2026.
+[^what-is]: From Product Overview: "RDF narrative source of truth (storyBASE) that steers AI output, making it specific, controllable, aligned with organizational worldview." Transaction: 2025-01-29T000000Z_sic-storybase-checkin.
 
----
-
-###### The Solution
-## Git-native, versionable, branchable AI memory
-
-storyBASE encodes style, conviction, and narrative metrics in an append-only transaction log, replacing brittle role prompts with deep, operable persona descriptions[^moat].
-
-[^moat]: From storyBASE Moat Leverage: "Git-native, versionable, branchable AI memory encoding style, conviction, narrative metrics; replaces brittle role prompts with deep, operable persona descriptions."
+[^positioning]: From Positioning Thesis: "Extend software development rigor (versioning, branching, collaboration) into strategy, content, marketing, organizational operations via RDF narrative source of truth." Transaction: 2025-01-29T000000Z_sic-storybase-checkin.
 
 ---
 
-### What is storyBASE?
+## The Problem
 
-	An RDF knowledge graph that captures narrative architecture—opportunity, strategy, product, proof, architecture, organization—plus style observations, rubric assessments, and conviction levels.
+High-quality AI output requires extensive context. Current models use search, but lack specific, controllable, versionable memory[^opportunity]. Organizations need AI that remembers their worldview, style, and strategic narrative—not generic responses.
 
-storyBASE is both a data model and a workflow. It compiles append-only SPARQL transactions into Turtle snapshots, enabling version control, semantic diffing, and provenance tracking. Every claim, style observation, and strategic assertion is traceable to its source transaction[^data-model].
-
-[^data-model]: From storyBASE Data Model Lifecycle: "Append-only transaction log; immutable files; snapshot = replay of sorted transactions; provenance in TX step; future named graphs for add/remove."
+[^opportunity]: From Market Opportunity: "High-quality AI output requires extensive context; current models use search, but RDF-based narrative source of truth enables specific, controllable, versionable AI memory." Transaction: 2025-01-29T000000Z_sic-storybase-checkin.
 
 ---
 
-## 1. Narrative Architecture
-	The operating system for story-led strategy
+## The Solution
+
+storyBASE replaces brittle role prompts with deep, operable persona descriptions encoded in RDF[^moat]. It provides:
+
+- **Git-native versioning** for narrative evolution
+- **Branchable perspectives** for multi-stakeholder alignment
+- **Append-only transaction logs** for provenance
+- **Style, conviction, and narrative metrics** for governance
+
+[^moat]: From Moat Leverage: "Git-native, versionable, branchable AI memory encoding style, conviction, narrative metrics; replaces brittle role prompts with deep, operable persona descriptions." Transaction: 2025-01-29T000000Z_sic-storybase-checkin.
 
 ---
 
-### Narrative Architecture
-	Aligns market opportunity, strategy, product, and organization so the same narrative flows from positioning to roadmap to proof.
+## How It Works
 
-A Narrative Architecture has six core domains: Opportunity, Strategy, Product, Architecture, Organization, and Proof. Each domain contains structured concepts that ladder from high-level positioning to executable artifacts[^narrative-anchor].
+### 1. Extract
+Convert input (transcripts, documents, conversations) into RDF triples using the storyBASE ontology[^modules].
 
-[^narrative-anchor]: From Narrative Anchor concept: "Framework linking immutable state, functional UI, and AI-driven generation via RDF knowledge graphs." The architecture ensures that narrative claims are testable, versionable, and aligned across all organizational outputs.
+### 2. Diff
+Semantically compare proposed changes against the current snapshot to surface conflicts and novelty.
 
----
+### 3. Commit
+Append transactions to Git as immutable SPARQL files, maintaining full provenance[^data-model].
 
-### Opportunity
-	Frames the external landscape so we pursue a real, timely, winnable problem.
+### 4. Compile
+Replay sorted transactions into a Turtle snapshot—the canonical state of the narrative graph.
 
-Opportunity analysis includes market context (TAM/SAM/SOM, segmentation, competitive landscape), actor incentive analysis (primary actors, jobs-to-be-done, power/dependency mapping), and trend forecasting (signals, conflicts, deltas, inflection points)[^opportunity-domain].
+### 5. Generate
+Use the snapshot as context for AI models to produce stories, presentations, and artifacts aligned with your narrative.
 
-[^opportunity-domain]: From Opportunity top concept: "A clear view of the market ensures the narrative starts from truth. This section identifies why now, who cares, and what forces shape adoption." The storyBASE currently captures opportunity for AI prompt engineering and organizational memory markets.
+[^modules]: From Modules & Capabilities: "Compile (replay transactions to Turtle snapshot), extract (RDF from input), diff (semantic comparison), tx (propose transaction), commit (append-only to Git), story generation (YAML front matter + prompt to model outputs)." Transaction: 2025-01-29T000000Z_sic-storybase-checkin.
 
----
-
-### Strategy
-	Decides how we win and anchors the story that powers choices, focus, and sequencing.
-
-Strategy includes positioning thesis, moat & leverage, focus & sequencing, and the narrative anchor (tagline, mission, vision, key phrases)[^strategy-overview]. The narrative anchor is the compact, repeatable story that makes the organization memorable and directs execution.
-
-[^strategy-overview]: From Strategy Overview: "States where we play, how we win, and what we won't do." The storyBASE positioning thesis is to "extend software development rigor (versioning, branching, collaboration) into strategy, content, marketing, organizational operations via RDF narrative source of truth."
+[^data-model]: From Data Model Lifecycle: "Append-only transaction log; immutable files; snapshot = replay of sorted transactions; provenance in TX step; future named graphs for add/remove." Transaction: 2025-01-29T000000Z_sic-storybase-checkin.
 
 ---
 
-### Product
-	Shows how the story becomes usable capability—modules, flows, and offerings.
+## Architecture
 
-Product converts narrative into experience through modules & capabilities, personas & JTBD, differentiators, dependencies & integrations, and packaging & entitlement[^product-overview-detail]. The Product Ladder maps primitives → interfaces → behaviors → flows → narratives → milestones → offerings.
+storyBASE runs on a **Docker Compose stack** with:
 
-[^product-overview-detail]: From Product Overview: "Initial prototype in n8n; tools include compile, ontology, extract, diff, tx, commit; MCP server; open WebUI at as written.ai; GitHub Actions for story generation." Current capabilities include compile (replay transactions to Turtle snapshot), extract (RDF from input), diff (semantic comparison), tx (propose transaction), commit (append-only to Git), and story generation (YAML front matter + prompt to model outputs).
+- **n8n** for agent orchestration
+- **MCP server** exposing tools to frontends (Agent.ai, ChatGPT, Open WebUI)
+- **GitHub** for version control and webhooks
+- **Open Router** (via Helicone) for model access
+- **Outseta** for auth and billing[^topology]
 
----
+Transactions live in `.storybase` directories. The system compiles hierarchically, allowing nested contexts and scoped narratives.
 
-### Architecture
-	Explains the technical system that makes the narrative credible, scalable, and defensible.
-
-Architecture underwrites the narrative with system topology, data model & lifecycle, integration points, security & privacy model, scalability & performance, reliability & resilience, observability, and compliance posture[^architecture-overview].
-
-[^architecture-overview]: From Architecture Overview: "Plain-language explanation of choices, tradeoffs, and value." The storyBASE system topology uses n8n agent orchestration, MCP server exposure to frontends (Agent.ai, ChatGPT, Open WebUI), transactions in .storybase directories, hierarchical compile, and Docker Compose on Digital Ocean.
+[^topology]: From System Topology: "n8n agent orchestrates tools; MCP server exposes to frontends (Agent.ai, ChatGPT, Open WebUI); transactions in .storybase directories; hierarchical compile; Docker Compose on Digital Ocean." Transaction: 2025-01-29T000000Z_sic-storybase-checkin.
 
 ---
 
-### Organization
-	Maps roles and processes that consistently deliver the narrative promise.
+## Narrative Architecture Ontology
 
-Organization defines role topology (org by domain, RACI & decision rights, skill matrices, hiring plan, operating cadence) and process (core workflows, intake & prioritization, change management, quality & review gates, incident response, feedback loops)[^organization].
+storyBASE is built on a **Narrative Architecture** ontology with six core domains[^ontology]:
 
-[^organization]: From Organization top concept: "Narratives are delivered by people and process. This section ensures the org design supports building, selling, and supporting the promised experience." Current role topology includes programming-literate users with admin vs. read-write vs. read-only modes, GitHub role-based access, and future scoped permissions via GitHub Apps.
+1. **Opportunity** – Market context, actors, timing
+2. **Strategy** – Positioning, moat, narrative anchor
+3. **Product** – Capabilities, flows, solution archetypes
+4. **Architecture** – System topology, data model, integrations
+5. **Organization** – Roles, processes, change management
+6. **Proof** – Case studies, outcomes, metrics
 
----
+Plus two cross-cutting domains:
 
-### Proof
-	Demonstrates outcomes that validate the story with evidence customers trust.
+- **Style** – Voice, cadence, rhetorical devices, metrics
+- **Conviction** – Degree of settledness (Notion → Stake → Boulder → Foundation)
 
-Proof includes case studies (context, intervention, results, artifacts, lessons), outcomes (quotes, talks, customer artifacts), and metrics & monitoring (north-star metrics, leading indicators, operational dashboards, instrumentation plan, review rituals)[^proof].
-
-[^proof]: From Proof top concept: "Evidence converts belief into commitment. This section curates the artifacts and results that validate claims with real-world outcomes." Planned demo includes Crooked Media podcast transcripts auto-ingested, stories auto-update, and perspectival operations (e.g., start with NPR, evolve with OpenAI).
-
----
-
-## 2. Style & Conviction
-	Encoding voice and settledness
+[^ontology]: The Narrative Architecture ontology defines a SKOS concept scheme with top concepts for Opportunity, Strategy, Product, Architecture, Organization, Proof, Templates, Calibration, Style, and Conviction. See ontology.rdf in this repository.
 
 ---
 
-### Style
-	Encodes how the narrative sounds and reads—choices of words, structure, rhythm, devices, and conventions—so brand voice is consistent and measurable.
-
-Style taxonomy includes diction & word choice, tone & voice, register & formality, POV (person), tense & aspect, grammar & syntax, cadence & rhythm, rhetorical devices, orthography & spelling, punctuation & typography, citation conventions, inclusive language & accessibility, localization & internationalization, style metrics, and style review[^style].
-
-[^style]: From Style top concept: "A taxonomy of linguistic and presentation features: diction, tone/voice, grammar/syntax, cadence/rhythm, rhetorical devices, orthography/typography, citation conventions, register, POV, tense/aspect, inclusivity, localization, metrics, review, and reusable voice profiles." The storyBASE captures style observations including brand name stylization (CamelCase 'storyBASE'), idiolect phrasing (conversational filler 'you know'), verb choice (power verb 'extend'), and jargon policy (technical jargon used without definition, assumes literate audience).
-
----
-
-### Style Observations
-	Captured from samples to build voice profiles
-
-The storyBASE contains 10 style observations from the SIC/storyBASE check-in sample, including brand name stylization, idiolect phrasing, verb choice, simile, tone direct personal, jargon policy, sentence length variation, parallelism, rhetorical question, and caret bracket marker[^style-obs].
-
-[^style-obs]: From Style Observations in SIC check-in sample: Examples include "CamelCase 'storyBASE' with internal capitalization," "Conversational filler 'you know' signals informal register," "Power verb 'extend' frames value proposition," "Technical jargon (RDF, canonization, skolemization) used without definition; assumes literate audience," and "Citation marker present but unfilled; signals placeholder."
-
----
-
-### Style Metrics
-	Quantitative signals for governance and drift detection
-
-Style metrics include readability scores, active-voice ratio, jargon density, type-token ratio, average sentence length, and rhythm variance. The SIC check-in sample shows average sentence length 35.2, active voice ratio 0.72, jargon density 0.18, type-token ratio 0.42[^style-metrics].
-
-[^style-metrics]: From Style Metrics for SIC check-in: "Average sentence length 35.2, active voice ratio 0.72, jargon density 0.18, type-token ratio 0.42" with note "Conversational transcript with high jargon and active voice."
-
----
-
-### Conviction
-	Degree of settledness of a claim, from loose notions to foundations; used to govern decisions and change cost.
-
-Conviction has four ordered levels: Notion (suggestive/observational; open graph edges; exploratory), Stake (proposed; has supporting value and connected nodes; still moveable), Boulder (settled/central; hard to move; requires multi-party consensus to shift), Foundation (underpinning across subgraphs; effectively permanent unless refuted by extraordinary proof)[^conviction].
-
-[^conviction]: From Conviction top concept and ordered levels. Conviction is used to govern decisions and change cost, with escalation path from Notion → Stake → Boulder → Foundation. The system maintains rolling metrics for claims: score, weight, distances, individuation counts, and last update time.
-
----
-
-## 3. System Architecture
-	How storyBASE works
-
----
-
-### System Topology
-	n8n agent orchestrates tools; MCP server exposes to frontends; transactions in .storybase directories; hierarchical compile; Docker Compose on Digital Ocean[^topology].
-
-The system uses n8n workflows for agent orchestration, MCP server for tool exposure to Agent.ai, ChatGPT, and Open WebUI, GitHub for version control, Apache Jena/Riot for future RDF ops, Docker Compose for deployment, Open WebUI for interface, Outseta for auth/billing, Helicone for API monitoring, and Open Router for model access[^integrations].
-
-[^topology]: From storyBASE System Topology.
-
-[^integrations]: From storyBASE Dependencies Integrations: "n8n workflows, MCP server, GitHub (version control), Apache Jena/Riot (future RDF ops), Docker Compose, Open WebUI, Outseta (auth/billing), Helicone (API monitoring), Open Router (model access)."
-
----
-
-### Data Model & Lifecycle
-	Append-only transaction log; immutable files; snapshot = replay of sorted transactions; provenance in TX step; future named graphs for add/remove.
-
-Transactions are SPARQL INSERT DATA statements stored in .storybase directories. Each transaction includes provenance (prov:wasAssociatedWith, prov:wasAttributedTo, prov:generatedAtTime, sb:originPath, sb:originRef, storytwin:model). The compile step replays sorted transactions to produce a Turtle snapshot[^data-lifecycle].
-
-[^data-lifecycle]: From storyBASE Data Model Lifecycle. Current implementation uses SPARQL files; roadmap includes move to named graphs (TriG) and SHACL validation.
-
----
-
-### Integration Points
-	GitHub (OAuth, webhooks, Actions); Open Router (API proxy via Helicone); Outseta (OIDC, billing); MCP protocol (tool exposure); future GitHub Apps with scoped credentials[^integration-points].
-
-The system integrates with GitHub for version control and automation, Open Router for model access with Helicone monitoring, Outseta for authentication and billing, and MCP protocol for tool exposure to AI frontends. Future plans include GitHub Apps with scoped credentials for finer-grained access control[^integration-points].
-
-[^integration-points]: From storyBASE Integration Points.
-
----
-
-### Process
-	Interactive individuation (extract → diff → tx → review → commit) vs. automated ingestion (file upload → extraction → PR); story generation triggered by transaction or .story file changes[^process].
-
-The interactive individuation pipeline allows users to extract RDF from input, diff against current snapshot, propose transactions, review changes, and commit to Git. Automated ingestion supports file upload, extraction, and pull request creation. Story generation is triggered by transaction commits or .story file changes via GitHub Actions[^process].
-
-[^process]: From storyBASE Process.
-
----
-
-## 4. Current State
-	Three transactions, three stories, working prototype
-
----
+## Current State
 
 ### Transactions
-	1. Sample 1: Narrative architecture extraction (voice memo, Scarlet Dame)
-	2. SIC/storyBASE check-in: Product & strategy (spoken transcript)
-	3. Conj Talk 2025: Immutable Selves (conference proposal)
+The storyBASE currently contains **4 transactions**:
 
-The storyBASE contains three transactions totaling 517 inserted triples. Transaction 1 extracts narrative architecture from a voice memo outlining identity-as-append-only-log talk. Transaction 2 captures product and strategy from a spoken check-in. Transaction 3 extracts the Conj 2025 talk proposal on immutable identity systems[^transactions].
+1. **Scarlet Dame Sample** (2025-10-30) – ~500k character blog corpus with mission, vision, tagline, style observations, and rubric assessments[^scarlet].
+2. **Narrative Architecture Sample** (2025-11-10) – Voice memo on identity-as-append-only-log, with themes, actors, and style metrics[^sample1].
+3. **SIC/storyBASE Check-in** (2025-01-29) – Product overview, roadmap, and strategic positioning[^checkin].
+4. **Conj Talk 2025** (2025-11-09) – Conference proposal on immutable identity systems[^conj].
 
-[^transactions]: From TRANSACTIONS in snapshot. Transaction 1 (Tx_20251110T184512Z_sample1) generated 2025-11-10T18:45:12.711Z by storyTWIN using anthropic/claude-sonnet-4.5. Transaction 2 (2025-01-29T000000Z_sic-storybase-checkin) generated 2025-11-09T23:37:05.079Z by n8n.storyTWIN/MCP. Transaction 3 (Tx_20251109T223928Z_conj2025) generated 2025-11-09T22:39:28.133Z by n8n.storyTWIN/MCP using anthropic/claude-sonnet-4.5.
+[^scarlet]: Transaction: Tx_20251030T150539Z_scarletdame. Includes Mission ("To transform personal experience into art through daily creative practice"), Vision ("A world where artists own their platforms"), and Tagline ("Process as Product, Art as Artifact").
 
----
+[^sample1]: Transaction: Tx_20251110T184512Z_sample1. Themes include "Immutable Identity as Append-Only Log" and "Transition as State Machine." Actors: Scarlet Dame (speaker), Luke Vanderhart.
+
+[^checkin]: Transaction: 2025-01-29T000000Z_sic-storybase-checkin. Defines storyBASE mission, moat, timing thesis, and product capabilities.
+
+[^conj]: Transaction: Tx_20251109T223928Z_conj2025. Opportunity: "Identity Vulnerability Crisis." Strategy: "Functional Immutable Identity Architecture." Products: Vouch.io, Sic.
 
 ### Stories
-	1. README.story: Autogenerated repo README tracking storyBASE state
-	2. presenter.story: IA presenter template for talk presentation
-	3. conj-talk-2025.story: Immutable Selves talk for Clojure Conj
+Three `.story` files define generation targets:
 
-Stories are YAML front matter + prompt templates that generate outputs from the storyBASE snapshot. The README story summarizes current state, stories, assets, and transactions. The presenter story drafts presentations using IA Presenter format. The conj-talk story generates the Immutable Selves talk with personal history, identity model, failure of mutable paradigms, Clojure principles, and Vouch.io + As Written case studies[^stories].
-
-[^stories]: From STORIES in snapshot. Each story has id, title, version, description, destination, and model fields. Stories are triggered by GitHub Actions on transaction or .story file changes.
+- **README.story** – Auto-generated repository overview
+- **presenter.story** – iA Presenter slide deck for storyBASE
+- **conj-talk-2025.story** – Clojure Conj talk on immutable identity
 
 ---
 
-### Rubric Assessments
-	Nine dimensions scored 0-5 for narrative quality
+## Roadmap
 
-The storyBASE includes rubric assessments for samples across nine dimensions: Register Fit, Phrasing (Idiolect), Cadence, Strategic Alignment, Audience Tailoring, Resonance, Flow, Novelty, and Accuracy. Sample 1 scores range from 3.0 (Cadence, Flow) to 4.5 (Strategic Alignment, Resonance). SIC check-in scores range from 3.0 (Phrasing, Cadence, Flow, Resonance, Novelty) to 4.0 (Strategic Alignment, Accuracy)[^rubric].
+### Near-term
+- Move from SPARQL to **TriG** (named graphs for add/remove)[^roadmap]
+- Add **SHACL validation** for transaction integrity
+- Implement **evolved individuation pipeline** (snapshot + message → transaction)
+- **File ingestion via GitHub** (upload → extraction → PR)
 
-[^rubric]: From Rubric Assessments in snapshot. Sample 1 assessments include "Conversational, personal; active voice; fits talk/oratory context. Some filler (voice memo)" (Register 4.0), "Idiolect present ('append-only log', 'functional transformation'); some repetition/self-correction" (Phrasing 3.5), "Personal transition story as analogy for immutable state; emotionally grounded, memorable" (Resonance 4.5). SIC check-in assessments include "Conversational, informal; first-person 'I'; fillers; direct but not concise; fits spoken context" (Register 3.5), "Clear positioning; mission and moat articulated; roadmap detailed; aligns with narrative anchor" (Strategic Alignment 4.0).
+### Medium-term
+- **storyBASE marketplace** for shared ontologies and templates
+- **Cost pass-through billing** for model usage
+- **GitHub Apps** with scoped credentials for fine-grained access
 
----
-
-## 5. Roadmap
-	From prototype to platform
-
----
-
-### Narrative-Driven Roadmap
-	Move transactions from SPARQL to named graphs (TriG); add SHACL validation; implement evolved individuation pipeline (snapshot + message to transaction); file ingestion via GitHub; storyBASE marketplace; cost pass-through billing[^roadmap].
-
-The roadmap prioritizes technical evolution (TriG, SHACL), workflow improvements (evolved individuation, file ingestion), and platform features (marketplace, billing). Each milestone advances the core narrative: extending software development rigor into strategy, content, and marketing[^roadmap].
-
-[^roadmap]: From storyBASE Narrative-Driven Roadmap. Related to core narrative expansion.
+[^roadmap]: From Narrative-Driven Roadmap: "Move transactions from SPARQL to named graphs (TriG); add SHACL validation; implement evolved individuation pipeline (snapshot + message to transaction); file ingestion via GitHub; storyBASE marketplace; cost pass-through billing." Transaction: 2025-01-29T000000Z_sic-storybase-checkin.
 
 ---
 
-### Case Studies (Planned)
-	Crooked Media podcast transcripts auto-ingested; stories auto-update; perspectival operations (e.g., start with NPR, evolve with OpenAI)[^case-studies].
+## Use Cases
 
-The planned demo will show automated ingestion of podcast transcripts, automatic story updates on new transactions, and perspectival operations that allow the same narrative to be rendered from different viewpoints (e.g., NPR style vs. OpenAI style) by branching the storyBASE and applying different style profiles[^case-studies].
+### 1. Organizational Memory
+Capture strategy, style, and conviction in a versionable graph. Branch for scenarios, merge when aligned.
 
-[^case-studies]: From storyBASE Case Studies.
+### 2. AI Persona Engineering
+Replace "you are a helpful assistant" with a rich RDF profile encoding voice, values, and narrative anchors.
 
----
+### 3. Content Generation
+Generate presentations, READMEs, case studies, and social posts that stay on-narrative.
 
-## 6. Proof
-	Working system, real outputs
-
----
-
-### This Presentation
-	Generated from storyBASE snapshot via presenter.story template
-
-This presentation is itself proof: it was generated by the storyWRITER agent from the compiled storyBASE snapshot using the presenter.story template. Every claim is cited back to the RDF graph with provenance to source transactions[^meta-proof].
-
-[^meta-proof]: From presenter.story: "Use the storyBASE to draft a presentation of the storyBASE using the provided format. Focus on presenting clear narrative statements in the slide copy and provide a brief talk track for each slide. Cite important claims with footnotes to the storyBASE and explain context in the footnote."
+### 4. Strategic Alignment
+Ensure every artifact—from PRDs to sales decks—flows from the same source of truth.
 
 ---
 
-### Conj Talk 2025
-	Immutable Selves: Identity as Append-Only Log
+## Getting Started
 
-The Conj Talk 2025 proposal demonstrates storyBASE's ability to capture and generate technical narratives. The talk applies Clojure principles (immutability, explicit state, functional composition, data-first design, knowledge graphs) to create trustworthy identity systems, with case studies from Vouch.io (enterprise identity platform using immutable event logs and delegation chains) and Sic (AI memory company using narrative-driven knowledge graphs)[^conj-talk].
+### Prerequisites
+- Docker & Docker Compose
+- GitHub account
+- Open Router API key (optional, for model access)
 
-[^conj-talk]: From Conj Talk 2025 extraction (Tx_20251109T223928Z_conj2025). Strategy: "Applies Clojure principles (immutability, explicit state, functional composition, data-first design, knowledge graphs) to create trustworthy identity systems." Products: Vouch.io (past work, speaker now strategic advisor) and Sic (current work, speaker is founder). Rubric scores: Clarity 4.5, Technical Depth 4.8, Narrative Coherence 4.6, Audience Engagement 4.3.
+### Installation
+```bash
+git clone https://github.com/your-org/storybase.git
+cd storybase
+docker-compose up -d
+```
+
+### First Transaction
+```bash
+# Extract RDF from a sample input
+curl -X POST http://localhost:5678/extract \
+  -H "Content-Type: application/json" \
+  -d '{"input": "Your narrative text here"}'
+
+# Review the diff
+curl http://localhost:5678/diff
+
+# Commit the transaction
+curl -X POST http://localhost:5678/commit
+```
+
+### Generate a Story
+Create a `.story` file in the repo root:
+
+```yaml
+---
+id: my-first-story
+title: "My First Story"
+model: anthropic/claude-sonnet-4.5
+---
+
+Summarize the current state of the storyBASE.
+```
+
+Trigger generation via GitHub Actions or the MCP server.
 
 ---
 
-### Sample 1: Narrative Architecture
-	Voice memo extraction with style observations and rubric scores
+## Repository Structure
 
-Sample 1 demonstrates extraction of narrative architecture from a voice memo. The system captured themes (Immutable Identity as Append-Only Log, Transition as State Machine), actors (Scarlet Dame, Luke Vanderhart), style observations (brand name stylization, idiolect phrasing, metaphor, analogy), and rubric assessments across nine dimensions[^sample1].
-
-[^sample1]: From Sample 1 (narr:Sample_1): "Transcribed voice memo outlining narrative architecture for identity-as-append-only-log talk; speaker: Scarlet Dame." Input length 11,800 characters. Created 2025-01-15. Generated by Tx_20251110T184512Z_sample1. Themes include "Human and system identity modeled as integral of snapshots over time, not mutable present state" and "Personal transition (gender, professional) as functional transformation from immutable past states."
+```
+.
+├── .storyBASE/               # Transaction log (SPARQL files)
+├── ontology.rdf              # Narrative Architecture ontology
+├── README.story              # This file's generation prompt
+├── presenter.story           # Slide deck generation prompt
+├── conj-talk-2025.story      # Conference talk generation prompt
+├── docker-compose.yml        # Service definitions
+└── n8n/                      # Workflow definitions
+```
 
 ---
 
-## Now Go and Build
-###### storyBASE is open source and ready for your narrative
+## Style & Voice
 
-For more information, visit as written.ai or explore the storyBASE repository on GitHub.
+storyBASE encodes **style as data**. The ontology includes:
 
-The storyBASE mission is to extend software development rigor into strategy, content, and marketing; provide versionable, collaborative, narrative-driven AI memory. The positioning thesis is to extend software development rigor (versioning, branching, collaboration) into strategy, content, marketing, organizational operations via RDF narrative source of truth[^mission].
+- **Diction** – Terminology control, naming conventions, verb choice
+- **Tone & Voice** – Direct/personal, authoritative, active/passive
+- **Cadence** – Sentence length variation, rule of three
+- **Rhetorical Devices** – Simile, metaphor, analogy, anaphora
+- **Metrics** – Readability, active-voice ratio, jargon density
 
-[^mission]: From storyBASE Mission and storyBASE Positioning Thesis. The tagline is "AI that tells you a story as written" with user-facing brand as written.ai (Latin i.e. meaning).
+Rubric assessments (0–5 scale) track:
+- Register fit
+- Phrasing (idiolect)
+- Cadence
+- Strategic alignment
+- Audience tailoring
+- Resonance
+- Flow
+- Novelty
+- Accuracy
+
+---
+
+## Conviction Levels
+
+Claims in the storyBASE carry **conviction** to govern change cost:
+
+1. **Notion** – Exploratory, open edges
+2. **Stake** – Proposed, moveable
+3. **Boulder** – Settled, requires consensus to shift
+4. **Foundation** – Underpinning, effectively permanent
+
+This prevents narrative drift while allowing evolution.
+
+---
+
+## Contributing
+
+storyBASE is **open for collaboration**. To contribute:
+
+1. Fork the repository
+2. Create a branch for your narrative changes
+3. Add transactions via the `extract` → `diff` → `commit` flow
+4. Submit a pull request with a clear description
+
+All contributions must include provenance (transaction metadata) and align with the Narrative Architecture ontology.
+
+---
+
+## License
+
+MIT License. See `LICENSE` file for details.
+
+---
+
+## Contact
+
+- **Website**: [as-written.ai](https://as-written.ai)
+- **GitHub**: [github.com/your-org/storybase](https://github.com/your-org/storybase)
+- **Email**: hello@synthetic-identity.co
+
+---
+
+## Acknowledgments
+
+Built with:
+- **Apache Jena** for RDF processing
+- **n8n** for workflow automation
+- **MCP** for tool exposure
+- **Open Router** for model access
+- **iA Presenter** for slide generation
+
+Inspired by:
+- Clojure's immutable data structures
+- Datomic's append-only architecture
+- SKOS for knowledge organization
+- PROV-O for provenance
+
+---
+
+*This README was generated from `README.story` using the storyBASE snapshot compiled on 2025-11-10T19:25:42.924Z.*
