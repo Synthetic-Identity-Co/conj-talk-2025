@@ -1,217 +1,207 @@
-# SIC[storyBASE][#storybase-product]
-# AI memory that tells your story, as written.
-###### A Git-native RDF knowledge graph for narrative-driven AI
-	[#storybase-product]: storyBASE is an "RDF narrative source of truth that steers AI output, making it specific, controllable, aligned with organizational worldview" (Product Overview, storyBASE transaction 2025-01-29).
-
-storyBASE extends software development rigor—versioning, branching, collaboration—into strategy, content, and organizational operations via an append-only RDF knowledge graph[^positioning].
-
-[^positioning]: Positioning Thesis: "Extend software development rigor (versioning, branching, collaboration) into strategy, content, marketing, organizational operations via RDF narrative source of truth" (storyBASE Positioning Thesis, transaction 2025-01-29).
+# SIC
+# Immutable Selves
+###### Clojure principles from code to identity systems
 
 ---
-# AI memory you can version, branch, and trust
 
----
-###### The Problem
-# Context is everything. Memory is nothing.
+## From Developer to Identity Architect
+	My journey applying functional programming principles to solve the hardest problems in digital identity
 
-High-quality AI output requires extensive context, but current models rely on search or brittle role prompts[^opportunity].
+I started as a developer who loved Clojure's elegance. Today, I build identity systems for humans and AI using the same principles that make our code reliable: immutability, explicit state, and data-first design[^journey].
 
-[^opportunity]: Market Opportunity: "High-quality AI output requires extensive context; current models use search, but RDF-based narrative source of truth enables specific, controllable, versionable AI memory" (storyBASE Market Opportunity, transaction 2025-01-29).
-
----
-## The Opportunity
-###### Why now matters
-
----
-### Convergence creates the window
-	Prompt engineering maturity, multi-agent workflows, and demand for organizational AI memory create a perishable opening for narrative-driven context management[^timing].
-
-[^timing]: Timing Thesis: "Convergence of prompt engineering maturity, multi-agent workflows, and demand for organizational AI memory creates window for narrative-driven context management" (storyBASE Timing Thesis, 2024-2026 window, transaction 2025-01-29).
-
----
-### Who this is for
-	Programming-literate entrepreneurs, designers, developers, consultants who manipulate worldview and see perspective changes[^actors].
-
-People who understand that changing the story changes the system.
-
-[^actors]: Primary Actors: "Programming-literate entrepreneurs, designers, developers, consultants who manipulate worldview and see perspective changes" (storyBASE Primary Actors, transaction 2025-01-29).
-
----
-## What is storyBASE?
-
----
-### Git-native RDF knowledge graph
-	Append-only transaction log. Immutable files. Snapshot = replay of sorted transactions[^data-model].
-
-Every change is versioned. Every claim has provenance. Every narrative is auditable.
-
-[^data-model]: Data Model Lifecycle: "Append-only transaction log; immutable files; snapshot = replay of sorted transactions; provenance in TX step; future named graphs for add/remove" (storyBASE Data Model Lifecycle, transaction 2025-01-29).
-
----
-### Narrative source of truth
-	Replaces brittle role prompts with deep, operable persona descriptions encoding style, conviction, and narrative metrics[^moat].
-
-[^moat]: Moat Leverage: "Git-native, versionable, branchable AI memory encoding style, conviction, narrative metrics; replaces brittle role prompts with deep, operable persona descriptions" (storyBASE Moat Leverage, transaction 2025-01-29).
-
----
-### Versionable AI memory
-	Branch perspectives. Merge insights. Diff worldviews.
-
-Like Git, but for how your organization thinks.
-
----
-## How it works
-
----
-###### System Topology
-### n8n orchestrates, MCP exposes, Git persists
-	n8n agent orchestrates tools; MCP server exposes to frontends (Agent.ai, ChatGPT, Open WebUI); transactions in .storybase directories; hierarchical compile; Docker Compose on Digital Ocean[^topology].
-
-[^topology]: System Topology: "n8n agent orchestrates tools; MCP server exposes to frontends (Agent.ai, ChatGPT, Open WebUI); transactions in .storybase directories; hierarchical compile; Docker Compose on Digital Ocean" (storyBASE System Topology, transaction 2025-01-29).
-
----
-### The individuation pipeline
-	Extract → Diff → TX → Review → Commit
-
-Interactive individuation for human-in-the-loop curation. Automated ingestion for scale[^process].
-
-[^process]: Process: "Interactive individuation (extract → diff → tx → review → commit) vs. automated ingestion (file upload → extraction → PR); story generation triggered by transaction or .story file changes" (storyBASE Process, transaction 2025-01-29).
-
----
-### Modules & Capabilities
-	**Compile**: Replay transactions to Turtle snapshot  
-	**Extract**: RDF from input  
-	**Diff**: Semantic comparison  
-	**TX**: Propose transaction  
-	**Commit**: Append-only to Git  
-	**Story**: YAML front matter + prompt → model outputs[^modules]
-
-[^modules]: Modules Capabilities: "Compile (replay transactions to Turtle snapshot), extract (RDF from input), diff (semantic comparison), tx (propose transaction), commit (append-only to Git), story generation (YAML front matter + prompt to model outputs)" (storyBASE Modules Capabilities, transaction 2025-01-29).
-
----
-## What you can do with it
-
----
-### Version your strategy
-	Branch positioning theses. Merge market insights. Diff competitive landscapes.
-
-Strategy becomes code. Decisions become commits.
-
----
-### Encode your voice
-	Style observations, rubric assessments, and metrics capture how you sound—not just what you say[^style-metrics].
-
-[^style-metrics]: Style Metrics: "Average sentence length 35.2, active voice ratio 0.72, jargon density 0.18, type-token ratio 0.42" (Style metrics, conversational transcript with high jargon and active voice, transaction 2025-01-29).
-
----
-### Build AI individuals
-	Deterministic individuality. Narrative-driven provenance. Shareable perspective[^sic-product].
-
-Not agents. Individuals.
-
-[^sic-product]: Sic AI Memory Platform: "AI memory company using narrative-driven knowledge graphs to create AI individuals with deterministic individuality and provenance" (Product: Sic AI Memory Platform, Conj Talk 2025 extraction).
-
----
-### Automate content that stays on-brand
-	Planned demo: Crooked Media podcast transcripts auto-ingested; stories auto-update; perspectival operations (e.g., start with NPR, evolve with OpenAI)[^case-studies].
-
-[^case-studies]: Case Studies: "Planned demo: Crooked Media podcast transcripts auto-ingested; stories auto-update; perspectival operations (e.g., start with NPR, evolve with OpenAI)" (storyBASE Case Studies, transaction 2025-01-29).
-
----
-## The roadmap
-
----
-### Near term
-	Move transactions from SPARQL to named graphs (TriG)  
-	Add SHACL validation  
-	Implement evolved individuation pipeline (snapshot + message → transaction)[^roadmap]
-
-[^roadmap]: Narrative-Driven Roadmap: "Move transactions from SPARQL to named graphs (TriG); add SHACL validation; implement evolved individuation pipeline (snapshot + message to transaction); file ingestion via GitHub; storyBASE marketplace; cost pass-through billing" (storyBASE Narrative-Driven Roadmap, transaction 2025-01-29).
-
----
-### Medium term
-	File ingestion via GitHub  
-	storyBASE marketplace  
-	Cost pass-through billing
-
----
-### Long term
-	Apache Jena/Riot for RDF ops  
-	Full SPARQL query interface  
-	Multi-tenant isolation with scoped GitHub Apps[^integrations]
-
-[^integrations]: Integration Points: "GitHub (OAuth, webhooks, Actions); Open Router (API proxy via Helicone); Outseta (OIDC, billing); MCP protocol (tool exposure); future GitHub Apps with scoped credentials" (storyBASE Integration Points, transaction 2025-01-29).
-
----
-## Why this matters
-
----
-### Immutability at the edge
-	Identity as append-only event logs. Authentication as pure functions. Delegation as auditable chains[^immutable-identity].
-
-Principles from Vouch.io, applied to AI memory.
-
-[^immutable-identity]: Immutable Identity System Patterns: "Append-only event logs with verifiable receipts, authentication as pure function at the edge, delegation as signed append-only events, knowledge graphs for entity and role resolution" (Architecture: Immutable Identity System Patterns, Conj Talk 2025 extraction).
-
----
-### Functional composition
-	Data-first design. Explicit state. Knowledge graphs for resolution[^strategy-functional].
-
-Clojure principles for trustworthy systems.
-
-[^strategy-functional]: Functional Immutable Identity Architecture: "Applies Clojure principles (immutability, explicit state, functional composition, data-first design, knowledge graphs) to create trustworthy identity systems" (Strategy: Functional Immutable Identity Architecture, Conj Talk 2025 extraction).
-
----
-### Narrative as infrastructure
-	The same story flows from positioning to roadmap to proof.
-
-When narrative is infrastructure, execution becomes coherent.
-
----
-## Who we are
-
----
-### Sic (AI Memory Company)
-	Founder-led. Narrative-driven knowledge graphs for AI individuals[^org-sic].
-
-[^org-sic]: Organization: Sic: "Founder. Narrative-driven knowledge graphs for AI individuals" (Organization: Sic, Conj Talk 2025 extraction).
-
----
-### Vouch.io heritage
-	Former Chief Strategist, current strategic advisor. Enterprise identity and delegation[^org-vouch].
-
-We've built immutable systems before. Now we're building immutable memory.
-
-[^org-vouch]: Organization: Vouch.io: "Former Chief Strategist, current strategic advisor. Enterprise identity and delegation" (Organization: Vouch.io, Conj Talk 2025 extraction).
-
----
-## What's next
-
----
-### Try it
-	Open WebUI at as written.ai  
-	MCP server for Agent.ai, ChatGPT, Claude  
-	GitHub Actions for automated story generation
-
----
-### Learn more
-	Conj 2025 talk: Immutable Selves  
-	Threaded diagrams from model to implementation  
-	Optional short demo with canned fallback[^proof-talk]
-
-[^proof-talk]: Proof: Conj 2025 Experience Report: "Conference talk and experience report. Threaded diagrams from model to implementation, optional short demo with canned fallback. Audience: Clojure developers and functional programming practitioners" (Proof: Conj 2025 Experience Report, Conj Talk 2025 extraction).
-
----
-### Get involved
-	GitHub: [your-repo-url]  
-	Docs: [your-docs-url]  
-	Community: [your-community-url]
-
----
-## AI memory that tells your story, as written.
-
-storyBASE. Version your worldview.
+[^journey]: The speaker founded Sic (AI Memory Company) and previously served as Chief Strategist at Vouch.io, an enterprise identity platform. Both organizations apply functional programming principles to identity architecture (storyBASE: Organizations `urn:uuid:org-sic`, `urn:uuid:org-vouch-io`).
 
 ---
 
-For more, check the [storyBASE documentation](https://github.com/your-org/storybase) and the [Narrative Architecture ontology](https://storybase.synthetic-identity.co/ontology).
+### The Identity Crisis
+	Centralized, mutable identity systems are failing us
+
+Deepfakes. Synthetic identities. Impersonation fraud. Our current identity systems—built on centralized databases and mutable profiles—can't defend against these threats[^crisis].
+
+[^crisis]: The market opportunity centers on "centralized, mutable identity systems vulnerable to deepfakes, synthetic identities, and impersonation fraud" in enterprise identity and authentication contexts (storyBASE: Opportunity `urn:uuid:opportunity-identity-vulnerability`).
+
+---
+
+### What Is Identity?
+	A working model across physical, digital, and AI space
+
+Identity isn't a static profile. It's an evolving log of facts: what you've done, who vouched for you, what you control. This holds whether you're a person, a service, or an AI agent[^identity-model].
+
+[^identity-model]: The functional immutable identity strategy "models identity as append-only event logs, authentication as pure functions, delegation as auditable chains" (storyBASE: Strategy `urn:uuid:strategy-functional-immutable-identity`).
+
+---
+
+### The Object-Oriented Trap
+	Why mutable, centralized identity fails
+
+Traditional identity systems treat identity as an object with mutable state. Change your password? Mutate the object. Delegate access? Mutate the object. This creates:
+
+- No audit trail
+- No provenance
+- No way to verify what changed, when, or why
+
+---
+
+### Clojure Principles
+	From code to structure
+
+**Immutability**: Facts don't change  
+**Explicit State**: All transitions are visible  
+**Functional Composition**: Small, pure functions combine  
+**Data-First Design**: Represent everything as data  
+**Knowledge Graphs**: Relationships are first-class
+
+These aren't just programming techniques. They're architectural principles[^principles].
+
+[^principles]: The architecture applies "immutability, functional composition, explicit state management, data-first design" as core principles (storyBASE: Architecture `urn:uuid:architecture-immutable-identity`).
+
+---
+
+### Identity as Transactions
+	Append-only event logs with verifiable receipts
+
+Every identity action becomes a transaction:
+- **Create**: A new credential is issued
+- **Delegate**: Authority is transferred with a signed event
+- **Revoke**: A new fact is appended (the old one stays)
+- **Verify**: Pure function over immutable facts
+
+Authentication becomes a pure function at the edge. Trust becomes provenance you can compute[^transactions].
+
+[^transactions]: System components include "append-only event logs with verifiable receipts, authentication as pure function at the edge, delegation as signed append-only events, knowledge graphs for entity and role resolution" (storyBASE: Architecture `urn:uuid:architecture-immutable-identity`).
+
+---
+
+### Case Study: Vouch.io
+	Enterprise identity with immutable delegation chains
+
+At Vouch.io, we built an enterprise identity platform where:
+- Every delegation is a signed, append-only event
+- Authentication happens at the edge as a pure function
+- Trust chains are auditable graphs, not mutable ACLs
+
+Result: Verifiable identity without centralized mutation[^vouch].
+
+[^vouch]: Vouch.io is an "enterprise identity platform using immutable event logs and delegation chains" where the speaker served as Chief Strategist and current strategic advisor (storyBASE: Product `urn:uuid:product-vouch-io`, Organization `urn:uuid:org-vouch-io`).
+
+---
+
+### Case Study: As Written (Sic)
+	AI memory as narrative-driven knowledge graphs
+
+At Sic, we're building AI memory systems where:
+- Every observation becomes a transaction in a knowledge graph
+- Agent identity is deterministic: same facts → same behavior
+- Provenance is narrative-driven and shareable
+- Memory is versionable, branchable, and collaborative
+
+AI individuals with persistent logs and knowledge graphs[^sic].
+
+[^sic]: Sic is an "AI memory company using narrative-driven knowledge graphs to create AI individuals with deterministic individuality and provenance" with capabilities including "persistent logs and knowledge graphs for agent memory, narrative-driven provenance and shareable perspective" (storyBASE: Product `urn:uuid:product-sic`, Organization `urn:uuid:org-sic`).
+
+---
+
+### The Architecture
+	How immutable identity systems work
+
+```
+┌─────────────────┐
+│  Append-Only    │
+│  Event Logs     │
+│  (Facts)        │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  Pure Functions │
+│  (Auth/Verify)  │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  Knowledge      │
+│  Graphs         │
+│  (Resolution)   │
+└─────────────────┘
+```
+
+Immutable facts at the edge. Verifiable receipts. Graph-based resolution[^arch].
+
+[^arch]: The strategy differentiates through "immutable facts at the edge, verifiable receipts, graph-based resolution" (storyBASE: Strategy `urn:uuid:strategy-functional-immutable-identity`).
+
+---
+
+### From Code to Systems
+	Clojure principles scale beyond functions
+
+The same principles that make our code reliable make our systems trustworthy:
+
+- **Immutability** → Audit trails
+- **Pure functions** → Verifiable authentication
+- **Data-first** → Portable, inspectable identity
+- **Composition** → Delegation chains
+- **Knowledge graphs** → Rich, queryable context
+
+---
+
+### What You Can Do Today
+	Actionable takeaways
+
+1. **Model identity as an evolving log** of facts, not a mutable profile
+2. **Make authentication a pure function** over immutable data
+3. **Represent delegation as signed, append-only events**
+4. **Use knowledge graphs** for entity and role resolution
+5. **Treat trust as provenance** you can compute
+
+---
+
+### The Future
+	Immutable selves in a mutable world
+
+As AI agents proliferate, we need identity systems that are:
+- **Verifiable**: Provenance you can audit
+- **Portable**: Not locked in centralized silos
+- **Composable**: Delegation chains that scale
+- **Deterministic**: Same facts → same behavior
+
+Clojure showed us how. Now we build it[^future].
+
+[^future]: The talk demonstrates "Clojure principles (immutability, explicit state, functional composition, data-first design, knowledge graphs) to create trustworthy identity systems" (storyBASE: Strategy `urn:uuid:strategy-functional-immutable-identity`).
+
+---
+
+## Thank You
+	Questions?
+
+Scarlet Dame  
+Founder, Sic (as written.ai)  
+Strategic Advisor, Vouch.io
+
+---
+
+### Appendix: Technical Deep Dive
+	For those who want the details
+
+**Append-Only Event Logs**  
+Every identity action (create, delegate, revoke) is a signed event appended to an immutable log. No mutations. No deletions. Only new facts.
+
+**Authentication as Pure Functions**  
+Given a set of immutable facts (credentials, delegations, revocations), authentication is a deterministic function: `auth(facts, request) → {allow, deny}`. No side effects. No hidden state.
+
+**Knowledge Graphs for Resolution**  
+Entities, roles, and relationships are represented as RDF graphs. Resolution queries traverse the graph to determine authority and trust chains.
+
+**Verifiable Receipts**  
+Every transaction produces a cryptographically signed receipt. Receipts are portable, inspectable, and independently verifiable.
+
+---
+
+### Appendix: Resources
+	Learn more
+
+- **Vouch.io**: Enterprise identity and delegation  
+- **Sic (as written.ai)**: AI memory and narrative-driven knowledge graphs  
+- **storyBASE**: Git-native RDF knowledge graph for AI memory  
+- **This talk**: Built using storyBASE and iA Presenter
+
+All claims in this talk are backed by provenance in the storyBASE graph.
