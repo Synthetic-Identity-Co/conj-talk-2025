@@ -21,7 +21,7 @@
 
 [^identity-reframe]: Style observation from Conj 2025 extraction: "Identity as an evolving log of facts rather than a static profile" represents a technical reframing that applies functional programming paradigms to identity systems (StyleObservation #8, transaction 2025-11-09).
 
-[^trust-reframe]: Parallel style observation: "Trust as provenance that you can compute" reframes authentication as a pure function over verifiable event logs (StyleObservation #9, transaction 2025-11-09).
+[^trust-reframe]: Parallel style observation: "Trust as provenance that you can compute" reframes authentication as a pure function over immutable event logs (StyleObservation #9, transaction 2025-11-09).
 
 ---
 
@@ -32,174 +32,212 @@
 
 ---
 
-## 1. Immutability
-	Facts Don't Change
+## 1. Vouch.io
+###### Enterprise Identity Platform
 
 ---
 
-### Append-Only Event Logs
-	Every identity action—credential issuance, delegation, revocation—is a signed, timestamped event[^append-only]. No updates. No deletes. Only additions.
+### Vouch.io: Immutable Event Logs
+	At Vouch.io, we built an enterprise identity platform using append-only event logs and delegation chains[^vouch]. Every authentication is a pure function at the edge[^auth-pure].
 
-[^append-only]: The architecture uses "append-only event logs with verifiable receipts" as a core component, ensuring immutability and auditability (Architecture: Immutable Identity System Patterns, transaction 2025-11-09). This pattern is also central to storyBASE's own data model lifecycle (DataModelLifecycle, transaction 2025-01-29).
+[^vouch]: Vouch.io is an enterprise identity and authentication system using immutable event logs and delegation chains; the speaker served as Chief Strategist and is now a strategic advisor (Product: Vouch.io Identity Platform, transaction 2025-11-09).
 
----
-
-### Verifiable Receipts
-	Each event gets a cryptographic receipt. You can prove what happened, when, and by whom—without trusting a central authority.
-
----
-
-## 2. Explicit State
-	No Hidden Mutations
-
----
-
-### Authentication as Pure Function
-	Authentication happens at the edge. Given an event log and a policy, the result is deterministic[^pure-auth]. No server-side session state. No surprises.
-
-[^pure-auth]: The architecture specifies "authentication as pure function at the edge" as a core pattern, eliminating mutable session state and making trust decisions reproducible (Architecture: Immutable Identity System Patterns, transaction 2025-11-09).
+[^auth-pure]: The architecture implements "authentication as pure function at the edge" as a core component, ensuring stateless, verifiable operations (Architecture: Immutable Identity System Patterns, transaction 2025-11-09).
 
 ---
 
 ### Delegation as Signed Events
-	Delegation is not a database row. It's a signed, append-only event chain[^delegation]. Revocation is another event. The log tells the whole story.
+	Delegation becomes a signed, append-only event. No central authority rewrites history. Audit trails are verifiable receipts[^delegation].
 
-[^delegation]: "Delegation as signed append-only events" ensures that authority transfers are auditable and tamper-evident, with revocation handled as additional events rather than destructive updates (Architecture: Immutable Identity System Patterns, transaction 2025-11-09).
-
----
-
-## 3. Functional Composition
-	Small Pieces, Loosely Joined
+[^delegation]: Delegation is modeled as "signed append-only events" within the immutable identity architecture, creating auditable chains without central mutation (Architecture component, transaction 2025-11-09).
 
 ---
 
-### Knowledge Graphs for Resolution
-	Entities, roles, and permissions are nodes in a graph[^knowledge-graphs]. Queries compose. Policies are data. You can reason about trust paths.
+## 2. Sic
+###### AI Memory Platform
 
-[^knowledge-graphs]: The architecture uses "knowledge graphs for entity and role resolution" to enable compositional queries and data-driven policy evaluation (Architecture: Immutable Identity System Patterns, transaction 2025-11-09). This mirrors storyBASE's use of RDF graphs for narrative-driven AI memory (ProductOverview, transaction 2025-01-29).
+---
+
+### Sic: Narrative-Driven Knowledge Graphs
+	At Sic, we use persistent logs and knowledge graphs to create AI individuals with deterministic individuality, narrative-driven provenance, and shareable perspective[^sic].
+
+[^sic]: Sic is an AI memory and agent individuality system using narrative-driven knowledge graphs for persistent logs, provenance, and shareable perspective; the speaker is founder (Product: Sic AI Memory Platform, transaction 2025-11-09). The triadic enumeration "deterministic individuality, narrative-driven provenance, and shareable perspective" is a rhetorical structure noted in style observations (StyleObservation #6, transaction 2025-11-09).
+
+---
+
+### storyBASE: Git-Native RDF
+	storyBASE is a Git-native RDF narrative source of truth that steers AI output, making it specific, controllable, aligned with organizational worldview[^storybase-what]. It extends software development rigor into strategy, content, marketing[^storybase-mission].
+
+[^storybase-what]: storyBASE is described as an "RDF narrative source of truth (storyBASE) that steers AI output, making it specific, controllable, aligned with organizational worldview" (Product: storyBASE What Is It, transaction 2025-01-29).
+
+[^storybase-mission]: The mission is to "extend software development rigor into strategy, content, marketing; provide versionable, collaborative, narrative-driven AI memory" (Mission: storyBASE Mission, transaction 2025-01-29). The verb "extend" is noted as a power verb framing the value proposition (StyleObservation #3, transaction 2025-01-29).
+
+---
+
+### Immutable Facts, Mutable Views
+	Append-only transaction log. Immutable files. Snapshot = replay of sorted transactions[^data-model]. Provenance in every step[^provenance].
+
+[^data-model]: The data model lifecycle is "Append-only transaction log; immutable files; snapshot = replay of sorted transactions; provenance in TX step; future named graphs for add/remove" (DataModelLifecycle: storyBASE Data Model Lifecycle, transaction 2025-01-29).
+
+[^provenance]: Provenance is embedded in the transaction step, with future plans for named graphs to support add/remove operations while maintaining immutability (same source).
+
+---
+
+## The Pattern
+###### From Model to Implementation
+
+---
+
+### Immutability
+	Facts don't change. State is explicit. History is append-only.
+
+---
+
+### Functional Composition
+	Authentication as pure functions. Delegation as composable chains. Resolution as graph queries.
 
 ---
 
 ### Data-First Design
-	Identity primitives are just data. Serialize them. Version them. Replay them. Test them. No magic[^data-first].
-
-[^data-first]: The strategy emphasizes "data-first design" as a core principle, treating identity operations as transformations over immutable data structures (Strategy: Functional Immutable Identity Architecture, transaction 2025-11-09).
-
----
-
-## 4. Two Implementations
-	From Enterprise to AI
-
----
-
-### Vouch.io
-	Enterprise identity platform using immutable event logs and delegation chains[^vouch]. I was Chief Strategist, now strategic advisor.
-
-[^vouch]: Vouch.io is an "enterprise identity platform using immutable event logs and delegation chains," representing past work where the speaker applied these principles at scale (Product: Vouch.io Identity Platform, transaction 2025-11-09).
-
----
-
-### Sic
-	AI memory company using narrative-driven knowledge graphs to create AI individuals with deterministic individuality and provenance[^sic]. I'm the founder.
-
-[^sic]: Sic is an "AI memory company using narrative-driven knowledge graphs to create AI individuals with deterministic individuality and provenance," extending immutable identity principles to agent memory and shareable perspective (Product: Sic AI Memory Platform, transaction 2025-11-09). The storyBASE product overview describes it as "RDF narrative source of truth that steers AI output, making it specific, controllable, aligned with organizational worldview" (ProductOverview, transaction 2025-01-29).
+	Entities, events, policies as primitives. Knowledge graphs for resolution. Verifiable receipts for trust.
 
 ---
 
 ## What You'll Learn
-	Actionable Takeaways
 
 ---
 
-### 1. Model identity as an evolving log
-	Not a static profile
+### Mental Model
+	Identity as an evolving log of facts. Trust as provenance you can compute[^mental-model].
 
-### 2. Treat authentication as a pure function
-	Deterministic, testable, auditable
+[^mental-model]: These reframings appear as technical reframings in the style observations, representing the core conceptual shift from static profiles and credentials to functional, immutable systems (StyleObservations #8 and #9, transaction 2025-11-09).
 
-### 3. Use knowledge graphs for resolution
-	Compositional queries, data-driven policy
+---
 
-### 4. Apply functional principles to trust
-	Immutability, explicit state, functional composition
+### System Patterns
+	Append-only event logs with verifiable receipts. Authentication as pure function at the edge. Delegation as signed append-only events. Knowledge graphs for entity and role resolution[^patterns].
+
+[^patterns]: These are the four core components of the Immutable Identity System Patterns architecture, grounded in principles of immutability, functional composition, explicit state management, and data-first design (Architecture: Immutable Identity System Patterns, transaction 2025-11-09).
+
+---
+
+### Actionable Takeaways
+	How to model identity as data. How to make authentication stateless. How to audit delegation without central authority. How to use knowledge graphs for resolution[^takeaways].
+
+[^takeaways]: The talk structure promises "actionable takeaways" with parallel construction, noted as a style observation (StyleObservation #10, transaction 2025-11-09). The audience engagement rubric scores 4.3/5 for "actionable takeaways, optional demo, clear attendee value" (RubricAssessment: Audience Engagement, transaction 2025-11-09).
 
 ---
 
 ## The Arc
-	From Mental Model to System Patterns
+###### Problem → Strategy → Proof
 
 ---
 
-### We move from a simple mental model
-	Identity as events, trust as provenance
-
-### To concrete system patterns
-	You can adopt today[^arc]
-
-[^arc]: This rhetorical structure—"We move from a simple mental model to concrete system patterns you can adopt today"—bridges conceptual framing and practical implementation, a pattern observed in the Conj 2025 extraction (StyleObservation #7, transaction 2025-11-09).
+### Problem
+	Centralized, mutable identity systems vulnerable to deepfakes, synthetic identities, and impersonation fraud.
 
 ---
 
-## Threaded Diagrams
-	Model → Implementation
+### Strategy
+	Apply Clojure principles (immutability, explicit state, functional composition, data-first design, knowledge graphs) to create trustworthy identity systems.
 
 ---
 
-### Diagram 1: Event Log
-	Append-only structure with verifiable receipts
+### Proof
+	Vouch.io (enterprise identity platform) and Sic (AI memory platform) demonstrate the pattern in production[^proof].
 
-### Diagram 2: Pure Auth Function
-	Input: log + policy. Output: decision + proof.
-
-### Diagram 3: Delegation Chain
-	Signed events forming auditable trust paths
-
-### Diagram 4: Knowledge Graph
-	Entities, roles, permissions as composable data
+[^proof]: The proof section references two products: Vouch.io (past work, speaker now strategic advisor) and Sic (current work, speaker is founder), both implementing immutable identity patterns (Products: Vouch.io and Sic, transaction 2025-11-09). The talk is structured as a "conference talk and experience report" with "threaded diagrams from model to implementation, optional short demo with canned fallback" for a Clojure developer audience (Proof: Conj 2025 Experience Report, transaction 2025-11-09).
 
 ---
 
-## Optional Demo
-	Live or Canned
+## Diagrams
+###### Threaded from Model to Implementation
 
 ---
 
-### If time permits
-	Short demo of Sic's narrative-driven knowledge graph
-
-### Fallback
-	Canned screenshots and walkthrough
+### Diagram 1: Identity as Event Log
+	[Placeholder: Visual showing identity as append-only log vs. mutable profile]
 
 ---
 
-## Why This Matters
-	Beyond Features
+### Diagram 2: Authentication as Pure Function
+	[Placeholder: Visual showing stateless authentication at the edge]
 
 ---
 
-### Deepfakes and synthetic identities are real
-	Centralized, mutable systems can't keep up
+### Diagram 3: Delegation as Signed Events
+	[Placeholder: Visual showing delegation chain with verifiable receipts]
 
-### Functional principles offer a path
-	Immutability, explicit state, composition
+---
 
-### You can build this today
-	With Clojure, Datomic, RDF, or your stack of choice
+### Diagram 4: Knowledge Graph Resolution
+	[Placeholder: Visual showing entity and role resolution via graph queries]
+
+---
+
+## Demo (Optional)
+###### Live or Canned Fallback
+
+---
+
+### Demo: storyBASE in Action
+	[Placeholder: Short demo of storyBASE compile, extract, diff, tx, commit workflow, or canned video fallback]
+
+If time permits, we'll show a live storyBASE workflow. If not, we have a canned demo ready[^demo].
+
+[^demo]: The proof artifact includes "threaded diagrams from model to implementation, optional short demo with canned fallback" to manage risk while maintaining engagement (Proof: Conj 2025 Experience Report, transaction 2025-11-09).
+
+---
+
+## Takeaways
+
+---
+
+### 1. Model Identity as Data
+	Use append-only event logs. Make state explicit. Treat identity as an evolving log of facts.
+
+---
+
+### 2. Make Authentication Stateless
+	Authentication as pure function at the edge. No central authority rewrites history.
+
+---
+
+### 3. Audit Delegation Without Central Authority
+	Delegation as signed append-only events. Verifiable receipts for trust.
+
+---
+
+### 4. Use Knowledge Graphs for Resolution
+	Entity and role resolution via graph queries. Data-first design for composability.
+
+---
+
+## Conclusion
+###### Immutable Selves
+
+---
+
+### The Promise
+	Functional programming principles—immutability, explicit state, functional composition, data-first design—create trustworthy identity systems that resist fraud, enable audit, and scale with confidence[^promise].
+
+[^promise]: The positioning thesis is to "extend software development rigor (versioning, branching, collaboration) into strategy, content, marketing, organizational operations via RDF narrative source of truth" (PositioningThesis: storyBASE Positioning Thesis, transaction 2025-01-29). The narrative coherence rubric scores 4.6/5 for "coherent arc from problem (deepfakes) through strategy (immutability) to proof (talk structure); dual product lens adds depth" (RubricAssessment: Narrative Coherence, transaction 2025-11-09).
+
+---
+
+### The Invitation
+	Try it. Build it. Share it. Let's make identity systems we can trust.
 
 ---
 
 ## Thank You
-	Questions?
-
-###### Scarlet Dame  
-###### Founder, Sic | Strategic Advisor, Vouch.io  
-###### scarlet@synthetic-identity.co
+###### Questions?
 
 ---
 
-## References
-	storyBASE Provenance
+### Contact
+	[Placeholder: Speaker contact info, links to Vouch.io and Sic]
 
-All claims in this talk are grounded in the storyBASE knowledge graph, compiled from transactions dated 2025-01-29 (storyBASE product & strategy check-in) and 2025-11-09 (Conj 2025 extraction). The graph encodes opportunity, strategy, product, architecture, and style observations, ensuring narrative consistency and verifiable provenance.
+For more, check the storyBASE at [as written.ai](https://aswritten.ai)[^contact].
 
-For more: [as written.ai](https://aswritten.ai)
+[^contact]: The user-facing brand is "as written.ai" with the tagline "AI that tells you a story as written" (Tagline: storyBASE Tagline, transaction 2025-01-29). The Latin "i.e." meaning is noted as part of the brand identity (same source).
