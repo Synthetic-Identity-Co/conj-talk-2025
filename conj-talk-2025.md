@@ -1,422 +1,396 @@
 # Immutable Selves
-# Identity as Append-Only Log
+## Identity as Append-Only Log
 ###### Clojure/conj 2025
 
 ---
 
-###### A Personal Journey
-# From Code to Identity
+# Scarlet Dame
+## From Code to Identity
+###### Developer → Strategist → Founder
 
-I'm Scarlet Dame. I've lived three names, two genders, and one conviction: **identity is immutable facts, not mutable state.**[^journey]
+I'm Scarlet Dame. I've spent fifteen years applying functional programming principles to identity systems—first as a developer, then as Chief Strategist at Vouch.io, and now as founder of Sic, an AI memory company.[^journey]
 
-[^journey]: The speaker's identity history—Dylan Butman, Scarlet Spectacular, Scarlet Dame—exemplifies the append-only log model: each name remains a verifiable fact in the historical record, even as presentation evolves. Source: `narr:Actor_ScarletDame` in transaction `Tx_20251110T184512Z_sample1`.
-
----
-
-## The Problem
-###### Centralized, Mutable Identity is Broken
-
-Deepfakes. Synthetic identities. Impersonation fraud.[^vulnerability]
-
-We treat identity like a database record you can UPDATE. But you can't UPDATE the past.
-
-[^vulnerability]: Centralized, mutable identity systems are vulnerable to deepfakes, synthetic identities, and impersonation fraud—a crisis in enterprise identity and authentication. Source: `urn:uuid:opportunity-identity-vulnerability`, transaction `Tx_20251109T223928Z_conj2025`.
+[^journey]: The speaker's identity history exemplifies the append-only log model she advocates. Previously known as Dylan Butman, her transition demonstrates identity as contextual presentation from immutable past states (narr:Actor_ScarletDame, narr:Theme_TransitionAsStateChange).
 
 ---
 
-### The Lie We Tell Ourselves
-	"Identity is who you are *right now*."
+## The Crisis
+### Deepfakes, Synthetic Identities, Impersonation Fraud
 
-But identity isn't a snapshot. It's the **integral of all your snapshots over time.**[^immutable-identity]
+Centralized, mutable identity systems are vulnerable. When identity is a database record you can edit, trust becomes impossible to verify.[^crisis]
 
-[^immutable-identity]: Human and system identity modeled as integral of snapshots over time, not mutable present state. Source: `narr:Theme_ImmutableIdentity`, transaction `Tx_20251110T184512Z_sample1`.
-
----
-
-###### My Story
-### Transition as State Machine
-
-When I transitioned, I didn't *replace* Dylan. I **appended** Scarlet.[^transition]
-
-The truth is immutable. The truth is that I was Dylan. The truth is that I am Scarlet. Both facts coexist.
-
-[^transition]: Personal transition (gender, professional) as functional transformation from immutable past states. The speaker's lived experience informs a clear, practical framing of identity as contextual and evolving. Sources: `narr:Theme_TransitionAsStateChange` and `urn:uuid:style-obs-11`, transactions `Tx_20251110T184512Z_sample1` and `Tx_20251109T223928Z_conj2025`.
+[^crisis]: The opportunity landscape centers on enterprise identity vulnerability to deepfakes and synthetic fraud in centralized, mutable systems (urn:uuid:opportunity-identity-vulnerability).
 
 ---
 
-## From Developer to Strategist
-###### Clojure Principles Across Systems
+## The Insight
+### Identity is not a state
+### Identity is a log
 
-I started as a Clojure developer. Then I saw something bigger:
+What if we stopped thinking of identity as *who you are right now* and started thinking of it as *the integral of everything you've been*?[^insight]
 
-**What if we applied immutability, explicit state, and functional composition to *organizations*?**[^strategy]
-
-[^strategy]: Applies Clojure principles (immutability, explicit state, functional composition, data-first design, knowledge graphs) to create trustworthy identity systems. Source: `urn:uuid:strategy-functional-immutable-identity`, transaction `Tx_20251109T223928Z_conj2025`.
-
----
-
-### UI as State Machine
-	The first time I *got* it.
-
-React + Om: UI as a pure function of state.[^ui-state]
-
-I stopped mutating the DOM. I started **deriving** it.
-
-[^ui-state]: Core analogy linking UI rendering to immutable state paradigm: "started seeing UI as a state machine that was the result of a functional transformation." Source: `narr:StyleObs_UIStateMachine`, transaction `Tx_20251110T184512Z_sample1`.
+[^insight]: Core theme: "Human and system identity modeled as integral of snapshots over time, not mutable present state" (narr:Theme_ImmutableIdentity). This reframes identity from mutable profile to evolving log of facts (urn:uuid:style-obs-8).
 
 ---
 
-### Identity as UI
-	Same principle. Different domain.
+## My Journey
+### 2010: React & Om
+### 2015: Vouch.io
+### 2025: Sic
 
-Your presentation—name, pronouns, credentials—is a **view** derived from an **immutable log** of facts.[^presentation]
+I first saw this pattern in React and Om—UI as a pure function of state. At Vouch.io, we applied it to enterprise identity. Now at Sic, we're building AI memory the same way.[^products]
 
-[^presentation]: Extended analogy: personal identity presentation ≈ UI rendering from state. "All of these systems are doing ourselves included is presentation of the source of truth at a single point in time." Source: `narr:StyleObs_TransitionAnalogy`, transaction `Tx_20251110T184512Z_sample1`.
+[^products]: Vouch.io: enterprise identity platform using immutable event logs and delegation chains (urn:uuid:product-vouch-io). Sic: AI memory using narrative-driven knowledge graphs for deterministic individuality and provenance (urn:uuid:product-sic). Both apply the same architectural principle.
 
 ---
 
-## What is Identity?
-###### A Working Model
+## Part I
+### What is Identity?
 
 ---
 
 ### Physical Identity
-	Facts you can't change.
+	Your body, your face, your voice—mutable, contextual, presented differently to different observers.
 
-- Born in a place, at a time
-- DNA, biometrics
-- Events: graduated, married, transitioned
-
-These are **append-only**. You can't DELETE your birth.
+Physical identity is already append-only. You can't edit your past. You can only add to it.
 
 ---
 
 ### Digital Identity
-	Facts you *shouldn't* change.
+	Username, password, profile—centralized, mutable, vulnerable.
 
-- Account creation timestamp
-- Login events
-- Delegation grants
-- Credential issuance
-
-Mutable identity = rewritable history = fraud.
+Most digital identity systems treat identity as a record you can change. This creates a single point of failure and makes history erasable.
 
 ---
 
 ### AI Identity
-	Facts that define individuality.
+	Training data, fine-tuning, prompt context—who is this agent, really?
 
-- Training corpus
-- Inference logs
-- Narrative-driven knowledge graphs[^sic]
-- Provenance chains
+Current AI systems have no persistent identity. Every conversation starts from scratch, or worse, from a brittle "system prompt" that can be jailbroken.[^ai-identity]
 
-An AI without memory is generic. **Memory is identity.**
-
-[^sic]: Sic AI Memory Platform uses narrative-driven knowledge graphs to create AI individuals with deterministic individuality, narrative-driven provenance, and shareable perspective via persistent logs and knowledge graphs. Source: `urn:uuid:product-sic`, transaction `Tx_20251109T223928Z_conj2025`.
+[^ai-identity]: Sic addresses this by using "persistent logs and knowledge graphs for agent memory, narrative-driven provenance and shareable perspective" (urn:uuid:product-sic).
 
 ---
 
-## The Failure of Mutability
-###### Why OOP Identity Breaks
+## Part II
+### Why Centralized Identity Fails
 
 ---
 
-### Object-Oriented Identity
-	class Person { name, email, role }
+### The Mutable Database Problem
+	Identity as a row you can UPDATE
 
-You UPDATE the object. The past disappears.
-
-- Who changed it?
-- When?
-- Why?
-- What was it before?
-
-**You lose provenance.**
+When identity is mutable state, you lose:
+- Provenance (who changed what, when?)
+- Auditability (what was true before?)
+- Trust (can I verify this is real?)
 
 ---
 
-### Centralized Identity
-	One database. One source of truth. One point of failure.
+### The Object-Oriented Trap
+	Identity as encapsulated state with methods
 
-- Honeypot for attackers
-- Single admin = single tyrant
-- No auditability
-- No user control
+OOP encourages us to think of identity as an object with internal state. But identity isn't *inside* you—it's the *trace* you leave.[^oop-trap]
 
----
-
-### The Deepfake Problem
-	If identity is mutable, it's forgeable.
-
-Deepfakes work because we treat identity as **presentation**, not **provenance**.
-
-You can fake a face. You can't fake an append-only log with verifiable receipts.[^receipts]
-
-[^receipts]: Immutable facts at the edge, verifiable receipts, graph-based resolution. Source: `urn:uuid:strategy-functional-immutable-identity`, transaction `Tx_20251109T223928Z_conj2025`.
+[^oop-trap]: The strategy explicitly positions against "centralized, mutable, and object oriented human and AI identity paradigms" by applying "Clojure principles (immutability, explicit state, functional composition, data-first design, knowledge graphs)" (urn:uuid:strategy-functional-immutable-identity).
 
 ---
 
-## Clojure Principles
-###### From Code to Structure
+## Part III
+### Clojure Principles, Applied
 
 ---
 
 ### Immutability
-	Data doesn't change. You create new versions.
+	Facts don't change. New facts accumulate.
 
-**Identity:** Facts don't change. You append new facts.
+In Clojure, data structures are immutable. In identity systems, events should be too. You can't un-happen something.[^immutability]
+
+[^immutability]: Architecture principle: "Immutability, functional composition, explicit state management, data-first design" (urn:uuid:architecture-immutable-identity). The system uses "append-only event logs with verifiable receipts" as a core component.
 
 ---
 
-### Explicit State Management
-	State transitions are first-class values.
+### Explicit State
+	State is a value at a point in time
 
-**Identity:** Authentication is a pure function. Delegation is a signed event.[^architecture]
+React taught us: UI = f(state). Identity systems should work the same way: presentation = f(log, context, time).[^explicit-state]
 
-[^architecture]: Append-only event logs with verifiable receipts, authentication as pure function at the edge, delegation as signed append-only events, knowledge graphs for entity and role resolution. Source: `urn:uuid:architecture-immutable-identity`, transaction `Tx_20251109T223928Z_conj2025`.
+[^explicit-state]: From the voice memo: "started seeing UI as a state machine that was the result of a functional transformation" (narr:StyleObs_UIStateMachine). This core analogy links UI rendering to the immutable state paradigm the speaker advocates.
+
+---
+
+### Data First
+	Represent identity as data, not objects
+
+Knowledge graphs, RDF, append-only logs—these are *data* representations. They compose, query, and verify in ways objects never can.[^data-first]
+
+[^data-first]: The storyBASE product itself demonstrates this: "RDF narrative source of truth (storyBASE) that steers AI output, making it specific, controllable, aligned with organizational worldview" (http://storybase.synthetic-identity.co/product/what-is-storybase).
 
 ---
 
 ### Functional Composition
-	Small functions compose into systems.
+	Small, pure functions that compose
 
-**Identity:** Primitives (events, policies) compose into flows, narratives, and offerings.[^product-ladder]
+Authentication as a pure function. Delegation as a chain of signed events. Resolution as a graph query. Each piece does one thing, verifiably.[^composition]
 
-[^product-ladder]: Primitives → Interfaces → Constraints → Behaviors → Flows → Narratives → Milestones → Offerings. Source: Narrative Architecture ontology, `#ProductLadder`.
-
----
-
-### Data-First Design
-	Represent the problem as data, not objects.
-
-**Identity:** RDF knowledge graphs encode identity as triples, not classes.[^rdf]
-
-[^rdf]: RDF narrative source of truth (storyBASE) that steers AI output, making it specific, controllable, aligned with organizational worldview. Source: `http://storybase.synthetic-identity.co/product/what-is-storybase`, transaction `2025-01-29T000000Z_sic-storybase-checkin`.
+[^composition]: Architecture components include "authentication as pure function at the edge, delegation as signed append-only events, knowledge graphs for entity and role resolution" (urn:uuid:architecture-immutable-identity).
 
 ---
 
-### Knowledge Graphs
-	Relationships are first-class.
-
-**Identity:** Trust is a graph. Delegation is a chain. Provenance is a path.[^graphs]
-
-[^graphs]: Framework linking immutable state, functional UI, and AI-driven generation via RDF knowledge graphs. Source: `narr:Anchor_NarrativeArchitecture`, transaction `Tx_20251110T184512Z_sample1`.
+## Part IV
+### Identity as Transactions
 
 ---
 
-## Identity as Transactions
-###### The Append-Only Log Model
+### The Append-Only Log
+	Every identity event is a transaction
+
+Born. Named. Moved. Hired. Promoted. Transitioned. Each event appends to your log. None can be erased.[^append-only]
+
+[^append-only]: The speaker's recurring technical phrase, central to the identity-as-log metaphor (narr:StyleObs_AppendOnlyLog). The data model uses "append-only transaction log; immutable files; snapshot = replay of sorted transactions" (http://storybase.synthetic-identity.co/model/data-lifecycle-storybase).
 
 ---
 
-### Every Event is a Transaction
-	- Account created
-	- Credential issued
-	- Permission granted
-	- Name changed
+### Verifiable Receipts
+	Cryptographic proof that an event happened
 
-Each transaction is **immutable**, **timestamped**, **signed**.[^append-only]
+Every transaction gets a receipt. Signed, timestamped, tamper-evident. Trust becomes computable.[^receipts]
 
-[^append-only]: Append-only transaction log; immutable files; snapshot = replay of sorted transactions; provenance in TX step. Source: `http://storybase.synthetic-identity.co/model/data-lifecycle-storybase`, transaction `2025-01-29T000000Z_sic-storybase-checkin`.
+[^receipts]: The architecture includes "verifiable receipts" as a core differentiator, enabling "trust as provenance that you can compute" (urn:uuid:architecture-immutable-identity, urn:uuid:style-obs-9).
 
 ---
 
-### Identity = ∫ Events
-	Your identity is the integral of your event log.
+### Presentation as Query
+	Who you are depends on who's asking
 
-Not the latest UPDATE. The **entire history**.
+Your identity isn't one thing. It's a projection from your log, filtered by context. Work sees one view. Family sees another. Both are true.[^presentation]
 
----
-
-### Trust as Provenance
-	Trust isn't a boolean. It's a computable path.
-
-- Who vouched for you?
-- When?
-- Under what policy?
-- With what evidence?
-
-**Trust is provenance you can compute.**[^trust]
-
-[^trust]: Technical reframing: "Trust as provenance that you can compute." Source: `urn:uuid:style-obs-9`, transaction `Tx_20251109T223928Z_conj2025`.
-
----
-
-## Case Study: Vouch.io
-###### Enterprise Identity as Append-Only Log
-
----
-
-### The Problem
-	Enterprise identity is a mess.
-
-- Passwords are phishable
-- MFA is bypassable
-- Admins are bottlenecks
-- Audits are nightmares
-
----
-
-### The Solution
-	Delegation chains as append-only events.
-
-- Alice vouches for Bob
-- Bob vouches for Carol
-- Each vouch is a signed, timestamped event
-- Revocation appends a new event (doesn't delete the old one)[^vouch]
-
-[^vouch]: Vouch.io Identity Platform: Enterprise identity platform using immutable event logs and delegation chains. Former Chief Strategist, current strategic advisor. Source: `urn:uuid:product-vouch-io` and `urn:uuid:org-vouch-io`, transaction `Tx_20251109T223928Z_conj2025`.
-
----
-
-### The Architecture
-	- Append-only event logs with verifiable receipts
-	- Authentication as pure function at the edge
-	- Delegation as signed append-only events
-	- Knowledge graphs for entity and role resolution[^vouch-arch]
-
-[^vouch-arch]: Source: `urn:uuid:architecture-immutable-identity`, transaction `Tx_20251109T223928Z_conj2025`.
-
----
-
-### The Outcome
-	Immutable audit trails. Decentralized trust. User control.
-
-No central database to breach. No passwords to phish. No history to rewrite.
-
----
-
-## Case Study: As Written (Sic)
-###### AI Memory as Narrative Graph
-
----
-
-### The Problem
-	AI without memory is generic.
-
-- Every conversation starts from zero
-- No continuity, no individuality
-- Brittle role prompts
-- No provenance
-
----
-
-### The Solution
-	storyBASE: Git-native RDF knowledge graph for AI memory.[^storybase]
-
-- Versionable, branchable AI memory
-- Encodes style, conviction, narrative metrics
-- Replaces brittle role prompts with deep, operable persona descriptions
-
-[^storybase]: Git-native, versionable, branchable AI memory encoding style, conviction, narrative metrics; replaces brittle role prompts with deep, operable persona descriptions. Source: `http://storybase.synthetic-identity.co/leverage/moat-storybase`, transaction `2025-01-29T000000Z_sic-storybase-checkin`.
-
----
-
-### The Architecture
-	- Append-only transaction log (SPARQL → TriG)
-	- Snapshot = replay of sorted transactions
-	- Provenance in every TX step
-	- SHACL validation for schema compliance[^storybase-arch]
-
-[^storybase-arch]: Source: `http://storybase.synthetic-identity.co/model/data-lifecycle-storybase`, transaction `2025-01-29T000000Z_sic-storybase-checkin`.
-
----
-
-### The Outcome
-	AI individuals with deterministic individuality, narrative-driven provenance, and shareable perspective.[^sic-outcome]
-
-Your AI remembers. Your AI evolves. Your AI is *yours*.
-
-[^sic-outcome]: Source: `urn:uuid:product-sic`, transaction `Tx_20251109T223928Z_conj2025`.
-
----
-
-## Takeaways
-###### What You Can Do Today
-
----
-
-### 1. Model Identity as Events
-	Not as mutable records.
-
-Use append-only logs. Timestamp everything. Sign everything.
-
----
-
-### 2. Treat Authentication as a Pure Function
-	Input: credentials + context. Output: decision + receipt.
-
-No side effects. No hidden state.
-
----
-
-### 3. Build Delegation Chains
-	Not permission tables.
-
-Every grant is an event. Every revocation is an event. The chain is the truth.
-
----
-
-### 4. Use Knowledge Graphs
-	Not relational schemas.
-
-Relationships are first-class. Provenance is a path. Trust is computable.
-
----
-
-### 5. Version Your Narrative
-	Not just your code.
-
-Strategy, content, marketing—all versionable, branchable, collaborative via RDF.[^positioning]
-
-[^positioning]: Extend software development rigor (versioning, branching, collaboration) into strategy, content, marketing, organizational operations via RDF narrative source of truth. Source: `http://storybase.synthetic-identity.co/thesis/positioning-storybase`, transaction `2025-01-29T000000Z_sic-storybase-checkin`.
-
----
-
-## Conclusion
-###### Immutable Selves
-
----
-
-### Identity is Not a Snapshot
-	It's the integral of all your snapshots over time.
-
-You are the sum of your events. Not the latest UPDATE.
+[^presentation]: Extended analogy from the voice memo: "personal identity presentation ≈ UI rendering from state" (narr:StyleObs_TransitionAnalogy). The system does "presentation of the source of truth at a single point in time."
 
 ---
 
 ### The Truth is Immutable
-	You can append. You can't rewrite.
+	You can't change the past. You can only add to it.
 
-This is true for code. This is true for identity. This is true for *you*.
+This isn't just philosophy. It's architecture. Immutable logs make identity systems trustworthy by design.[^immutable-truth]
 
----
-
-### We Are Append-Only Logs
-	Every name I've lived is still true.
-
-Dylan happened. Scarlet happened. Both are facts.
-
-**I am the integral of my transitions.**
+[^immutable-truth]: Declarative, emphatic statement characteristic of the speaker's cadence (narr:StyleObs_ShortClause). The principle underpins both Vouch.io and Sic architectures.
 
 ---
 
-###### Thank You
-# Questions?
+## Part V
+### Case Study: Vouch.io
+
+---
+
+### The Problem
+	Enterprise identity is broken
+
+Passwords are phished. MFA is bypassed. Delegation is ad-hoc. Audit trails are incomplete. Trust is assumed, not verified.[^vouch-problem]
+
+[^vouch-problem]: Vouch.io addresses the "Identity Vulnerability Crisis" in "enterprise identity and authentication" (urn:uuid:opportunity-identity-vulnerability, urn:uuid:org-vouch-io).
+
+---
+
+### The Solution
+	Immutable event logs + delegation chains
+
+Every authentication is an event. Every delegation is a signed chain. Every action has a receipt. The log is the source of truth.[^vouch-solution]
+
+[^vouch-solution]: Vouch.io is an "enterprise identity platform using immutable event logs and delegation chains" (urn:uuid:product-vouch-io). The speaker was Chief Strategist, now strategic advisor.
+
+---
+
+### The Architecture
+	Append-only events
+	Pure function auth
+	Graph-based resolution
+
+Events append to the log. Authentication is a pure function at the edge. Roles and permissions resolve via knowledge graphs.[^vouch-arch]
+
+[^vouch-arch]: The architecture uses "append-only event logs with verifiable receipts, authentication as pure function at the edge, delegation as signed append-only events, knowledge graphs for entity and role resolution" (urn:uuid:architecture-immutable-identity).
+
+---
+
+### The Outcome
+	Trustworthy identity at scale
+
+Enterprises can audit every action. Delegation is transparent. Fraud is detectable. Trust is computable, not assumed.
+
+---
+
+## Part VI
+### Case Study: Sic (As Written)
+
+---
+
+### The Problem
+	AI has no memory
+
+Every conversation starts from scratch. Context is brittle. Agents can't learn who they are. Identity is a prompt you can jailbreak.[^sic-problem]
+
+[^sic-problem]: The storyBASE opportunity: "High-quality AI output requires extensive context; current models use search, but RDF-based narrative source of truth enables specific, controllable, versionable AI memory" (http://storybase.synthetic-identity.co/opportunity/storybase-market).
+
+---
+
+### The Solution
+	Narrative-driven knowledge graphs
+
+Identity as a graph. Memory as transactions. Provenance as receipts. Every interaction appends to the log. The agent's identity is the integral of its history.[^sic-solution]
+
+[^sic-solution]: Sic creates "AI individuals with deterministic individuality and provenance" using "narrative-driven knowledge graphs" and "persistent logs and knowledge graphs for agent memory, narrative-driven provenance and shareable perspective" (urn:uuid:product-sic).
+
+---
+
+### The Architecture
+	storyBASE: Git-native RDF
+
+Transactions in `.storybase` directories. Snapshot = replay of sorted transactions. Provenance in every TX. Versionable, branchable, shareable.[^sic-arch]
+
+[^sic-arch]: The storyBASE system uses "append-only transaction log; immutable files; snapshot = replay of sorted transactions; provenance in TX step" (http://storybase.synthetic-identity.co/model/data-lifecycle-storybase). Tools include compile, extract, diff, tx, commit (http://storybase.synthetic-identity.co/module/storybase-capabilities).
+
+---
+
+### The Outcome
+	AI memory that tells your story, as written
+
+Agents with persistent identity. Conversations that build on history. Provenance you can audit. Memory you can version and share.[^sic-outcome]
+
+[^sic-outcome]: The tagline "AI that tells you a story as written" (http://storybase.synthetic-identity.co/tagline/storybase) captures the value proposition. The mission: "Extend software development rigor into strategy, content, marketing; provide versionable, collaborative, narrative-driven AI memory" (http://storybase.synthetic-identity.co/mission/storybase).
+
+---
+
+## Part VII
+### What You Can Do Today
+
+---
+
+### Model identity as events
+	Not state. Not objects. Events.
+
+Start thinking of identity as a log of facts, not a mutable record. This changes everything.
+
+---
+
+### Make authentication pure
+	No side effects. Verifiable. Repeatable.
+
+Authentication should be a function: (credentials, context, time) → decision. Pure, testable, auditable.
+
+---
+
+### Use knowledge graphs
+	RDF, not JSON. Graphs, not trees.
+
+Represent identity as a graph. Entities, relationships, provenance. Query it. Compose it. Verify it.
+
+---
+
+### Demand receipts
+	Every action gets a signed, timestamped proof
+
+Don't trust. Verify. Every identity event should produce a receipt you can check.
+
+---
+
+### Build on immutability
+	Append-only logs. Verifiable history. Computable trust.
+
+The principles that make Clojure code reliable make identity systems trustworthy. Immutability isn't just for data structures.[^principles]
+
+[^principles]: The strategy applies "Clojure principles (immutability, explicit state, functional composition, data-first design, knowledge graphs) to create trustworthy identity systems" with "immutable facts at the edge, verifiable receipts, graph-based resolution" (urn:uuid:strategy-functional-immutable-identity).
+
+---
+
+## Conclusion
+### We are the sum of our transactions
+
+You are not a snapshot. You are a log. Your identity is the integral of everything you've been, presented in context.[^conclusion]
+
+[^conclusion]: Personal transition story as analogy for immutable state: "we are inextricably the sum of all the things that we have passed through on our way to something new" (narr:StyleObs_TransitionAnalogy). This emotionally grounded framing makes the technical architecture memorable.
+
+---
+
+## Thank You
+### Questions?
 
 Scarlet Dame  
-Founder, Sic (as written.ai)  
-Strategic Advisor, Vouch.io
+Founder, Sic  
+Strategic Advisor, Vouch.io  
+
+as-written.ai  
+vouch.io
+
+---
+
+## Appendix
+### Technical Deep Dive
+
+For those who want to dig deeper into the architecture, implementation patterns, and code examples.
+
+---
+
+### Vouch.io: Event Schema
+	{
+	  "type": "authentication",
+	  "subject": "did:key:z6Mk...",
+	  "timestamp": "2025-01-15T10:30:00Z",
+	  "signature": "0x...",
+	  "receipt": "ipfs://Qm..."
+	}
+
+Every event is signed, timestamped, and stored with a verifiable receipt.
+
+---
+
+### Sic: Transaction Format
+	PREFIX narr: <http://example.org/narrative#>
+	INSERT DATA {
+	  narr:Tx_20251110 a prov:Activity ;
+	    prov:wasAttributedTo "scarlet" ;
+	    prov:generatedAtTime "2025-11-10T18:45:12Z" .
+	}
+
+Transactions are SPARQL INSERT statements. The snapshot is the replay of all transactions.[^tx-format]
+
+[^tx-format]: The storyBASE data model uses "append-only transaction log; immutable files; snapshot = replay of sorted transactions; provenance in TX step; future named graphs for add/remove" (http://storybase.synthetic-identity.co/model/data-lifecycle-storybase).
+
+---
+
+### Knowledge Graph Resolution
+	SELECT ?role WHERE {
+	  ?subject a narr:Actor ;
+	    narr:hasRole ?role ;
+	    narr:validAt ?time .
+	  FILTER(?time <= NOW())
+	}
+
+Roles and permissions resolve via SPARQL queries over the immutable graph.
+
+---
+
+### Pure Function Authentication
+	(defn authenticate [credentials context time]
+	  (let [log (get-log (:subject credentials))
+	        valid? (verify-signature credentials log)]
+	    {:decision (if valid? :allow :deny)
+	     :receipt (sign-receipt credentials time)}))
+
+No side effects. Deterministic. Testable. Auditable.
 
 ---
 
 ## Resources
-###### Learn More
+### Learn More
 
-- **Vouch.io:** Enterprise identity via delegation chains
-- **as written.ai:** AI memory as narrative graph
-- **storyBASE:** Git-native RDF for versionable narrative
-- **This talk:** Generated from storyBASE, cited to provenance[^meta]
+- **Vouch.io**: vouch.io
+- **Sic / As Written**: as-written.ai
+- **storyBASE**: github.com/synthetic-identity-co/storybase
+- **This talk**: github.com/scarlet-dame/immutable-selves
 
-[^meta]: This presentation was generated by storyWRITER from a Git-native RDF knowledge graph (storyBASE), demonstrating narrative-driven AI output with full provenance. Every claim is cited to its source transaction. Source: `http://storybase.synthetic-identity.co/product/overview-storybase`, transaction `2025-01-29T000000Z_sic-storybase-checkin`.
+---
+
+## Now Go Build
+### Immutable systems for a mutable world
+
+And remember: you can't change the past. You can only add to it.
