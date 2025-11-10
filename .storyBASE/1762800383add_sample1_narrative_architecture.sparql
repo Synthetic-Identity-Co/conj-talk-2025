@@ -1,0 +1,284 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct:  <http://purl.org/dc/terms/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX oa:   <http://www.w3.org/ns/oa#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sb:   <http://example.org/storybase#>
+PREFIX storytwin: <http://example.org/storytwin#>
+
+INSERT DATA {
+  # Transaction-level provenance
+  narr:Tx_20251110T184512Z_sample1 a prov:Activity ;
+    prov:wasAssociatedWith <http://example.org/agent/storyTWIN> ;
+    prov:wasAttributedTo <http://example.org/user/pleasetrythisathome> ;
+    prov:generatedAtTime "2025-11-10T18:45:12.711Z"^^xsd:dateTime ;
+    sb:originPath ""^^xsd:string ;
+    sb:originRef "main"^^xsd:string ;
+    storytwin:model "anthropic/claude-sonnet-4.5"^^xsd:string .
+
+  # Sample entity
+  narr:Sample_1 a narr:Sample ;
+    dct:source "Voice memo: Punch talk conceptual framing" ;
+    dct:created "2025-01-15"^^xsd:date ;
+    narr:inputLength 11800 ;
+    skos:note "Transcribed voice memo outlining narrative architecture for identity-as-append-only-log talk; speaker: Scarlet Dame." ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  # Theme concepts
+  narr:Theme_ImmutableIdentity a skos:Concept ;
+    skos:broader narr:Narratives ;
+    skos:prefLabel "Immutable Identity as Append-Only Log"@en ;
+    skos:definition "Human and system identity modeled as integral of snapshots over time, not mutable present state."@en ;
+    dct:source narr:Sample_1 ;
+    skos:related narr:Conviction_Foundation ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  narr:Theme_TransitionAsStateChange a skos:Concept ;
+    skos:broader narr:Narratives ;
+    skos:prefLabel "Transition as State Machine"@en ;
+    skos:definition "Personal transition (gender, professional) as functional transformation from immutable past states."@en ;
+    dct:source narr:Sample_1 ;
+    skos:related narr:ResonanceUse ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  # Actors
+  narr:Actor_ScarletDame a prov:Agent ;
+    skos:prefLabel "Scarlet Dame (speaker)"@en ;
+    skos:altLabel "Dylan Butman"@en, "Scarlet Spectacular"@en ;
+    dct:source narr:Sample_1 ;
+    skos:note "Speaker's identity history exemplifies append-only log model." ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  narr:Actor_LukeVanderhart a prov:Agent ;
+    skos:prefLabel "Luke Vanderhart"@en ;
+    dct:source narr:Sample_1 ;
+    skos:related narr:TechnicalExplainers ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  # Anchor concept
+  narr:Anchor_NarrativeArchitecture a skos:Concept ;
+    skos:broader narr:NarrativeAnchor ;
+    skos:prefLabel "Narrative Architecture for Identity Systems"@en ;
+    skos:definition "Framework linking immutable state, functional UI, and AI-driven generation via RDF knowledge graphs."@en ;
+    dct:source narr:Sample_1 ;
+    skos:related narr:StrategyOverview, narr:TechnologiesSocialSystems ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  # Style observations
+  narr:StyleObs_storyBASE a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:BrandNameStylization ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:BrandNameStylization ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1523 ;
+        oa:end 1532
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "storyBASE" ;
+        oa:prefix "the creation of " ;
+        oa:suffix " and the as written"
+      ]
+    ] ;
+    skos:related narr:NamingConventions ;
+    rdf:value true ;
+    skos:note "CamelCase + CAPS suffix; brand identity marker." ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  narr:StyleObs_AppendOnlyLog a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:IdiolectPhrasing ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:IdiolectPhrasing ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1380 ;
+        oa:end 1396
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "append only log" ;
+        oa:prefix "transaction log, an " ;
+        oa:suffix ". And this felt"
+      ]
+    ] ;
+    skos:related narr:TerminologyControl ;
+    rdf:value true ;
+    skos:note "Recurring technical phrase; central to identity-as-log metaphor." ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  narr:StyleObs_UIStateMachine a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:Metaphor ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:Metaphor ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 3890 ;
+        oa:end 3930
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "started seeing UI as a state machine" ;
+        oa:prefix "And O was much more so, and that it was the first time we " ;
+        oa:suffix " that was the result of a functional transformation"
+      ]
+    ] ;
+    skos:related narr:RhetoricalDevices, narr:ProductLadder ;
+    rdf:value true ;
+    skos:note "Core analogy linking UI rendering to immutable state paradigm." ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  narr:StyleObs_TransitionAnalogy a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:Analogy ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:Analogy ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 8450 ;
+        oa:end 8550
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "all of these systems are doing ourselves included is presentation of the source of truth" ;
+        oa:prefix "But we are inextricably the sum of all the things that we have passed through on our way to something new. And I want to extend this metaphor to software systems. Because although we have often we have started to look at our at these UI systems that flow from a single source of truth and respond to changes in their environment by creating a new state that represents this evolution of who and what is being presented, right? That " ;
+        oa:suffix " at a single point in time"
+      ]
+    ] ;
+    skos:related narr:ResonanceUse, narr:Theme_TransitionAsStateChange ;
+    rdf:value true ;
+    skos:note "Extended analogy: personal identity presentation ≈ UI rendering from state." ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  narr:StyleObs_ShortClause a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:ShortPunchyCadence ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:ShortPunchyCadence ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 7100 ;
+        oa:end 7130
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "The truth is immutable." ;
+        oa:prefix "move from there, right? But " ;
+        oa:suffix " The truth is that I was this"
+      ]
+    ] ;
+    skos:related narr:CadenceRhythm ;
+    rdf:value true ;
+    skos:note "Declarative, emphatic; characteristic of speaker's cadence." ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  narr:StyleObs_FirstPerson a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:FirstPerson ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:FirstPerson ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 500 ;
+        oa:end 550
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "I want to start the story personally from a very personal place" ;
+        oa:prefix "So " ;
+        oa:suffix ". And that's number one"
+      ]
+    ] ;
+    skos:related narr:POVPerson, narr:ToneDirectPersonal ;
+    rdf:value true ;
+    skos:note "First-person narrative; conversational register for oratory." ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  # Rubric assessments
+  narr:RubricAssess_Register a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Register ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.0 ;
+    skos:note "Conversational, personal; active voice; fits talk/oratory context. Some filler (voice memo)." ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  narr:RubricAssess_Phrasing a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Phrasing ;
+    dct:source narr:Sample_1 ;
+    rdf:value 3.5 ;
+    skos:note "Idiolect present ('append-only log', 'functional transformation'); some repetition/self-correction." ;
+    skos:related narr:StyleObs_AppendOnlyLog ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  narr:RubricAssess_Cadence a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Cadence ;
+    dct:source narr:Sample_1 ;
+    rdf:value 3.0 ;
+    skos:note "Variable; punchy clauses mixed with run-ons (transcription artifact)." ;
+    skos:related narr:StyleObs_ShortClause ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  narr:RubricAssess_Strategy a narr:RubricAssessment ;
+    skos:broader narr:Rubric_StrategicAlignment ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.5 ;
+    skos:note "Directly advances narrative architecture thesis; ties identity → immutable state → product/AI." ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  narr:RubricAssess_Tailoring a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Tailoring ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.0 ;
+    skos:note "Audience = Clojure/tech community; references shared context (Om, Datomic, Conj)." ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  narr:RubricAssess_Resonance a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Resonance ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.5 ;
+    skos:note "Personal transition story as analogy for immutable state; emotionally grounded, memorable." ;
+    skos:related narr:StyleObs_TransitionAnalogy ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  narr:RubricAssess_Flow a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Flow ;
+    dct:source narr:Sample_1 ;
+    rdf:value 3.0 ;
+    skos:note "Coherent arc; some tangents/self-corrections (voice memo); transitions informal." ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  narr:RubricAssess_Novelty a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Novelty ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.0 ;
+    skos:note "Fresh framing (identity as append-only log); some stock tech phrases ('functional transformation')." ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  narr:RubricAssess_Accuracy a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Accuracy ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.0 ;
+    skos:note "Technical claims sound (React, Om, Datomic); personal narrative verifiable; no inline citations (acceptable for voice memo)." ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+
+  # Metrics
+  narr:Metrics_Sample1 a narr:StyleMetrics ;
+    skos:broader narr:StyleMetrics ;
+    dct:source narr:Sample_1 ;
+    narr:AverageSentenceLength 28.5 ;
+    narr:ActiveVoiceRatio 0.75 ;
+    narr:JargonDensity 0.12 ;
+    skos:note "Metrics approximate; voice memo transcription includes run-ons and filler." ;
+    prov:wasGeneratedBy narr:Tx_20251110T184512Z_sample1 .
+}
