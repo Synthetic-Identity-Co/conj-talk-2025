@@ -8,8 +8,16 @@ model:
   - anthropic/claude-sonnet-4.5
 ---
 
-Use the storyBASE to draft the talk using the provided format. 
+Use the storyBASE to draft the clojure conj talk using the provided format. 
 Focus on presenting clear narrative statements in the slide copy and provide a brief talk track for each slide.
+
+The goal of the talk is to lay out:
+- My personal history and professional journey from developer to organizational strategist implementing clojure principles across digital identity systems.
+- A working model for what identity is in physical, digital, and AI space. 
+- The failure of centralized, mutable, and object oriented human and AI identity paradigms
+- Clojure principles from code to structure
+- Identity as transactions
+- Vouch.io + As Written case studies
 
 Cite important claims with footnotes to the storyBASE and explain context in the footnote.
 
