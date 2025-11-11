@@ -1,408 +1,260 @@
-# Immutable Selves[#talk-proposal]
-# Identity as Append-Only Log
-###### Clojure Conj 2025
-
-[#talk-proposal]: This talk applies Clojure's core principles—immutability, explicit state, functional composition, and data-first design—to human and AI identity systems. The speaker's journey from developer to organizational strategist at Vouch.io and founder of Sic (AI memory company) demonstrates these principles at scale across enterprise identity and AI individuality platforms.
+# Immutable Selves
+# A Functional Approach to Digital Identity
+###### Clojure/conj 2025
 
 ---
 
-# Scarlet Dame
-###### Founder, Sic • Former Chief Strategist, Vouch.io
+###### Personal Journey
+# From Code to Identity
 
-I'm going to tell you a story about identity—mine, yours, and the systems we build to represent them. It starts with a personal truth and ends with a technical architecture that might change how you think about state, time, and trust.
+I'm Scarlet Dame. I've spent the last decade applying Clojure principles—not just to code, but to identity systems, organizational strategy, and now AI memory.[^journey]
 
----
-
-## The Problem
-###### Mutable Identity is Broken
-
-Our current identity systems—both human and AI—treat identity as mutable present state. Passwords change. Profiles update. Personas shift. And with each mutation, we lose provenance, auditability, and trust[#identity-crisis].
-
-[#identity-crisis]: Centralized, mutable identity systems are vulnerable to deepfakes, synthetic identities, and impersonation fraud. The storyBASE documents this as the "Identity Vulnerability Crisis" in enterprise identity and authentication markets.
+[^journey]: The speaker's professional evolution from developer to organizational strategist is documented in the storyBASE under `narr:Actor_ScarletDame`, with alternate names Dylan Butman and Scarlet Spectacular, exemplifying the append-only identity model central to this talk.
 
 ---
 
-### The Stakes Are Rising
-	Deepfakes. Synthetic identities. Impersonation fraud. AI models with no provenance.
+### The Problem
+	Identity systems are broken—for humans and AI alike.
 
-When identity is mutable, trust becomes impossible to compute. We're one prompt away from narrative manipulation, one database breach away from losing who we are[#problem-context].
+We treat identity as mutable state. Passwords get reset. Profiles get edited. AI personas drift with every prompt. The result? Fragmented truth, no provenance, and systems vulnerable to deepfakes and impersonation fraud.[^vulnerability]
 
-[#problem-context]: AI models are black boxes; persona prompts mutate rendered state; no provenance or version control for AI identity. Stakes include narrative manipulation, embedded propaganda, and deepfakes.
-
----
-
-## My Journey
-###### From Developer to Identity Architect
-
-I started as a developer building UIs in React. Then I discovered Om and Datomic. And everything changed[#personal-journey].
-
-[#personal-journey]: The speaker's lived experience as a trans woman informs a clear, practical framing of identity as contextual and evolving—an append-only log of facts rather than a static profile.
+[^vulnerability]: From `urn:uuid:opportunity-identity-vulnerability`: "Centralized, mutable identity systems vulnerable to deepfakes, synthetic identities, and impersonation fraud" in the enterprise identity and authentication market context.
 
 ---
 
-### The Moment of Clarity
-	"I started seeing UI as a state machine that was the result of a functional transformation."
+###### The Insight
+### Identity is not a document.
+### Identity is a log.
 
-That insight—that UI is a pure function of immutable state—became the foundation for how I think about identity itself[#ui-state-machine].
+Your driver's license is a *rendering* of your identity at a point in time. But you are the integral of every snapshot, every transition, every fact appended to your history.[^immutable-identity]
 
-[#ui-state-machine]: Core analogy linking UI rendering to immutable state paradigm. From voice memo sample: "started seeing UI as a state machine that was the result of a functional transformation from immutable past states."
-
----
-
-### Identity as Transition
-	I am not who I was. But I am inextricably the sum of all the things I have passed through.
-
-My own transition taught me this: identity isn't a mutable profile. It's an integral of snapshots over time[#transition-analogy].
-
-[#transition-analogy]: Personal transition (gender, professional) as functional transformation from immutable past states. Extended analogy: personal identity presentation ≈ UI rendering from state.
+[^immutable-identity]: Core theme `narr:Theme_ImmutableIdentity`: "Human and system identity modeled as integral of snapshots over time, not mutable present state."
 
 ---
 
-## Clojure Principles
-###### From Code to Structure
+## What is Identity?
 
-Let me show you how Clojure's core ideas scale from functions to organizations.
+---
+
+### Physical Identity
+	A body, a face, a voice—recognized in context.
+
+Physical identity is *contextual*. You're a parent at school pickup, a customer at the coffee shop, a speaker on this stage. Same person, different presentations.[^transition]
+
+[^transition]: Theme `narr:Theme_TransitionAsStateChange` frames "Personal transition (gender, professional) as functional transformation from immutable past states," grounding the technical model in lived experience.
+
+---
+
+### Digital Identity
+	Credentials, keys, privileges—scattered across silos.
+
+Today's digital identity is mutable and fragmented. Passwords live in databases. OAuth tokens expire. There's no single source of truth for who you are or what you can do.[^problem-context]
+
+[^problem-context]: From `narr:ProblemContext_1`: "Passwords and digital keys are mutable, siloed, and vulnerable; no single source of truth for privileges."
+
+---
+
+### AI Identity
+	Prompts, personas, black boxes—no provenance.
+
+AI models are stateless. Every conversation starts from scratch. Persona prompts mutate the rendered output, but there's no version control, no audit trail, no way to prove what the AI "knew" when.[^ai-problem]
+
+[^ai-problem]: From `narr:ProblemContext_2`: "AI models are black boxes; persona prompts mutate rendered state; no provenance or version control for AI identity. Stakes: narrative manipulation, embedded propaganda, deepfakes."
+
+---
+
+## The Clojure Way
 
 ---
 
 ### Immutability
-	Facts don't change. New facts accrue.
+	Facts don't change. New facts accumulate.
 
-The truth is immutable. The truth is that I was this. The truth is that I am now this. Both are permanent facts[#immutability-principle].
+In Clojure, data structures are immutable. You don't mutate a map—you derive a new one. Identity should work the same way: append-only logs of facts, not mutable profiles.[^append-only]
 
-[#immutability-principle]: Immutability is a core Clojure principle applied to identity systems. The strategy describes "Immutable facts at the edge, verifiable receipts, graph-based resolution."
-
----
-
-### Explicit State
-	State transitions are first-class events, not side effects.
-
-Every change—every authentication, every delegation, every assertion—is an event with provenance[#explicit-state].
-
-[#explicit-state]: Clojure principle of explicit state management applied to identity. Models identity as append-only event logs, authentication as pure functions, delegation as auditable chains.
+[^append-only]: Key phrase `narr:KeyPhrase_2`: "append-only log" is a "core primitive; immutability guarantee" central to the architecture.
 
 ---
 
-### Functional Composition
-	Small, composable primitives build complex systems.
+### Single Source of Truth
+	One canonical store. Many derived views.
 
-Primitives compose into behaviors. Behaviors compose into flows. Flows compose into narratives[#functional-composition].
+Clojure apps often use a single atom or database as the source of truth. UI is a pure function of that state. Identity should be the same: one log, many renderings.[^ssot]
 
-[#functional-composition]: The Product Ladder in the storyBASE shows this progression: Primitives → Interfaces → Constraints → Behaviors → Flows → Narratives → Milestones → Offerings.
+[^ssot]: Key phrase `narr:KeyPhrase_1`: "single source of truth" is the "canonical term repeated throughout; anchors the architecture."
 
 ---
 
-### Data-First Design
-	Represent the domain as data, not objects.
+### Pure Functions
+	Same input, same output. Every time.
 
-Identity isn't an object with methods. It's data—facts, events, and queries—all the way down[#data-first].
+Authentication should be a pure function: given a log of facts and a query, return a deterministic answer. No side effects. No hidden state.[^pure-function]
 
-[#data-first]: Clojure's data-first design principle applied to identity. The architecture uses knowledge graphs for entity and role resolution, treating identity as queryable data.
+[^pure-function]: Key phrase `narr:KeyPhrase_3`: "pure function" frames "rendering identity as deterministic transformation."
+
+---
+
+### Explicit State Management
+	State transitions are first-class events.
+
+In Clojure, you model state changes explicitly—`swap!`, `reset!`, transactions. Identity transitions (role changes, delegations, revocations) should be explicit, auditable events.[^approach]
+
+[^approach]: From `narr:ApproachPattern_1`: "SSoT (Datomic) → datalog query → render to identification/privileges → event-driven transactions → append-only log → recompile."
 
 ---
 
 ## Identity as Transactions
-###### The Append-Only Log Model
-
-Here's the core idea: identity is not a mutable record. It's an append-only transaction log[#append-only-log].
-
-[#append-only-log]: Recurring technical phrase central to identity-as-log metaphor. From voice memo: "transaction log, an append-only log. And this felt like the foundation for how we think about identity."
 
 ---
 
-### For Humans
-	Authentication = pure function at the edge
-	Delegation = signed append-only events
-	Privileges = query over immutable facts
+### The Model
+	Identity = ∫ facts over time
 
-Every login, every permission grant, every revocation—all events in a log with cryptographic receipts[#human-identity-pattern].
+Every fact about you—name, role, privilege, delegation—is an immutable event appended to a log. Your current identity is the *compiled state* of that log at this moment.[^mission]
 
-[#human-identity-pattern]: Approach pattern for berecognized.id: "SSoT (Datomic) → datalog query → render to identification/privileges → event-driven transactions → append-only log → recompile."
+[^mission]: Mission statement `narr:Mission_1`: "Move identity from mutable documents and profiles to compiled surfaces rendered from append-only logs and single sources of truth."
 
 ---
 
-### For AI
-	Memory = RDF knowledge graph
-	Identity = compiled snapshot
-	Provenance = git-native versioning
+### Primitives
+	Facts, events, policies—composable atoms.
 
-AI individuals aren't prompt-mutated personas. They're deterministic compilations of versioned narrative graphs[#ai-identity-pattern].
+Just like Clojure's data structures, identity systems need primitives: entities (people, orgs), events (grant, revoke), policies (who can do what). Everything else composes from these.[^primitives]
 
-[#ai-identity-pattern]: Approach pattern for aswritten.ai: "SSoT (RDF + git) → SPARQL query → render to AI memory/identity → event-driven transactions → append-only log → recompile."
+[^primitives]: From the Product Ladder (`narr:Primitives`): "Foundational 'atomic units' (entities, events, policies) that compose all higher-order features."
+
+---
+
+### Behaviors
+	State changes as reusable patterns.
+
+Behaviors are meaningful state transitions: create a credential, delegate authority, revoke access. Each behavior is a pure function over the log.[^behaviors]
+
+[^behaviors]: From `narr:Behaviors`: "Meaningful state changes (create, review, publish, escalate) expressed as reusable patterns."
+
+---
+
+### Flows
+	Sequenced behaviors deliver outcomes.
+
+A flow is a series of behaviors: onboard → authenticate → authorize → audit. Flows are the "business logic" of identity, composed from primitives and behaviors.[^flows]
+
+[^flows]: From `narr:Flows`: "Sequenced behaviors that deliver an end-to-end outcome (e.g., intake → triage → resolve)."
 
 ---
 
 ## Case Study: Vouch.io
-###### Immutable Identification at Enterprise Scale
-
-At Vouch.io, we built an enterprise identity platform on these principles[#vouch-case].
-
-[#vouch-case]: Vouch.io is an enterprise identity platform using immutable event logs and delegation chains. The speaker served as Former Chief Strategist and is currently a strategic advisor.
 
 ---
 
-### The Problem
-	Passwords and digital keys are mutable, siloed, and vulnerable. No single source of truth for privileges.
+###### Enterprise Identity
+### Immutable Identification
 
-Fragmented, mutable identity state meant no proof of provenance, no audit trail, no trust[#vouch-problem].
+Vouch.io is an enterprise identity platform I helped architect. It uses append-only event logs and delegation chains to create verifiable, auditable identity.[^vouch]
 
-[#vouch-problem]: Problem context for berecognized.id archetype: "Passwords and digital keys are mutable, siloed, and vulnerable; no single source of truth for privileges."
+[^vouch]: From `urn:uuid:product-vouch-io`: "Enterprise identity platform using immutable event logs and delegation chains" in the identity and authentication system category. Speaker is former Chief Strategist, current strategic advisor.
 
 ---
 
-### The Solution
-	Datomic as single source of truth
-	Datalog queries for privileges
-	Event-driven transactions
-	Cryptographic receipts
+### The Stack
+	Datomic, Datalog, Event-Driven Transactions
 
-Every authentication is a pure function. Every delegation is a signed event. The hash of the last transaction plus the SSoT state enables the "be recognized" property[#vouch-solution].
+Datomic is the single source of truth. Datalog queries render identity and privileges. Every state change is an event appended to the log. The system recompiles on every transaction.[^capabilities]
 
-[#vouch-solution]: Required capabilities: "Datomic (SSoT), datalog (query), multimodal renderer, event system, single transactor." Outcome: "Proof of provenance and authority innate; hash of last tx + SSoT state enables 'be recognized' property."
+[^capabilities]: Required capabilities from `narr:RequiredCapabilities_1`: "Datomic (SSoT), datalog (query), multimodal renderer, event system, single transactor."
 
 ---
 
 ### The Outcome
-	Proof of provenance and authority innate
-	Cryptographic proof of identity state
-	Auditable delegation chains
+	Proof of provenance, innate.
 
-Trust became computable. Identity became verifiable. The system became defensible[#vouch-outcome].
+With an append-only log, every identity state has a cryptographic hash. You can prove *who you were* at any point in time. Authority and provenance are built in, not bolted on.[^proof]
 
-[#vouch-outcome]: Expected metric from solution archetype: "cryptographic proof of identity state." This demonstrates the technical depth and verifiable architecture of the approach.
+[^proof]: From `narr:OutcomesProof_1`: "Proof of provenance and authority innate; hash of last tx + SSoT state enables 'be recognized' property."
 
 ---
 
 ## Case Study: As Written
-###### Immutable AI Identity
-
-Now I'm applying the same principles to AI at Sic, building aswritten.ai[#sic-case].
-
-[#sic-case]: Sic is an AI memory company using narrative-driven knowledge graphs to create AI individuals with deterministic individuality and provenance. The speaker is the founder.
 
 ---
 
-### The Problem
-	AI models are black boxes
-	Persona prompts mutate rendered state
-	No provenance or version control for AI identity
+###### AI Memory
+### Immutable AI Identity
 
-The stakes: narrative manipulation, embedded propaganda, deepfakes[#ai-problem].
+As Written (my current company, Sic) applies the same principles to AI. We use RDF knowledge graphs and Git to create AI "digital twins" with deterministic individuality and provenance.[^sic]
 
-[#ai-problem]: Problem context for aswritten.ai archetype: "AI models are black boxes; persona prompts mutate rendered state; no provenance or version control for AI identity. Stakes: narrative manipulation, embedded propaganda, deepfakes."
+[^sic]: From `urn:uuid:product-sic`: "AI memory company using narrative-driven knowledge graphs to create AI individuals with deterministic individuality and provenance." Speaker is founder.
 
 ---
 
-### The Solution
-	RDF knowledge graph as single source of truth
-	SPARQL queries for memory
-	Git-native versioning
-	Append-only transaction log
+### The Stack
+	RDF, Git, SPARQL, Event-Driven Transactions
 
-AI memory that tells your story, as written[#ai-solution].
+RDF graphs are the single source of truth. SPARQL queries render AI memory and identity. Git provides versioning. Every interaction is a transaction appended to the log.[^ai-capabilities]
 
-[#ai-solution]: Required capabilities: "RDF graph, git versioning, SPARQL, multimodal renderer, event system, transactor." The tagline "AI that tells you a story as written" captures the value proposition.
+[^ai-capabilities]: From `narr:RequiredCapabilities_2`: "RDF graph, git versioning, SPARQL, multimodal renderer, event system, transactor. Leverages semantic web + version control."
 
 ---
 
-### storyBASE
-	Git-native RDF knowledge graph
-	Versionable, branchable AI memory
-	Encoding style, conviction, narrative metrics
+### The Outcome
+	AI you can trust, by design.
 
-We replace brittle role prompts with deep, operable persona descriptions. The AI's identity is a compiled snapshot of an immutable graph[#storybase].
+Because the AI's memory is an append-only log, you can audit what it "knew" at any point. You can branch personas, merge contexts, and prove provenance. The AI's identity is compiled, not mutated.[^digital-twin]
 
-[#storybase]: storyBASE is described as "Git-native, versionable, branchable AI memory encoding style, conviction, narrative metrics; replaces brittle role prompts with deep, operable persona descriptions."
+[^digital-twin]: Key phrase `narr:KeyPhrase_4`: "digital twin" is an "emergent concept; identity as compiled model."
 
 ---
 
-### The Architecture
-	Snapshot = replay of sorted transactions
-	Provenance in every TX step
-	Named graphs for add/remove
-	Immutable files, mutable views
-
-The data model lifecycle mirrors Datomic: append-only transaction log, immutable files, snapshot as replay[#storybase-architecture].
-
-[#storybase-architecture]: Data model lifecycle: "Append-only transaction log; immutable files; snapshot = replay of sorted transactions; provenance in TX step; future named graphs for add/remove."
+## Principles → Practice
 
 ---
 
-## The Pattern
-###### Same Principles, Different Stacks
+### From Code to Structure
+	Clojure's guarantees scale beyond functions.
 
-Notice the symmetry[#pattern-symmetry].
+Immutability, explicit state, pure functions—these aren't just programming techniques. They're *design principles* for systems, organizations, and identity.[^vision]
 
-[#pattern-symmetry]: Both solution archetypes follow the same canonical flow, demonstrating how Clojure principles generalize across domains.
-
----
-
-### Human Identity (Vouch.io)
-	SSoT: Datomic
-	Query: Datalog
-	Render: Identification/Privileges
-	Events: Append-only log
-	Proof: Cryptographic receipts
+[^vision]: Vision statement `narr:Vision_1`: "A world where identity—human, synthetic, AI—is rendered from immutable history, enabling equality, provenance, and trust by design."
 
 ---
 
-### AI Identity (As Written)
-	SSoT: RDF + Git
-	Query: SPARQL
-	Render: AI Memory/Identity
-	Events: Append-only log
-	Proof: Narrative provenance
+### Takeaways
+	1. Model identity as an append-only log.
+	2. Render identity as a pure function of that log.
+	3. Make state transitions explicit, auditable events.
+	4. Use a single source of truth, many derived views.
+
+These patterns work for human identity (Vouch.io), AI identity (As Written), and any system where provenance and trust matter.[^architecture]
+
+[^architecture]: From `urn:uuid:architecture-immutable-identity`: "Append-only event logs with verifiable receipts, authentication as pure function at the edge, delegation as signed append-only events, knowledge graphs for entity and role resolution."
 
 ---
 
-### The Invariant
-	Single source of truth
-	Query language over immutable facts
-	Render to context-specific views
-	Event-driven state transitions
-	Cryptographic or semantic proof
-
-This is Clojure's philosophy applied to identity at every scale[#invariant-pattern].
-
-[#invariant-pattern]: The approach pattern demonstrates functional composition and data-first design across both human and AI identity systems.
+## The Future
 
 ---
 
-## What You Can Take Home
-###### Actionable Principles
+### A World of Immutable Selves
+	Where identity is rendered from history, not rewritten.
+
+Imagine a world where your identity—human or AI—is a compiled artifact of your history. Where trust is provenance you can compute. Where deepfakes are detectable because the log doesn't lie.[^what-is-it]
+
+[^what-is-it]: From `narr:WhatIsIt_1`: "A vision for human and AI identity as compiled from immutable source of truth, applying Clojure principles to identity systems."
 
 ---
 
-### 1. Model Identity as Data
-	Not objects. Not mutable records. Facts and events.
+### Questions?
 
-Use knowledge graphs, event logs, or immutable databases. Make identity queryable[#takeaway-data].
+Scarlet Dame  
+Founder, Sic (As Written)  
+Strategic Advisor, Vouch.io  
 
-[#takeaway-data]: Data-first design principle from Clojure applied to identity systems. Aligns with the architecture's use of Datomic and RDF graphs.
-
----
-
-### 2. Make State Transitions Explicit
-	Every change is an event with provenance.
-
-Authentication, delegation, permission grants—all first-class events in an append-only log[#takeaway-events].
-
-[#takeaway-events]: Explicit state management principle. Models identity as append-only event logs with verifiable receipts.
-
----
-
-### 3. Separate Rendering from State
-	UI (or API response) is a pure function of immutable state.
-
-The view changes. The facts don't[#takeaway-rendering].
-
-[#takeaway-rendering]: Functional composition principle. Separates the single source of truth from context-specific renderings.
-
----
-
-### 4. Build Proof Into the System
-	Cryptographic receipts for humans. Semantic provenance for AI.
-
-Trust should be computable, not asserted[#takeaway-proof].
-
-[#takeaway-proof]: Both architectures include proof mechanisms: cryptographic for human identity, semantic for AI identity. Trust becomes verifiable.
-
----
-
-### 5. Version Everything
-	Git for code. Git for data. Git for identity.
-
-Immutability enables time travel, audit, and rollback[#takeaway-versioning].
-
-[#takeaway-versioning]: Git-native versioning is core to the aswritten.ai architecture and enables the moat of versionable, branchable AI memory.
-
----
-
-## The Bigger Picture
-###### From Code to Culture
-
-These aren't just technical patterns. They're organizational principles[#bigger-picture].
-
-[#bigger-picture]: The speaker's role as organizational strategist demonstrates how Clojure principles scale from code to structure, informing strategy, product, and organization.
-
----
-
-### Immutability → Auditability
-	When facts don't change, trust compounds.
-
----
-
-### Explicit State → Accountability
-	When transitions are events, responsibility is clear.
-
----
-
-### Functional Composition → Modularity
-	When primitives compose, systems scale.
-
----
-
-### Data-First → Interoperability
-	When everything is data, integration is query.
-
----
-
-## Conclusion
-###### Identity is Time
-
-We are not snapshots. We are integrals. We are the sum of all the facts we have accrued, all the events we have passed through[#conclusion].
-
-[#conclusion]: This echoes the theme "Immutable Identity as Append-Only Log: Human and system identity modeled as integral of snapshots over time, not mutable present state."
-
----
-
-### The Truth is Immutable
-	The truth is that I was this. The truth is that I am now this.
-
-Both are permanent. Both are provable. Both are me[#truth-immutable].
-
-[#truth-immutable]: Declarative, emphatic statement characteristic of the speaker's cadence. From voice memo: "The truth is immutable. The truth is that I was this."
-
----
-
-### Build Systems That Remember
-	Not systems that forget.
-
-Make identity append-only. Make trust computable. Make provenance innate[#build-systems].
-
-[#build-systems]: Final call to action synthesizing the talk's core principles and practical applications.
+Let's talk about immutable selves.
 
 ---
 
 ## Thank You
-###### Questions?
 
-Scarlet Dame  
-Founder, Sic • aswritten.ai  
-Former Chief Strategist, Vouch.io
+###### Clojure/conj 2025
 
----
-
-### Resources
-
-**Vouch.io**  
-Enterprise identity platform  
-Immutable event logs, delegation chains
-
-**As Written (aswritten.ai)**  
-AI memory platform  
-Git-native RDF knowledge graphs
-
-**storyBASE**  
-Open-source narrative architecture  
-Versionable, branchable AI memory
-
----
-
-### Contact
-
-**Email:** scarlet@synthetic-identity.co  
-**GitHub:** github.com/synthetic-identity-co  
-**Web:** aswritten.ai
-
-Let's build identity systems that tell the truth—as written.
+For more on these ideas, see the storyBASE at github.com/synthetic-identity-co
