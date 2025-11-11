@@ -1,0 +1,28 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+INSERT DATA {
+  narr:LeverageProfile_1 a narr:LeverageProfile ;
+    skos:broader narr:TechnicalExplainers ;
+    dct:source narr:Sample_1 ;
+    rdf:value "Immutability enables equality, provenance, versioning, branching, generative testing, decentralization, and infinite read scale—for free." ;
+    skos:note "Small choice (append-only) creates outsized effects across system." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:DesignTradeoff_1 a narr:DesignTradeoffs ;
+    skos:broader narr:TechnicalExplainers ;
+    dct:source narr:Sample_1 ;
+    rdf:value "Bottleneck at single transactor; all logic in event clients; transact is just adding triples." ;
+    skos:note "What we gave up: distributed writes. Why worth it: consistency, provenance, auditability." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:ComparativeAnalysis_1 a narr:ComparativeAnalyses ;
+    skos:broader narr:TechnicalExplainers ;
+    dct:source narr:Sample_1 ;
+    rdf:value "Backbone.js (query DOM, mutate picture) vs. Om/React (state machine, pure function render). Identity systems today are Backbone; this is Om for identity." ;
+    skos:note "When to use: when provenance, auditability, and equality matter more than write throughput." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+}
