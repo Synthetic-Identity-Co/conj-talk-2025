@@ -1,0 +1,69 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+INSERT DATA {
+  narr:Sample_1 dct:source "Immutable Selves talk" ;
+    narr:inputLength 5847 ;
+    dct:created "2025-01-XX"^^xsd:date ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:Tagline_1 a narr:Tagline ;
+    skos:broader narr:NarrativeAnchor ;
+    dct:source narr:Sample_1 ;
+    rdf:value "Immutable Selves: A Functional Approach to Digital Identity" ;
+    skos:note "Title encodes the core promise: identity as pure function." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:WhatIsIt_1 a narr:WhatIsIt ;
+    skos:broader narr:NarrativeAnchor ;
+    dct:source narr:Sample_1 ;
+    rdf:value "A vision for human and AI identity as compiled from immutable source of truth, applying Clojure principles to identity systems." ;
+    skos:note "Positions identity as a rendering problem, not a mutation problem." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:Mission_1 a narr:Mission ;
+    skos:broader narr:NarrativeAnchor ;
+    dct:source narr:Sample_1 ;
+    rdf:value "Move identity from mutable documents and profiles to compiled surfaces rendered from append-only logs and single sources of truth." ;
+    skos:note "Durable purpose: make identity deterministic, provable, and decentralized." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:Vision_1 a narr:Vision ;
+    skos:broader narr:NarrativeAnchor ;
+    dct:source narr:Sample_1 ;
+    rdf:value "A world where identity—human, synthetic, AI—is rendered from immutable history, enabling equality, provenance, and trust by design." ;
+    skos:note "Future state: identity systems that inherit Clojure's guarantees." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:KeyPhrase_1 a narr:KeyPhrases ;
+    skos:broader narr:NarrativeAnchor ;
+    dct:source narr:Sample_1 ;
+    rdf:value "single source of truth" ;
+    skos:note "Canonical term repeated throughout; anchors the architecture." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:KeyPhrase_2 a narr:KeyPhrases ;
+    skos:broader narr:NarrativeAnchor ;
+    dct:source narr:Sample_1 ;
+    rdf:value "append-only log" ;
+    skos:note "Core primitive; immutability guarantee." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:KeyPhrase_3 a narr:KeyPhrases ;
+    skos:broader narr:NarrativeAnchor ;
+    dct:source narr:Sample_1 ;
+    rdf:value "pure function" ;
+    skos:note "Rendering identity as deterministic transformation." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:KeyPhrase_4 a narr:KeyPhrases ;
+    skos:broader narr:NarrativeAnchor ;
+    dct:source narr:Sample_1 ;
+    rdf:value "digital twin" ;
+    skos:note "Emergent concept; identity as compiled model." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+}
