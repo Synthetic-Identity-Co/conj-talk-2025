@@ -1,0 +1,36 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+INSERT DATA {
+  narr:CaseStudy_1 a narr:CaseStudies ;
+    skos:broader narr:Proof ;
+    dct:source narr:Sample_1 ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:CaseContext_1 a narr:CaseContext ;
+    skos:broader narr:CaseStudy_1 ;
+    rdf:value "Speaker's 13-year career in Clojure; evolution from Backbone.js (2012) to Om (2013) to production systems at scale." ;
+    skos:note "Customer: self; environment: professional dev career; stakes: credibility." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:CaseIntervention_1 a narr:CaseIntervention ;
+    skos:broader narr:CaseStudy_1 ;
+    rdf:value "Applied Clojure principles (immutability, pure functions, single source of truth) to UI, then identity systems (berecognized.id, aswritten.ai)." ;
+    skos:note "What implemented: functional paradigm across domains." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:CaseResults_1 a narr:CaseResults ;
+    skos:broader narr:CaseStudy_1 ;
+    rdf:value "Provenance, equality, versioning, decentralization, infinite read scale achieved; systems in production." ;
+    skos:note "Quantified impact: architectural guarantees delivered." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:CaseLessons_1 a narr:CaseLessons ;
+    skos:broader narr:CaseStudy_1 ;
+    rdf:value "Same principles apply across UI, identity, and AI; immutability is the unlock; single transactor is acceptable bottleneck." ;
+    skos:note "Insights inform roadmap: extend pattern to new domains." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+}
