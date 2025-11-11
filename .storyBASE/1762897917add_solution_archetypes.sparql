@@ -1,0 +1,71 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+INSERT DATA {
+  narr:Archetype_1 a narr:SolutionArchetypes ;
+    skos:broader narr:Product ;
+    dct:source narr:Sample_1 ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:ArchetypeTitle_1 a narr:ArchetypeTitle ;
+    skos:broader narr:Archetype_1 ;
+    rdf:value "berecognized.id: Immutable Identification" ;
+    skos:note "Proof-of-provenance identity system." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:ProblemContext_1 a narr:ProblemContext ;
+    skos:broader narr:Archetype_1 ;
+    rdf:value "Passwords and digital keys are mutable, siloed, and vulnerable; no single source of truth for privileges." ;
+    skos:note "Triggering condition: fragmented, mutable identity state." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:ApproachPattern_1 a narr:ApproachPattern ;
+    skos:broader narr:Archetype_1 ;
+    rdf:value "SSoT (Datomic) → datalog query → render to identification/privileges → event-driven transactions → append-only log → recompile." ;
+    skos:note "Canonical flow applied to access control." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:RequiredCapabilities_1 a narr:RequiredCapabilities ;
+    skos:broader narr:Archetype_1 ;
+    rdf:value "Datomic (SSoT), datalog (query), multimodal renderer, event system, single transactor." ;
+    skos:note "Specific modules from Clojure ecosystem." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:OutcomesProof_1 a narr:OutcomesProof ;
+    skos:broader narr:Archetype_1 ;
+    rdf:value "Proof of provenance and authority innate; hash of last tx + SSoT state enables 'be recognized' property." ;
+    skos:note "Expected metric: cryptographic proof of identity state." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:Archetype_2 a narr:SolutionArchetypes ;
+    skos:broader narr:Product ;
+    dct:source narr:Sample_1 ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:ArchetypeTitle_2 a narr:ArchetypeTitle ;
+    skos:broader narr:Archetype_2 ;
+    rdf:value "aswritten.ai: Immutable AI Identity" ;
+    skos:note "Digital twin as compiled model." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:ProblemContext_2 a narr:ProblemContext ;
+    skos:broader narr:Archetype_2 ;
+    rdf:value "AI models are black boxes; persona prompts mutate rendered state; no provenance or version control for AI identity." ;
+    skos:note "Stakes: narrative manipulation, embedded propaganda, deepfakes." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:ApproachPattern_2 a narr:ApproachPattern ;
+    skos:broader narr:Archetype_2 ;
+    rdf:value "SSoT (RDF + git) → SPARQL query → render to AI memory/identity → event-driven transactions → append-only log → recompile." ;
+    skos:note "Same pattern, different stack: RDF instead of Datomic." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:RequiredCapabilities_2 a narr:RequiredCapabilities ;
+    skos:broader narr:Archetype_2 ;
+    rdf:value "RDF graph, git versioning, SPARQL, multimodal renderer, event system, transactor." ;
+    skos:note "Leverages semantic web + version control." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+}
