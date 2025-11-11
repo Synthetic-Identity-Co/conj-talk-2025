@@ -1,0 +1,194 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX oa: <http://www.w3.org/ns/oa#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+INSERT DATA {
+  narr:StyleObs_1 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:ShortPunchyCadence ;
+    dct:source narr:Sample_1 ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1473 ;
+        oa:end 1509
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "Simple tools + good principles = design patterns" ;
+        oa:prefix "In Clojure we don't have frameworks, instead we have simple tools and good principles. \n" ;
+        oa:suffix "\n\nI've been writing code"
+      ]
+    ] ;
+    oa:hasBody narr:ShortPunchyCadence ;
+    rdf:value true ;
+    skos:note "Formula-style cadence; punchy equation." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:StyleObs_2 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:StockPhrases ;
+    dct:source narr:Sample_1 ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1734 ;
+        oa:end 1789
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "Your code was shit. Let me refactor it for you." ;
+        oa:prefix "Back then I had one principle: " ;
+        oa:suffix " \n\nAnyone remember backbone.js?"
+      ]
+    ] ;
+    oa:hasBody narr:StockPhrases ;
+    rdf:value true ;
+    skos:note "Characteristic blunt phrasing; speaker idiolect." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:StyleObs_3 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:Anaphora ;
+    dct:source narr:Sample_1 ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1933 ;
+        oa:end 2006
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "You saw a picture (the DOM). \nThen you queried the picture with a selector\nThen you mutated the picture." ;
+        oa:prefix "Shout out to the math team! Captain 2008 state champs. \n\n" ;
+        oa:suffix " \n\nI want to argue"
+      ]
+    ] ;
+    oa:hasBody narr:Anaphora ;
+    rdf:value true ;
+    skos:note "Repeated 'Then you' structure; rhetorical device for emphasis." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:StyleObs_4 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:BrandNameStylization ;
+    dct:source narr:Sample_1 ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 2330 ;
+        oa:end 2343
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "scarlet dame" ;
+        oa:prefix "Who am I?\nI'm " ;
+        oa:suffix ". \nBut I was scarlet spectacular"
+      ]
+    ] ;
+    oa:hasBody narr:BrandNameStylization ;
+    rdf:value true ;
+    skos:note "Lowercase personal brand; stylization choice." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:StyleObs_5 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:Analogy ;
+    dct:source narr:Sample_1 ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 2008 ;
+        oa:end 2155
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "I want to argue in this talk that we still treat not only human identity and identification but also emergent AI identity and synthetic individuality like Backbone.js." ;
+        oa:prefix "Then you mutated the picture. \n\n" ;
+        oa:suffix "\n\nAnd hopefully draw a line"
+      ]
+    ] ;
+    oa:hasBody narr:Analogy ;
+    rdf:value true ;
+    skos:note "Core analogy: identity systems = Backbone.js (mutable DOM)." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:StyleObs_6 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:RhetoricalQuestion ;
+    dct:source narr:Sample_1 ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1798 ;
+        oa:end 1826
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "Anyone remember backbone.js?" ;
+        oa:prefix "Your code was shit. Let me refactor it for you. \n\n" ;
+        oa:suffix "\nThat was my introduction to UI programming."
+      ]
+    ] ;
+    oa:hasBody narr:RhetoricalQuestion ;
+    rdf:value true ;
+    skos:note "Engages audience; assumes shared context." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:StyleObs_7 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:SecondPerson ;
+    dct:source narr:Sample_1 ;
+    skos:related narr:Tagline ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1933 ;
+        oa:end 1959
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "You saw a picture (the DOM)" ;
+        oa:prefix "Shout out to the math team! Captain 2008 state champs. \n\n" ;
+        oa:suffix ". \nThen you queried the picture"
+      ]
+    ] ;
+    oa:hasBody narr:SecondPerson ;
+    rdf:value true ;
+    skos:note "Direct address; conversational register." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:StyleObs_8 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:VerbChoice ;
+    dct:source narr:Sample_1 ;
+    skos:related narr:KeyPhrases ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 2006 ;
+        oa:end 2006
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "mutated" ;
+        oa:prefix "Then you queried the picture with a selector\nThen you " ;
+        oa:suffix " the picture. \n\nI want to argue"
+      ]
+    ] ;
+    oa:hasBody narr:VerbChoice ;
+    rdf:value true ;
+    skos:note "Technical verb 'mutated' carries negative connotation in functional paradigm." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+}
