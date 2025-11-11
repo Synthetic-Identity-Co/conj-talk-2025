@@ -1,0 +1,24 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+DELETE {
+  narr:Sample_1 dct:source ?oldSource ;
+    narr:inputLength ?oldLength ;
+    dct:created ?oldDate ;
+    skos:note ?oldNote .
+}
+INSERT {
+  narr:Sample_1 dct:source "Immutable Selves talk" ;
+    narr:inputLength 5847 ;
+    dct:created "2025-01-XX"^^xsd:date ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+}
+WHERE {
+  narr:Sample_1 dct:source ?oldSource ;
+    narr:inputLength ?oldLength ;
+    dct:created ?oldDate .
+  OPTIONAL { narr:Sample_1 skos:note ?oldNote . }
+}
