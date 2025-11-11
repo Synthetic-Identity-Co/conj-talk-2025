@@ -1,0 +1,30 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sb: <http://example.org/storyboard#>
+PREFIX storytwin: <http://example.org/storytwin#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT DATA {
+  narr:Tx_20251111T214920Z_immutable_selves a prov:Activity ;
+    prov:wasAssociatedWith <http://example.org/agent/storyTWIN#anthropic-claude-sonnet-4.5> ;
+    prov:wasAttributedTo <http://example.org/user/pleasetrythisathome> ;
+    prov:generatedAtTime "2025-11-11T21:49:20.430Z"^^xsd:dateTime ;
+    sb:originPath ""^^xsd:string ;
+    sb:originRef "main"^^xsd:string ;
+    prov:generated narr:Sample_1, narr:Tagline_1, narr:WhatIsIt_1, narr:Mission_1, narr:Vision_1,
+      narr:KeyPhrase_1, narr:KeyPhrase_2, narr:KeyPhrase_3, narr:KeyPhrase_4,
+      narr:PositioningThesis_1, narr:MoatLeverage_1,
+      narr:Primitive_1, narr:Primitive_2, narr:Primitive_3,
+      narr:Behavior_1, narr:Flow_1, narr:Narrative_1,
+      narr:Archetype_1, narr:ArchetypeTitle_1, narr:ProblemContext_1, narr:ApproachPattern_1,
+      narr:RequiredCapabilities_1, narr:OutcomesProof_1,
+      narr:Archetype_2, narr:ArchetypeTitle_2, narr:ProblemContext_2, narr:ApproachPattern_2,
+      narr:RequiredCapabilities_2,
+      narr:LeverageProfile_1, narr:DesignTradeoff_1, narr:ComparativeAnalysis_1,
+      narr:CaseStudy_1, narr:CaseContext_1, narr:CaseIntervention_1, narr:CaseResults_1, narr:CaseLessons_1,
+      narr:StyleObs_1, narr:StyleObs_2, narr:StyleObs_3, narr:StyleObs_4, narr:StyleObs_5,
+      narr:StyleObs_6, narr:StyleObs_7, narr:StyleObs_8,
+      narr:RubricAssess_1, narr:RubricAssess_2, narr:RubricAssess_3, narr:RubricAssess_4,
+      narr:RubricAssess_5, narr:RubricAssess_6, narr:RubricAssess_7, narr:RubricAssess_8,
+      narr:RubricAssess_9, narr:StyleMetrics_1 .
+}
