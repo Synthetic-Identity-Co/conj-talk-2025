@@ -1,0 +1,21 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+INSERT DATA {
+  narr:PositioningThesis_1 a narr:PositioningThesis ;
+    skos:broader narr:StrategyOverview ;
+    dct:source narr:Sample_1 ;
+    rdf:value "For developers and identity architects who treat identity as mutable state, this is a functional paradigm that makes identity deterministic, auditable, and decentralized—by applying Clojure's immutability principles to human and AI identity systems." ;
+    skos:note "Who: devs/architects; What: functional identity; Why-us: Clojure principles proven at scale." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:MoatLeverage_1 a narr:MoatLeverage ;
+    skos:broader narr:StrategyOverview ;
+    dct:source narr:Sample_1 ;
+    rdf:value "Clojure ecosystem (Datomic, datalog, re-frame) as proof-of-concept; 13 years of production experience; provenance and equality by design." ;
+    skos:note "Compounding advantage: existing tools, battle-tested patterns, speaker credibility." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+}
