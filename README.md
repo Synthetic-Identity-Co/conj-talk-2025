@@ -2,67 +2,48 @@
 
 ## State
 
-The storyBASE is an operational RDF knowledge graph implementing a **Narrative Architecture** framework for Synthetic Identity Co. (SIC). It currently holds **584 triples** across **4 transactions**, encoding:
+The storyBASE is an operational RDF knowledge graph tracking narrative architecture, style, and conviction for AI memory systems. Currently compiled from **4 transactions** spanning November 2024–January 2025, it encodes:
 
-- **Product strategy** for storyBASE (AI memory platform) and related identity systems[^1]
-- **Style taxonomy** with rubric-based evaluation for narrative consistency[^2]
-- **Conviction levels** (Notion → Stake → Boulder → Foundation) for claim governance[^3]
-- **Sample extractions** from voice memos and transcripts, including a Clojure Conj 2025 talk proposal[^4]
+- **3 sample extractions**: voice memos and transcripts analyzing identity systems, storyBASE product evolution, and a Clojure Conj 2025 talk proposal[^tx-samples]
+- **2 solution archetypes**: immutable identification (berecognized.id) and immutable AI identity (aswritten.ai)[^archetypes]
+- **Style taxonomy**: 60+ concepts covering diction, tone, cadence, rhetorical devices, orthography, and a 9-dimension rubric for narrative quality[^style-ontology]
+- **Conviction framework**: 4-level settledness model (Notion → Stake → Boulder → Foundation) with properties for scoring, weighting, and individuation tracking[^conviction]
 
-The graph is **append-only**, with provenance tracked via `prov:wasGeneratedBy` linking each assertion to a timestamped transaction. The system is **Git-native**, enabling version control, branching, and collaborative narrative evolution[^5].
+The graph uses **SKOS** for hierarchical concepts, **PROV-O** for transaction provenance, **Web Annotation** for style observations, and custom properties for metrics and conviction aggregates. All nodes trace back to generating transactions via `prov:wasGeneratedBy`.
 
-[^1]: From `storybase-market` opportunity node: "High-quality AI output requires extensive context; current models use search, but RDF-based narrative source of truth enables specific, controllable, versionable AI memory." (Transaction `2025-01-29T000000Z_sic-storybase-checkin`)
-
-[^2]: Style rubric includes 9 dimensions: Register Fit, Phrasing, Cadence, Strategic Alignment, Tailoring, Resonance, Flow, Novelty, Accuracy. Each maps to SKOS concepts in the ontology (e.g., `#Rubric_Register` → `#RegisterFormality`, `#ToneVoice`).
-
-[^3]: Conviction hierarchy encoded via `xkos:next`/`xkos:previous` relations: `#Conviction_Notion` → `#Conviction_Stake` → `#Conviction_Boulder` → `#Conviction_Foundation`. Used to govern decision cost and narrative drift.
-
-[^4]: Four transactions: (1) Sample 1 narrative architecture extraction (`Tx_20251110T184512Z_sample1`), (2) Conj 2025 talk extraction (`Tx_20251109T223928Z_conj2025`), (3) SIC/storyBASE check-in (`2025-01-29T000000Z_sic-storybase-checkin`), (4) Solution archetypes for immutable identity (`Tx_20251111T214920Z_immutable_selves`).
-
-[^5]: From `storybase-capabilities`: "Compile (replay transactions to Turtle snapshot), extract (RDF from input), diff (semantic comparison), tx (propose transaction), commit (append-only to Git)."
+[^tx-samples]: Transactions `Tx_20251110T184512Z_sample1` (voice memo on narrative architecture), `2025-01-29T000000Z_sic-storybase-checkin` (product check-in), and `Tx_20251109T223928Z_conj2025` (Conj talk extraction) in snapshot.
+[^archetypes]: `Archetype_1` (berecognized.id) and `Archetype_2` (aswritten.ai) under `#SolutionArchetypes`, each with problem context, approach pattern, required capabilities, and outcomes.
+[^style-ontology]: Top concept `#Style` with facets `#DictionWordChoice`, `#ToneVoice`, `#CadenceRhythm`, `#RhetoricalDevices`, `#StyleMetrics`, `#StyleRubric` (9 dimensions: Register, Phrasing, Cadence, Strategic Alignment, Tailoring, Resonance, Flow, Novelty, Accuracy).
+[^conviction]: Top concept `#Conviction` with ordered levels `#Conviction_Notion` → `#Conviction_Stake` → `#Conviction_Boulder` → `#Conviction_Foundation`; properties `#convictionScore`, `#convictionWeight`, `#individuationCount`, `#similarityScore`, `#rollingMean`.
 
 ---
 
 ## Stories
 
 ### `/README.story`
-**Intent:** Auto-generated repository README tracking storyBASE state, stories, assets, and transactions.  
-**Relationship:** Meta-narrative; documents the graph itself for external readers.  
-**Approach:** Compile current snapshot statistics, enumerate `.story` files, summarize transaction log, and generate Mermaid diagrams showing graph topology and transaction flow.
+**Intent**: Auto-generated repository README tracking storyBASE state, stories, assets, and transactions.  
+**Relationship**: Meta-narrative; documents the graph itself for external readers.  
+**Approach**: Compile current snapshot statistics (584 triples inserted, 4 transactions, 3 samples), enumerate `.story` files, summarize transaction significance, and render Mermaid diagrams of ontology structure and transaction timeline[^readme-approach].
+
+[^readme-approach]: Story uses snapshot stats (`"inserted":584,"deleted":0`) and transaction list to generate summary; Mermaid charts will visualize SKOS hierarchy (Opportunity → Strategy → Product → Architecture → Organization → Proof → Templates → Calibration → Style → Conviction) and transaction provenance chain.
 
 ---
 
 ### `/presenter.story`
-**Intent:** IA Presenter template demonstrating storyBASE presentation capabilities.  
-**Relationship:** Template artifact; shows how narrative content flows into slide decks with speaker notes and citations.  
-**Approach:** Use as reference format for other presentations; demonstrates separation of content (script), structure (slides), and design (themes) per storyBASE principles[^6].
+**Intent**: IA Presenter template for talk presentations; demonstrates format and best practices.  
+**Relationship**: Template artifact; shows how storyBASE narratives render into presentation slides.  
+**Approach**: Extract slide structure (cover, title, section headers, body text, images, speaker notes) and formatting rules (tabs for visibility, `---` for slide breaks, `#` for headings, image positioning); cite storyBASE style conventions (`#MicrocopyGuidelines`, `#CadenceRhythm`, `#ToneVoice`) in footnotes[^presenter-approach].
 
-[^6]: Aligns with Product Ladder: Primitives (text/images) → Interfaces (Markdown syntax) → Behaviors (slide navigation) → Flows (presentation sequence) → Narratives (talk arc) → Offerings (exportable deck).
+[^presenter-approach]: Template demonstrates `#MessagingHierarchy` (above-fold promise), `#ConversionPaths` (CTAs), `#InformationArchitecture` (buyer journey sections), and `#StyleProfiles` (brand voice consistency) from ontology; speaker notes align with `#TailoringAudienceFit`.
 
 ---
 
 ### `/conj-talk-2025.story`
-**Intent:** Generate Clojure Conj 2025 talk "Immutable Selves" using IA Presenter format.  
-**Relationship:** Proof artifact; demonstrates storyBASE's ability to compile technical narrative from graph state into presentation.  
-**Approach:** 
-1. Extract **personal journey** from `Actor_ScarletDame` (Dylan Butman → Scarlet Spectacular)[^7]
-2. Present **identity model** from `Theme_ImmutableIdentity` and `Theme_TransitionAsStateChange`[^8]
-3. Critique **mutable identity** via `ProblemContext_1` and `ProblemContext_2`[^9]
-4. Map **Clojure principles** to identity systems via `Strategy_functional-immutable-identity`[^10]
-5. Show **case studies**: Vouch.io (`product-vouch-io`) and SIC (`product-sic`)[^11]
-6. Cite all claims with footnotes to storyBASE nodes, explaining context per `#CitationConventions`[^12]
+**Intent**: Draft Clojure Conj 2025 talk "Immutable Selves" using IA Presenter format.  
+**Relationship**: Proof artifact; applies narrative architecture to conference talk on identity systems.  
+**Approach**: Structure slides around personal journey (developer → strategist), identity model (physical/digital/AI), failure of mutable paradigms, Clojure principles (immutability, explicit state, functional composition), identity-as-transactions, and Vouch.io + As Written case studies. Cite `#Theme_ImmutableIdentity`, `#Actor_ScarletDame`, `#Product` (Vouch.io, Sic), `#Architecture` (append-only logs, pure functions), and `#Proof` (case studies, outcomes)[^conj-approach].
 
-[^7]: `Actor_ScarletDame` has `skos:altLabel` "Dylan Butman" and "Scarlet Spectacular"; `skos:note` states "Speaker's identity history exemplifies append-only log model."
-
-[^8]: `Theme_ImmutableIdentity`: "Human and system identity modeled as integral of snapshots over time, not mutable present state." `Theme_TransitionAsStateChange`: "Personal transition (gender, professional) as functional transformation from immutable past states."
-
-[^9]: `ProblemContext_1`: "Passwords and digital keys are mutable, siloed, and vulnerable; no single source of truth for privileges." `ProblemContext_2`: "AI models are black boxes; persona prompts mutate rendered state; no provenance or version control for AI identity."
-
-[^10]: `strategy-functional-immutable-identity`: "Applies Clojure principles (immutability, explicit state, functional composition, data-first design, knowledge graphs) to create trustworthy identity systems."
-
-[^11]: `product-vouch-io`: "Enterprise identity platform using immutable event logs and delegation chains" (past work, strategic advisor). `product-sic`: "AI memory company using narrative-driven knowledge graphs to create AI individuals with deterministic individuality and provenance" (current work, founder).
-
-[^12]: `#CaretBracketMarker`: "Inline caret with brackets to denote notes/citations." `#FactualAccuracy`: "Correctness of facts, names, titles, and referenced data" (related to `#Proof`, `#TechnicalDocumentation`).
+[^conj-approach]: Talk draws from `urn:uuid:strategy-functional-immutable-identity` (Clojure principles applied to identity), `urn:uuid:product-vouch-io` (enterprise identity platform), `urn:uuid:product-sic` (AI memory with narrative-driven knowledge graphs), `urn:uuid:architecture-immutable-identity` (append-only event logs, authentication as pure function), and rubric assessments (Clarity 4.5/5, Technical Depth 4.8/5, Narrative Coherence 4.6/5).
 
 ---
 
@@ -70,131 +51,159 @@ The graph is **append-only**, with provenance tracked via `prov:wasGeneratedBy` 
 
 ```
 .
-├── .storyBASE/                          # Transaction log directory
+├── .storyBASE/
 │   ├── 1762728019add_conj_talk_2025_extraction.sparql
 │   ├── 1762731465sic-storybase-checkin.sparql
 │   ├── 1762800383add_sample1_narrative_architecture.sparql
 │   ├── 1762897917add_solution_archetypes.sparql
 │   └── 1762897917add_style_metrics.sparql
-├── README.story                         # This document's generator
-├── presenter.story                      # IA Presenter template reference
-├── conj-talk-2025.story                 # Conj talk generator
-└── [compiled snapshot.ttl]              # Turtle RDF (584 triples, 1 graph)
+├── README.story
+├── presenter.story
+└── conj-talk-2025.story
 ```
 
-**`.storyBASE/` directory:** Append-only transaction log; each `.sparql` file is an `INSERT DATA` operation with provenance metadata[^13].  
-**`.story` files:** YAML front matter + prompt; trigger story generation via GitHub Actions or MCP server[^14].  
-**Snapshot:** Compiled Turtle file; replay of sorted transactions; serves as AI memory context[^15].
+**`.storyBASE/` directory**: Append-only transaction log; each `.sparql` file is an immutable `INSERT DATA` operation timestamped and attributed to `pleasetrythisathome` via `prov:wasAttributedTo`[^sparql-files].  
+**`.story` files**: YAML front matter + Markdown prompt; `model` field specifies `anthropic/claude-sonnet-4.5`; `destination` targets output path; prompts reference ontology concepts and citation conventions[^story-files].
 
-[^13]: Each transaction includes `prov:wasGeneratedBy`, `prov:wasAttributedTo` (user), `prov:wasAssociatedWith` (agent), `prov:generatedAtTime`, `sb:originPath`, `sb:originRef`.
-
-[^14]: From `storybase-capabilities`: "story generation (YAML front matter + prompt to model outputs)." Triggered by `.story` file changes or transaction commits.
-
-[^15]: From `data-lifecycle-storybase`: "Append-only transaction log; immutable files; snapshot = replay of sorted transactions; provenance in TX step."
+[^sparql-files]: Transactions use `PREFIX narr:`, `PREFIX sb:`, `PREFIX skos:`, `PREFIX prov:` namespaces; each file asserts triples under a single `prov:Activity` (e.g., `narr:Tx_20251110T184512Z_sample1`) with `prov:generatedAtTime`, `sb:originPath`, `sb:originRef`, `storytwin:model`.
+[^story-files]: Front matter schema: `id`, `title`, `version`, `description`, `destination`, `model` (array); prompts invoke `#CitationConventions` (`^[]^` caret-bracket markers), `#StyleRubric`, `#NarrativeAnchor`, and `#SolutionArchetypes`.
 
 ---
 
 ## Transactions
 
-### 1. `Tx_20251109T223928Z_conj2025` (2025-11-09)
-**Significance:** First extraction for Conj Talk 2025 proposal.  
-**Content:** Captures narrative architecture (Opportunity, Strategy, Product, Proof, Architecture, Organization), 11 style observations, 4 rubric assessments, and style metrics for the talk proposal[^16].  
-**Impact:** Establishes **Vouch.io** and **SIC** as dual case studies; defines **functional immutable identity architecture** strategy; sets rubric baseline (Clarity 4.5/5, Technical Depth 4.8/5, Narrative Coherence 4.6/5)[^17].
-
-[^16]: Sample record `conj-talk-2025-extraction` has `inputLength` 3421 characters. Includes `opportunity-identity-vulnerability`, `strategy-functional-immutable-identity`, `product-vouch-io`, `product-sic`, `proof-conj-2025-talk`, `architecture-immutable-identity`, `org-sic`, `org-vouch-io`.
-
-[^17]: Rubric scores: `rubric-clarity` 4.5, `rubric-technical-depth` 4.8, `rubric-narrative-coherence` 4.6, `rubric-audience-engagement` 4.3. Style metrics: avg sentence length 22.4, technical density 0.68, active voice ratio 0.71.
-
----
-
-### 2. `Tx_20251110T184512Z_sample1` (2025-11-10)
-**Significance:** Extracts narrative architecture from voice memo "Punch talk conceptual framing."  
-**Content:** Defines **Theme_ImmutableIdentity** and **Theme_TransitionAsStateChange**; captures **Actor_ScarletDame** and **Actor_LukeVanderhart**; records 6 style observations (brand stylization, idiolect, metaphor, analogy, cadence, POV) and 9 rubric assessments[^18].  
-**Impact:** Establishes **personal transition as state machine** analogy; links identity theory to UI rendering patterns (Om, React); sets conversational register baseline (4.0/5) and strategic alignment (4.5/5)[^19].
-
-[^18]: Sample `Sample_1` has `inputLength` 11800, `dct:created` 2025-01-15. Style observations include `StyleObs_storyBASE` (CamelCase brand), `StyleObs_AppendOnlyLog` (recurring technical phrase), `StyleObs_UIStateMachine` (core analogy), `StyleObs_TransitionAnalogy` (extended analogy), `StyleObs_ShortClause` (punchy cadence), `StyleObs_FirstPerson` (conversational register).
-
-[^19]: Rubric: Register 4.0 ("Conversational, personal; active voice; fits talk/oratory context"), Phrasing 3.5 ("Idiolect present; some repetition"), Cadence 3.0 ("Variable; punchy clauses mixed with run-ons"), Strategic Alignment 4.5 ("Directly advances narrative architecture thesis"), Resonance 4.5 ("Personal transition story as analogy for immutable state; emotionally grounded").
-
----
-
-### 3. `2025-01-29T000000Z_sic-storybase-checkin` (2025-11-09)
-**Significance:** Product & strategy check-in; most comprehensive transaction (18,437 input characters).  
-**Content:** Defines **storyBASE market opportunity**, **timing thesis** (2024-2026 window), **positioning thesis** (extend software rigor into strategy/content), **moat leverage** (Git-native AI memory), **mission**, **tagline** ("AI that tells you a story as written"), **product overview**, **modules/capabilities**, **dependencies/integrations**, **roadmap**, **system topology**, **data model lifecycle**, **integration points**, **role topology**, **process**, **case studies**, 10 style observations, 9 rubric assessments, and style metrics[^20].  
-**Impact:** Establishes **storyBASE as product**; defines **n8n + MCP + GitHub + Open WebUI** architecture; sets **narrative-driven roadmap** (TriG, SHACL, individuation pipeline, marketplace); records conversational register (3.5/5) with high jargon density (0.18) and active voice (0.72)[^21].
-
-[^20]: Sample `2025-01-29T000000Z_sic-storybase-checkin` attributed to `scarlet-dame`. Includes `opportunity/storybase-market`, `thesis/timing-storybase`, `thesis/positioning-storybase`, `leverage/moat-storybase`, `mission/storybase`, `tagline/storybase`, `product/overview-storybase`, `module/storybase-capabilities`, `dependency/storybase-integrations`, `roadmap/narrative-storybase`, `architecture/topology-storybase`, `model/data-lifecycle-storybase`, `integration/points-storybase`, `topology/role-storybase`, `process/storybase`, `case/studies-storybase`.
-
-[^21]: Roadmap: "Move transactions from SPARQL to named graphs (TriG); add SHACL validation; implement evolved individuation pipeline (snapshot + message to transaction); file ingestion via GitHub; storyBASE marketplace; cost pass-through billing." Style metrics: avg sentence length 35.2, active voice 0.72, jargon density 0.18, type-token ratio 0.42. Rubric: Register 3.5, Strategic Alignment 4.0, Accuracy 4.0.
-
----
-
-### 4. `Tx_20251111T214920Z_immutable_selves` (2025-11-11)
-**Significance:** Adds **solution archetypes** for immutable identity systems.  
-**Content:** Defines two archetypes: (1) **berecognized.id** (Datomic-based proof-of-provenance identity) and (2) **aswritten.ai** (RDF+Git-based immutable AI identity). Each includes title, problem context, approach pattern, required capabilities, and outcomes/proof[^22].  
-**Impact:** Formalizes **SSoT → query → render → event → log → recompile** pattern; contrasts Datomic (Clojure ecosystem) vs. RDF+Git (semantic web) stacks; establishes **cryptographic proof of identity state** as outcome metric; adds style metrics (avg sentence length 15.2, active voice 0.85, jargon density 0.12)[^23].
-
-[^22]: `Archetype_1` (berecognized.id): `ProblemContext_1` "Passwords and digital keys are mutable, siloed, and vulnerable", `ApproachPattern_1` "SSoT (Datomic) → datalog query → render to identification/privileges → event-driven transactions → append-only log → recompile", `RequiredCapabilities_1` "Datomic (SSoT), datalog (query), multimodal renderer, event system, single transactor", `OutcomesProof_1` "Proof of provenance and authority innate; hash of last tx + SSoT state enables 'be recognized' property." `Archetype_2` (aswritten.ai): `ProblemContext_2` "AI models are black boxes; persona prompts mutate rendered state; no provenance or version control for AI identity", `ApproachPattern_2` "SSoT (RDF + git) → SPARQL query → render to AI memory/identity → event-driven transactions → append-only log → recompile", `RequiredCapabilities_2` "RDF graph, git versioning, SPARQL, multimodal renderer, event system, transactor."
-
-[^23]: `StyleMetrics_1`: avg sentence length 15.2, active voice ratio 0.85, jargon density 0.12, type-token ratio 0.68, conciseness 0.78. Note: "Short sentences, high active voice, moderate jargon (technical audience), good lexical diversity, concise."
-
----
-
-## Diagrams
-
-### Transaction Flow
 ```mermaid
 graph TD
-    A[Tx_20251109T223928Z_conj2025<br/>Conj Talk Extraction] --> B[Snapshot v1<br/>Opportunity + Strategy + Products]
-    C[Tx_20251110T184512Z_sample1<br/>Voice Memo Extraction] --> D[Snapshot v2<br/>+ Themes + Actors + Style Obs]
-    E[2025-01-29T000000Z_sic-storybase-checkin<br/>Product Check-in] --> F[Snapshot v3<br/>+ Market + Roadmap + Architecture]
-    G[Tx_20251111T214920Z_immutable_selves<br/>Solution Archetypes] --> H[Snapshot v4<br/>+ Archetypes + Metrics<br/>584 triples]
+    T1[Tx_20251109T223928Z_conj2025<br/>Conj Talk 2025 Extraction]
+    T2[Tx_20251110T184512Z_sample1<br/>Sample 1 Narrative Architecture]
+    T3[2025-01-29T000000Z_sic-storybase-checkin<br/>SIC storyBASE Check-in]
+    T4[Tx_20251111T214920Z_immutable_selves<br/>Solution Archetypes + Style Metrics]
     
-    B --> D
-    D --> F
-    F --> H
+    T1 -->|Nov 9, 2024| T2
+    T2 -->|Nov 10, 2024| T3
+    T3 -->|Jan 29, 2025| T4
+    
+    T1 -.->|Opportunity, Strategy, Product, Proof| S1[Sample: Conj Talk Proposal]
+    T2 -.->|Themes, Actors, Style Observations, Rubric| S2[Sample: Voice Memo]
+    T3 -.->|Product Overview, Roadmap, Metrics| S3[Sample: Product Check-in]
+    T4 -.->|Archetypes, Style Metrics| A[Archetypes 1 & 2]
 ```
 
-### Narrative Architecture Topology
+### 1. **Tx_20251109T223928Z_conj2025** (Nov 9, 2024)
+**Significance**: First extraction; establishes **Opportunity** (identity vulnerability crisis), **Strategy** (functional immutable identity architecture), **Product** (Vouch.io, Sic), **Proof** (Conj 2025 talk), **Architecture** (append-only logs, pure functions), and **Organization** (Sic, Vouch.io roles). Introduces 11 style observations (brand names, technical terms, rhetorical structures) and 4 rubric assessments (Clarity 4.5/5, Technical Depth 4.8/5)[^tx1].
+
+[^tx1]: Transaction `narr:Tx_20251109T223928Z_conj2025` asserts `urn:uuid:opportunity-identity-vulnerability`, `urn:uuid:strategy-functional-immutable-identity`, `urn:uuid:product-vouch-io`, `urn:uuid:product-sic`, `urn:uuid:proof-conj-2025-talk`, `urn:uuid:architecture-immutable-identity`, `urn:uuid:org-sic`, `urn:uuid:org-vouch-io`, and style observations `urn:uuid:style-obs-1` through `urn:uuid:style-obs-11`.
+
+---
+
+### 2. **Tx_20251110T184512Z_sample1** (Nov 10, 2024)
+**Significance**: Adds **Sample_1** (voice memo on narrative architecture for identity-as-append-only-log talk); defines **Themes** (`Theme_ImmutableIdentity`, `Theme_TransitionAsStateChange`), **Actors** (`Actor_ScarletDame`, `Actor_LukeVanderhart`), **Anchor** (`Anchor_NarrativeArchitecture`), and 6 **Style Observations** (brand stylization "storyBASE", idiolect "append-only log", metaphors, first-person POV). Introduces 9 **Rubric Assessments** (Register 4/5, Phrasing 3.5/5, Cadence 3/5, Strategy 4.5/5, Tailoring 4/5, Resonance 4.5/5, Flow 3/5, Novelty 4/5, Accuracy 4/5) and **Metrics** (avg sentence length 28.5, active voice 0.75, jargon density 0.12)[^tx2].
+
+[^tx2]: Transaction `narr:Tx_20251110T184512Z_sample1` asserts `narr:Sample_1` with `narr:inputLength 11800`, `dct:created "2025-01-15"`, `dct:source "Voice memo: Punch talk conceptual framing"`; style observations use Web Annotation (`oa:hasBody`, `oa:hasTarget`, `oa:TextQuoteSelector`, `oa:TextPositionSelector`) to anchor excerpts; rubric assessments link to `#Rubric_Register`, `#Rubric_Phrasing`, etc.
+
+---
+
+### 3. **2025-01-29T000000Z_sic-storybase-checkin** (Jan 29, 2025)
+**Significance**: Adds **Sample** (SIC/storyBASE product check-in transcript, 18,437 chars); defines **Opportunity** (storyBASE market), **Timing Thesis** (2024–2026 window), **Positioning Thesis** (extend dev rigor to strategy/content), **Moat Leverage** (git-native AI memory), **Tagline** ("AI that tells you a story as written"), **Product Overview** (n8n prototype, MCP server, tools), **Modules/Capabilities** (compile, extract, diff, tx, commit), **Dependencies/Integrations** (GitHub, Open Router, Outseta, Helicone), **Roadmap** (TriG, SHACL, individuation pipeline, marketplace), **System Topology** (n8n orchestration, Docker Compose), **Data Model** (append-only log, snapshot replay), **Integration Points** (GitHub OAuth/webhooks, MCP protocol), **Role Topology** (programming-literate users, GitHub RBAC), **Process** (interactive individuation vs. automated ingestion), and **Case Studies** (Crooked Media demo). Adds 10 **Style Observations** (brand stylization, idiolect, verb choice, simile, tone, jargon, sentence variation, parallelism, rhetorical question, citation marker) and 9 **Rubric Assessments** (Register 3.5/5, Phrasing 3/5, Cadence 3/5, Strategic Alignment 4/5, Audience Tailoring 3.5/5, Resonance 3/5, Flow 3/5, Novelty 3.5/5, Accuracy 4/5). Introduces **Style Metrics** (avg sentence length 35.2, active voice 0.72, jargon density 0.18, type-token ratio 0.42)[^tx3].
+
+[^tx3]: Transaction `2025-01-29T000000Z_sic-storybase-checkin` asserts `http://storybase.synthetic-identity.co/sample/2025-01-29T000000Z_sic-storybase-checkin`, `http://storybase.synthetic-identity.co/opportunity/storybase-market`, `http://storybase.synthetic-identity.co/thesis/timing-storybase`, `http://storybase.synthetic-identity.co/thesis/positioning-storybase`, `http://storybase.synthetic-identity.co/leverage/moat-storybase`, `http://storybase.synthetic-identity.co/tagline/storybase`, `http://storybase.synthetic-identity.co/product/overview-storybase`, `http://storybase.synthetic-identity.co/module/storybase-capabilities`, `http://storybase.synthetic-identity.co/dependency/storybase-integrations`, `http://storybase.synthetic-identity.co/roadmap/narrative-storybase`, `http://storybase.synthetic-identity.co/architecture/topology-storybase`, `http://storybase.synthetic-identity.co/model/data-lifecycle-storybase`, `http://storybase.synthetic-identity.co/integration/points-storybase`, `http://storybase.synthetic-identity.co/topology/role-storybase`, `http://storybase.synthetic-identity.co/process/storybase`, `http://storybase.synthetic-identity.co/case/studies-storybase`, style observations `http://storybase.synthetic-identity.co/style/observation/1` through `/10`, rubric assessments `http://storybase.synthetic-identity.co/rubric/register-fit` through `/accuracy`, and `http://storybase.synthetic-identity.co/metrics/style`.
+
+---
+
+### 4. **Tx_20251111T214920Z_immutable_selves** (Nov 11, 2024)
+**Significance**: Adds **Solution Archetypes** (`Archetype_1`: berecognized.id, `Archetype_2`: aswritten.ai) with **Archetype Titles**, **Problem Contexts**, **Approach Patterns**, **Required Capabilities**, and **Outcomes/Proof**. Introduces **Style Metrics** for Sample_1 (avg sentence length 15.2, active voice 0.85, jargon density 0.12, type-token ratio 0.68, conciseness 0.78)[^tx4].
+
+[^tx4]: Transaction `narr:Tx_20251111T214920Z_immutable_selves` asserts `narr:Archetype_1` (berecognized.id: "Passwords and digital keys are mutable, siloed, and vulnerable; no single source of truth for privileges" → "SSoT (Datomic) → datalog query → render to identification/privileges → event-driven transactions → append-only log → recompile" → "Proof of provenance and authority innate; hash of last tx + SSoT state enables 'be recognized' property") and `narr:Archetype_2` (aswritten.ai: "AI models are black boxes; persona prompts mutate rendered state; no provenance or version control for AI identity" → "SSoT (RDF + git) → SPARQL query → render to AI memory/identity → event-driven transactions → append-only log → recompile"); `narr:StyleMetrics_1` with `narr:AverageSentenceLength 15.2`, `narr:ActiveVoiceRatio 0.85`, `narr:JargonDensity 0.12`, `narr:TypeTokenRatio 0.68`, `narr:Conciseness 0.78`.
+
+---
+
+## Ontology Structure
+
 ```mermaid
-graph LR
-    Opp[Opportunity] --> Strat[Strategy]
-    Strat --> Prod[Product]
-    Prod --> Arch[Architecture]
-    Arch --> Org[Organization]
-    Org --> Proof[Proof]
-    Proof --> Templates[Templates]
-    Templates --> Cal[Calibration]
+graph TB
+    NA[NarrativeArchitecture<br/>ConceptScheme]
     
-    Strat -.-> Style[Style]
-    Proof -.-> Style
-    Cal -.-> Style
+    NA --> OPP[Opportunity]
+    NA --> STRAT[Strategy]
+    NA --> PROD[Product]
+    NA --> ARCH[Architecture]
+    NA --> ORG[Organization]
+    NA --> PROOF[Proof]
+    NA --> TMPL[Templates]
+    NA --> CAL[Calibration]
+    NA --> STYLE[Style]
+    NA --> CONV[Conviction]
     
-    Strat -.-> Conv[Conviction]
-    Proof -.-> Conv
-    Cal -.-> Conv
+    OPP --> MC[Market Context]
+    OPP --> AIA[Actor Incentive Analysis]
+    OPP --> TSS[Technologies Social Systems]
+    OPP --> TF[Trend Forecasting]
     
-    style Opp fill:#e1f5ff
-    style Strat fill:#fff4e1
-    style Prod fill:#e8f5e9
-    style Arch fill:#f3e5f5
-    style Org fill:#fff3e0
-    style Proof fill:#fce4ec
-    style Templates fill:#e0f2f1
-    style Cal fill:#f1f8e9
-    style Style fill:#ffe0b2
-    style Conv fill:#f8bbd0
+    STRAT --> SO[Strategy Overview]
+    STRAT --> NANC[Narrative Anchor]
+    STRAT --> NDR[Narrative-Driven Roadmap]
+    STRAT --> OCM[Organizational Change Manual]
+    
+    PROD --> PO[Product Overview]
+    PROD --> PL[Product Ladder]
+    PROD --> SA[Solution Archetypes]
+    
+    ARCH --> AO[Architecture Overview]
+    ARCH --> TE[Technical Explainers]
+    ARCH --> TD[Technical Documentation]
+    
+    ORG --> RT[Role Topology]
+    ORG --> PROC[Process]
+    
+    PROOF --> CS[Case Studies]
+    PROOF --> OUT[Outcomes]
+    PROOF --> MM[Metrics Monitoring]
+    
+    TMPL --> SD[Sales Decks]
+    TMPL --> LP[Landing Pages]
+    TMPL --> PRD[PRDs]
+    TMPL --> SP[Social Posts]
+    TMPL --> CD[Customer Documentation]
+    
+    CAL --> NTP[Narrative Test Prompts]
+    
+    STYLE --> SP2[Style Profiles]
+    STYLE --> DWC[Diction Word Choice]
+    STYLE --> TV[Tone Voice]
+    STYLE --> CR[Cadence Rhythm]
+    STYLE --> RD[Rhetorical Devices]
+    STYLE --> OS[Orthography Spelling]
+    STYLE --> PT[Punctuation Typography]
+    STYLE --> CC[Citation Conventions]
+    STYLE --> RF[Register Formality]
+    STYLE --> POV[POV Person]
+    STYLE --> TA[Tense Aspect]
+    STYLE --> IA[Inclusive Accessibility]
+    STYLE --> LI[Localization Internationalization]
+    STYLE --> SM[Style Metrics]
+    STYLE --> SR[Style Review]
+    
+    SR --> SRUB[Style Rubric]
+    SRUB --> R1[Register Fit]
+    SRUB --> R2[Phrasing Idiolect]
+    SRUB --> R3[Cadence]
+    SRUB --> R4[Strategic Alignment]
+    SRUB --> R5[Audience Tailoring]
+    SRUB --> R6[Resonance]
+    SRUB --> R7[Flow]
+    SRUB --> R8[Novelty]
+    SRUB --> R9[Accuracy]
+    
+    CONV --> CN[Notion]
+    CONV --> CST[Stake]
+    CONV --> CB[Boulder]
+    CONV --> CF[Foundation]
+    
+    CN -->|xkos:next| CST
+    CST -->|xkos:next| CB
+    CB -->|xkos:next| CF
 ```
 
-### Conviction Escalation Path
-```mermaid
-graph LR
-    A[Notion<br/>Exploratory] -->|Evidence + Value| B[Stake<br/>Proposed]
-    B -->|Multi-party Consensus| C[Boulder<br/>Settled]
-    C -->|Cross-subgraph Dependency| D[Foundation<br/>Permanent]
-    
-    style A fill:#e3f2fd
-    style B fill:#fff9c4
-    style C fill:#ffccbc
-    style D fill:#c8e6c9
-```
+The ontology defines **10 top concepts** under `NarrativeArchitecture` scheme, with **60+ second-level facets** and **200+ detailed elements**. XKOS `ClassificationLevel` and `xkos:next`/`xkos:previous` encode sequential relationships (implementation phases, conviction escalation). SKOS `broader`/`narrower`/`related` link concepts; PROV-O `wasGeneratedBy`/`wasAttributedTo` track provenance; Web Annotation `oa:hasBody`/`oa:hasTarget` anchor style observations to text excerpts[^ontology-structure].
+
+[^ontology-structure]: Ontology uses `skos:ConceptScheme`, `skos:Concept`, `xkos:ClassificationLevel`, `rdfs:Class`, `rdf:Property`; custom classes `#Claim`, `#Evidence`, `#ConvictionAggregate`; custom properties `#hasConvictionLevel`, `#convictionScore`, `#convictionWeight`, `#distanceToNarrative`, `#individuationCount`, `#similarityScore`, `#rollingMean`, `#rollingN`, `#computedAt`, `#aboutNode`, `#supports`, `#challenges`, `#evidencedBy`, `#assertsStatement`.
