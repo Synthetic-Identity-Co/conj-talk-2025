@@ -1,0 +1,70 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+INSERT DATA {
+  narr:RubricAssess_1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Register ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.5 ;
+    skos:note "Conversational, direct, technical; second-person address; active voice; fits conference talk register perfectly. Supporting: narr:StyleObs_7." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:RubricAssess_2 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Phrasing ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.0 ;
+    skos:note "Strong idiolect ('Your code was shit'); domain verbs (mutated, compiled, rendered); stock phrases present. Supporting: narr:StyleObs_2, narr:StyleObs_8." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:RubricAssess_3 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Cadence ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.5 ;
+    skos:note "Short, punchy sentences; formula-style equations; anaphora for rhythm. Supporting: narr:StyleObs_1, narr:StyleObs_3." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:RubricAssess_4 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_StrategicAlignment ;
+    dct:source narr:Sample_1 ;
+    rdf:value 5.0 ;
+    skos:note "Entire talk is the narrative anchor: immutability → identity. Mission, vision, key phrases all present and consistent." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:RubricAssess_5 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Tailoring ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.5 ;
+    skos:note "Tailored to Clojure conference audience: assumes Backbone.js, Om, Datomic knowledge; personal journey resonates with community." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:RubricAssess_6 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Resonance ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.0 ;
+    skos:note "Strong analogy (Backbone → Om :: mutable identity → functional identity); personal story (Dylan → scarlet spectacular → scarlet dame) mirrors identity theme. Supporting: narr:StyleObs_5." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:RubricAssess_7 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Flow ;
+    dct:source narr:Sample_1 ;
+    rdf:value 3.5 ;
+    skos:note "Notes format; transitions implied but not fully written; anaphora aids coherence; some formulaic scaffolding ('System breakdown' repeated). Supporting: narr:StyleObs_3." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:RubricAssess_8 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Novelty ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.0 ;
+    skos:note "Fresh framing: identity as Backbone.js problem; 'digital twin' emerging; some domain clichés ('single source of truth') but used precisely." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:RubricAssess_9 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Accuracy ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.0 ;
+    skos:note "Technical claims accurate (Datomic, datalog, Om, React); personal timeline verifiable; no citations in notes (expected for talk outline); named entities correct." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+}
