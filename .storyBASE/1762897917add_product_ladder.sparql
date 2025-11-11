@@ -1,0 +1,49 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+INSERT DATA {
+  narr:Primitive_1 a narr:Primitives ;
+    skos:broader narr:ProductLadder ;
+    dct:source narr:Sample_1 ;
+    rdf:value "Append-only transaction log" ;
+    skos:note "Foundational atomic unit; immutability guarantee." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:Primitive_2 a narr:Primitives ;
+    skos:broader narr:ProductLadder ;
+    dct:source narr:Sample_1 ;
+    rdf:value "Single source of truth (SSoT)" ;
+    skos:note "Compiled state from transaction history." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:Primitive_3 a narr:Primitives ;
+    skos:broader narr:ProductLadder ;
+    dct:source narr:Sample_1 ;
+    rdf:value "Pure function renderer" ;
+    skos:note "Deterministic transformation: SSoT → identity surface." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:Behavior_1 a narr:Behaviors ;
+    skos:broader narr:ProductLadder ;
+    dct:source narr:Sample_1 ;
+    rdf:value "Event-driven transaction submission" ;
+    skos:note "User/system interactions produce transactions, not mutations." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:Flow_1 a narr:Flows ;
+    skos:broader narr:ProductLadder ;
+    dct:source narr:Sample_1 ;
+    rdf:value "SSoT → query → render → interact → event → transact → append log → recompile SSoT" ;
+    skos:note "End-to-end loop; identity as continuous compilation." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+
+  narr:Narrative_1 a narr:Narratives ;
+    skos:broader narr:ProductLadder ;
+    dct:source narr:Sample_1 ;
+    rdf:value "From mutable documents to compiled selves" ;
+    skos:note "Story frame: evolution from Backbone.js mutation to functional rendering." ;
+    prov:wasGeneratedBy narr:Tx_20251111T214920Z_immutable_selves .
+}
