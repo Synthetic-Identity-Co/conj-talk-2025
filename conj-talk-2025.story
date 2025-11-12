@@ -2,59 +2,78 @@
 id: conj-talk-2025
 title: "Immutable Selves Talk"
 version: 0.1.0
-description: "IA presenter template for talk presentation"
+description: "IA presenter template for the immutable selves clojure conj 2025 talk presentation"
 destination: /
 model: 
   - anthropic/claude-sonnet-4.5
 ---
 
-Use the storyBASE to draft the clojure conj talk using the provided format. 
+Use the storyBASE to draft the clojure conj 2025 talk.
 Focus on presenting clear narrative statements in the slide copy and provide a brief talk track for each slide.
 
-The goal of the talk is to lay out:
-- My personal history and professional journey from developer to organizational strategist implementing clojure principles across digital identity systems.
-- A working model for what identity is in physical, digital, and AI space. 
-- The failure of centralized, mutable, and object oriented human and AI identity paradigms
-- Clojure principles from code to structure
-- Identity as transactions
-- Vouch.io + As Written case studies
+Always include direct citations that explain human readable provenance including adjacent nodes as context from the storyBASE graph in your responses.
 
-Cite important claims with footnotes to the storyBASE and explain context in the footnote.
-
-***Below is the IA presenter presentation format for reference. The slides are examples, not a rigid template.***
+Output in the IA presenter presentation template format below.
 
 ---
 
-#### iA Presenter Theme
-# SIC[theme][#citation]
-# AI memory that tells your story, as written.
-###### A custom theme for Synthetic Identity Co.
-	[#citation]: citations are important, only give them titles (in this case, “theme”) to disambiguate multiple citations.
-
-iA Presenter lets you build presentations fast—on any device, even your phone. Its script-based approach lets you focus on your message. 
-
----
-# cover container 
+#### sic[theme][#citation]
+# 
+## Presentation Title
+### Subtitle
+# 
+#### Presenter Name
+###### Role and context
+	[#citation]: this is a custom theme for sic. citations are important, only give them titles (in this case, “theme”) to disambiguate multiple citations.
 
 ---
-###### with context heading
-# cover container 
+# Big statement 
 
 ---
-## title container
+# Big statement 
+## Substatement
 
 ---
-## title container 
+###### context label
+# Big statement
+
+---
+### preamble to
+# Big statement
+
+---
+###### Slide title
+# 
+### preamble to
+# Big statement
+
+Only give slides titles to signal section shifts or changes in domain. 
+
+An empty h1 in required to separate the sections
+---
+
+#### preamble to
+## An initial statement
+# 
+#### that sets up a
+# Big statement
+
+An empty h1 in required to separate the sections
+---
+## Section Title
+
+---
+## Subsection Title
 ###### with subtitle
 
 ---
  
-### section 
+### subsection title
 
 ---
  
 ###### with context 
-### section header
+### Subsection Title
 
 ---
  
@@ -66,7 +85,8 @@ These are speaker notes
  
 ###### with context 
 ### section header
-	All slide content must either be indented or have a markdown tag
+	All slide content must either be indented or have a markdown tag (#, ##, etc), Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt[][#citation] ut labore et dolore magna aliqua.
+	[#citation]: always cite provenance from the storyBASE and explain context. 
 
 ---
 ### Lorem ipsum dolor
