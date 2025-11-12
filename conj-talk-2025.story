@@ -10,6 +10,7 @@ model:
 
 Use the storyBASE to draft the clojure conj 2025 talk.
 Focus on presenting clear narrative statements in the slide copy and provide a brief talk track for each slide.
+Use mermaid charts to describe flows, sequences, architecture, etc as appropriate. 
 
 Always include direct citations that explain human readable provenance including adjacent nodes as context from the storyBASE graph in your responses.
 
