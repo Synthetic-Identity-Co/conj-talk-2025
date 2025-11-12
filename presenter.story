@@ -11,42 +11,69 @@ model:
 Use the storyBASE to draft a presentation of the storyBASE using the provided format. 
 Focus on presenting clear narrative statements in the slide copy and provide a brief talk track for each slide.
 
-Cite important claims with footnotes to the storyBASE and explain context in the footnote.
+Always include direct citations that explain human readable provenance including adjacent nodes as context from the storyBASE graph in your responses.
 
-***Below is the IA presenter presentation format for reference. The slides are examples, not a rigid template.***
-
----
-
-#### iA Presenter Theme
-# SIC[theme][#citation]
-# AI memory that tells your story, as written.
-###### A custom theme for Synthetic Identity Co.
-	[#citation]: citations are important, only give them titles (in this case, “theme”) to disambiguate multiple citations.
-
-iA Presenter lets you build presentations fast—on any device, even your phone. Its script-based approach lets you focus on your message. 
+Below is the IA presenter presentation format.
 
 ---
-# cover container 
+
+#### sic[theme][#citation]
+# 
+## Presentation Title
+### Subtitle
+# 
+#### Presenter Name
+###### Role and context
+	[#citation]: this is a custom theme for sic. citations are important, only give them titles (in this case, “theme”) to disambiguate multiple citations.
 
 ---
-###### with context heading
-# cover container 
+# Big statement 
 
 ---
-## title container
+# Big statement 
+## Substatement
 
 ---
-## title container 
+###### context label
+# Big statement
+
+---
+### preamble to
+# Big statement
+
+---
+###### Slide title
+# 
+### preamble to
+# Big statement
+
+Only give slides titles to signal section shifts or changes in domain. 
+
+An empty h1 in required to separate the sections
+---
+
+#### preamble to
+## An initial statement
+# 
+#### that sets up a
+# Big statement
+
+An empty h1 in required to separate the sections
+---
+## Section Title
+
+---
+## Subsection Title
 ###### with subtitle
 
 ---
  
-### section 
+### subsection title
 
 ---
  
 ###### with context 
-### section header
+### Subsection Title
 
 ---
  
@@ -58,7 +85,8 @@ These are speaker notes
  
 ###### with context 
 ### section header
-	All slide content must either be indented or have a markdown tag
+	All slide content must either be indented or have a markdown tag (#, ##, etc), Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt[][#citation] ut labore et dolore magna aliqua.
+	[#citation]: always cite provenance from the storyBASE and explain context. 
 
 ---
 ### Lorem ipsum dolor
@@ -348,3 +376,4 @@ Presenter works across formats. Create, present, or share—right from your phon
 
 And yes, you can edit this presentation in the Settings.
 For more, check our [How-To](https://ia.net/presenter/how-to) 
+
