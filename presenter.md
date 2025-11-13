@@ -4,489 +4,514 @@
 ### Git-Native RDF Knowledge Graph for Narrative-Driven AI
 # 
 #### Scarlet Dame
-###### Founder, as written.ai
-	[#theme]: Custom theme for storyBASE presentations. The storyBASE is a Git-native RDF knowledge graph that encodes narrative architecture, style profiles, and conviction-weighted claims to steer AI output with provenance and deterministic individuality (narr:Narrative_ImmutableIdentity, narr:SolutionArchetype_AsWritten).
+###### Founder, Sic
+	[#theme]: Custom presentation theme for storyBASE; brand stylization follows CamelCase with uppercase suffix pattern documented in narr:StyleObs_storyBASE (Tx_20251110T184512Z_sample1).
 
 ---
 # Identity as compiled from immutable history
 
+The storyBASE is a Git-native RDF knowledge graph that makes AI memory versionable, branchable, and deterministic—applying the same append-only log pattern we use for code to narrative, strategy, and identity.
+
+	This presentation demonstrates the core thesis: identity and content derive from append-only logs with as-of-T snapshots, enabling provenance and deterministic evolution[][#thesis]. The talk itself is compiled from this storyBASE.
+	[#thesis]: Core narrative from narr:Narrative_1 and narr:Obs_Narrative_ImmutableIdentity (Tx_20251113T033534Z_claude45, Tx_20251113T200138Z_immutable_selves); related to narr:Mission_1 and narr:Vision_1.
+
 ---
-# Your story
+## What is storyBASE?
+
+---
+###### RDF narrative source of truth
+# AI that tells your story
 ## as written
 
----
-###### What is storyBASE?
-# An append-only log that compiles to narrative[][#what-is]
-	[#what-is]: storyBASE is defined as "RDF narrative source of truth that steers AI output, making it specific, controllable, aligned with organizational worldview" (storybase.synthetic-identity.co/product/what-is-storybase). The core narrative is "Identity as Compiled from Immutable History" (narr:Narrative_1), applying Clojure principles of immutability to content and AI memory.
+	storyBASE is an RDF narrative source of truth that steers AI output, making it specific, controllable, and aligned with organizational worldview[][#product]. The tagline "AI that tells your story, as written" encodes both promise and brand[][#tagline].
+	[#product]: From storybase.synthetic-identity.co/product/what-is-storybase (Tx_2025-01-29T000000Z_sic-storybase-checkin).
+	[#tagline]: narr:Tagline_AsWritten (Tx_20251113T030805Z_conj2025); 7-word tagline encoding promise and brand.
 
 ---
-### From voice memos
-# To polished presentations
-
----
-###### The Problem
+### The Pattern
 # 
-### AI without context
-# Generic output
+## Append-only log → Snapshot as-of T → Render target
+
+	The canonical flow: interact → event → handler → transactor → append → compile as-of T → query → render → interact[][#loop]. This is the immutable identity loop that powers both human identification (berecognized.id) and AI memory (aswritten.ai).
+	[#loop]: narr:Obs_Flow_CoreLoop (Tx_20251113T200138Z_immutable_selves); sequenced behaviors delivering end-to-end identity compilation.
 
 ---
-## The Solution
-###### Single Source of Truth
+## The Architecture
 
 ---
-### Transactions
-# Append-only log
-## Pure function render
-# Deterministic output[][#architecture]
-	[#architecture]: The architecture follows the reified change pattern: "SSoT (RDF + git) → SPARQL query → render to AI memory/identity → event-driven transactions → append-only log → recompile" (narr:ApproachPattern_2). This mirrors human identity systems at berecognized.id (narr:SolutionArchetype_BeRecognized) and extends them to AI memory.
+###### System Topology
+### n8n orchestrates tools
+### MCP exposes to frontends
+### Transactions in .storyBASE directories
 
----
-## How It Works
-
----
-### The storyBASE Workflow
-	User inputs (voice memos, documents, chats) flow through extraction to RDF, creating an initial storyBASE graph. The system then normalizes transcriptions against established style and terminology, iteratively refining until outputs are polished and provenance-embedded[][#workflow].
-	[#workflow]: The content production workflow is "User inputs → initial storyBASE → normalization/iteration → polished outputs with embedded provenance" (narr:Flow_1). This workflow itself demonstrates the core thesis as meta-proof (narr:Proof_1).
+	n8n agent orchestrates tools; MCP server exposes to frontends (Agent.ai, ChatGPT, Open WebUI); transactions stored in .storyBASE directories; hierarchical compile; Docker Compose on Digital Ocean[][#topology].
+	[#topology]: storybase.synthetic-identity.co/architecture/topology-storybase (Tx_2025-01-29T000000Z_sic-storybase-checkin).
 
 ```mermaid
-graph LR
-    A[User Input] --> B[Extract to RDF]
-    B --> C[Initial storyBASE]
-    C --> D[Normalize & Iterate]
-    D --> E[Polished Output]
-    E --> F[Embedded Provenance]
-    F -.-> C
+graph TB
+    User[User/Frontend] -->|MCP Protocol| MCP[MCP Server]
+    MCP --> Tools[storyBASE Tools]
+    Tools --> Extract[extract]
+    Tools --> Diff[diff]
+    Tools --> TX[tx]
+    Tools --> Commit[commit]
+    Tools --> Compile[compile]
+    
+    Extract --> Git[(Git Repo<br/>.storyBASE/)]
+    Diff --> Git
+    TX --> Git
+    Commit --> Git
+    Compile --> Git
+    
+    Git --> Snapshot[Turtle Snapshot]
+    Snapshot --> Query[SPARQL Query]
+    Query --> Render[Render Output]
+    Render --> User
 ```
 
----
-###### Normalization
-### Clean transcription
-# Against your storyBASE[][#normalize]
-	[#normalize]: The behavior "Normalize Transcription Against storyBASE" uses the entity's established style and terminology to fix errors, inconsistencies, and filler (narr:Behavior_1). This is supported by style profiles (narr:StyleProfiles) and terminology control (narr:TerminologyControl).
+	The data model lifecycle: append-only transaction log; immutable files; snapshot = replay of sorted transactions; provenance in TX step; future named graphs for add/remove[][#lifecycle].
+	[#lifecycle]: storybase.synthetic-identity.co/model/data-lifecycle-storybase (Tx_2025-01-29T000000Z_sic-storybase-checkin).
 
 ---
-### Iteration
-# Extract → Diff → TX → Review → Commit[][#process]
-	[#process]: The interactive individuation process follows "extract → diff → tx → review → commit" vs. automated ingestion via file upload and PR (storybase.synthetic-identity.co/process/storybase). Each transaction is append-only and immutable.
+## The Workflow
+
+---
+### Interactive Individuation
+# 
+#### extract → diff → tx → review → commit
+
+	Interactive individuation: extract → diff → tx → review → commit. Automated ingestion: file upload → extraction → PR. Story generation triggered by transaction or .story file changes[][#process].
+	[#process]: storybase.synthetic-identity.co/process/storybase (Tx_2025-01-29T000000Z_sic-storybase-checkin); related to narr:Behavior_1 "Normalize Transcription Against storyBASE" (Tx_20251113T033534Z_claude45).
 
 ```mermaid
 sequenceDiagram
     participant User
+    participant MCP as MCP Server
     participant Extract
     participant Diff
     participant TX
-    participant Review
     participant Git
+    participant Compile
     
-    User->>Extract: Input (voice/text)
-    Extract->>Diff: RDF triples
-    Diff->>TX: Proposed changes
-    TX->>Review: SPARQL transaction
-    Review->>Git: Commit (append-only)
-    Git->>User: Updated snapshot
+    User->>MCP: Input (chat/doc)
+    MCP->>Extract: extract RDF
+    Extract->>Diff: compare to snapshot
+    Diff->>TX: propose transaction
+    TX->>User: review SPARQL
+    User->>Git: commit (append-only)
+    Git->>Compile: replay transactions
+    Compile->>User: updated snapshot
 ```
-
----
-## Architecture
-
----
-### Git-Native
-# Version control for narrative[][#git]
-	[#git]: Transactions live in .storyBASE directories; snapshot = replay of sorted transactions; provenance in TX step; future named graphs for add/remove (storybase.synthetic-identity.co/model/data-lifecycle-storybase). This enables branching, merging, and collaborative narrative development.
-
----
-### RDF Knowledge Graph
-# Semantic relationships
-## SPARQL queries
-# Deterministic perspectives[][#rdf]
-	[#rdf]: The system uses RDF graph with git versioning and SPARQL for querying (narr:RequiredCapabilities_2). This enables "deterministic AI perspective 'as-of T' for graph queries" including full talk, sections, evolution over time, or any accessible graph subset (narr:FutureVision_DeterministicAI).
-
----
-###### Provenance
-### Every claim
-# Traceable to source[][#provenance]
-	[#provenance]: The system property "Immutability provides equality and provenance" ensures "transaction log ensures auditability for every interaction" (narr:SystemProperty_ImmutabilityProvenance). This is evidenced by both berecognized.id and aswritten.ai case studies.
 
 ---
 ## Two Systems, One Pattern
 
 ---
-### System: Human
+###### System: Human
 # berecognized.id
 ###### Immutable Identification
-	Human identity system using Datomic SSoT, datalog query, and device-to-device interaction. Append-only log of facts about a person over time compiles to privileges as 'as-of T' snapshot on device[][#berecognized].
-	[#berecognized]: berecognized.id demonstrates "Human Identity via Reified Change" with context "Digital identification enables recognition and delegates authority" (narr:CaseStudy_BeRecognizedID). Results include "Provenance for individual transactions; referential equality for free; offline transactions enabled."
 
-```mermaid
-graph TD
-    A[Endorsement] --> B[Zoom Calls]
-    B --> C[In-Person Meetings]
-    C --> D[State ID Upload]
-    D --> E[Assigned Role]
-    E --> F[as-of Query]
-    F --> G[Device Snapshot]
-    G --> H[Digital Identification]
-```
+	Device-to-device verification; identification and privileges change over time via Datomic append-only log[][#berecognized]. Flow: Change-privilege event → pure handler → tx-data → transactor appends to Datomic → compile as-of T → Datalog queries → render Identification[][#berecognized-flow].
+	[#berecognized]: narr:CaseStudy_berecognized (Tx_20251113T200138Z_immutable_selves); related to narr:SolutionArchetype_BeRecognized (Tx_20251113T030805Z_conj2025).
+	[#berecognized-flow]: narr:CaseStudy_berecognized_Intervention (Tx_20251113T200138Z_immutable_selves).
+
+	Outcomes: Provenance ← append-only log; Equality (snapshot hashes) ← compile as-of + deterministic render; Offline ← render targets travel[][#berecognized-results].
+	[#berecognized-results]: narr:CaseStudy_berecognized_Results (Tx_20251113T200138Z_immutable_selves).
 
 ---
-### System: AI
+###### System: AI
 # aswritten.ai
 ###### Immutable AI Memory
-	AI identity system using RDF+git SSoT, SPARQL query, and chat+API interaction. Person talks to AI → extract to RDF → save to append-only log → AI memory as 'as-of T' snapshot (pure function)[][#aswritten].
-	[#aswritten]: aswritten.ai addresses "AI memory problem: 'My AI doesn't give the same answers as your AI'" (narr:CaseStudy_AsWrittenAI). The intervention creates "deterministic AI perspective for specific graph queries" with "Provenance, equality, decentralization/offline scale."
 
-```mermaid
-graph TD
-    A[Person Talks to AI] --> B[Extract Chats/Docs to RDF]
-    B --> C[Save to Append-Only Log]
-    C --> D[as-of T Query]
-    D --> E[AI Memory Snapshot]
-    E --> F[Pure Function Render]
-```
+	Chat ± API; deterministic AI perspective via RDF+git append-only log[][#aswritten]. Flow: Extract-narrative event → pure handler → triples/commit tx-data → transactor appends to RDF+git → compile as-of commit → SPARQL queries → render AI memory[][#aswritten-flow].
+	[#aswritten]: narr:CaseStudy_aswritten (Tx_20251113T200138Z_immutable_selves); related to narr:SolutionArchetype_AsWritten (Tx_20251113T030805Z_conj2025).
+	[#aswritten-flow]: narr:CaseStudy_aswritten_Intervention (Tx_20251113T200138Z_immutable_selves).
+
+	Outcomes: Versioning/Branching ← git log; Deterministic perspective as-of T ← compile + pure render; Provenance ← commit history + citations[][#aswritten-results].
+	[#aswritten-results]: narr:CaseStudy_aswritten_Results (Tx_20251113T200138Z_immutable_selves).
 
 ---
-###### The Pattern
-### Append-only log
-# Single source of truth
-## Pure function render
-# Deterministic identity[][#pattern]
-	[#pattern]: The reified change design pattern from Clojure principles states "Immutability and explicit state management enable provenance, equality, and offline capability" (narr:Claim_ReifiedChangePattern). This pattern is a Boulder-level conviction (narr:Conviction_Boulder) evidenced by both case studies.
+## The Leverage
 
 ---
-## Style & Voice
+### Small choice
+# Immutability
+## creates outsized effects
+
+	Immutability enables equality, provenance, versioning, branching, generative testing, decentralization, and infinite read scale—for free[][#leverage]. This is the leverage profile: small choice (append-only) creates outsized effects across system.
+	[#leverage]: narr:LeverageProfile_1 (Tx_20251111T214920Z_immutable_selves).
 
 ---
-### Brand Stylization
-# storyBASE
-## berecognized.id
-# aswritten.ai[][#brand]
-	[#brand]: Consistent brand name stylization observed across samples: "CamelCase with uppercase suffix" for storyBASE (narr:StyleObs_3, narr:StyleObs_storyBASE), "lowercase domain-style" for berecognized.id and aswritten.ai (narr:StyleObs_1, narr:StyleObs_2, narr:StyleObs_BrandStylization_1, narr:StyleObs_BrandStylization_2).
+### The Trade-off
+# 
+#### Bottleneck at single transactor
+# 
+#### All logic in event clients
 
----
-###### Canonical Terms
-### append-only log
-### as-of T snapshots
-### pure function
-### digital twin[][#terms]
-	[#terms]: Key phrases that anchor the architecture (narr:KeyPhrase_1, narr:KeyPhrase_2, narr:KeyPhrase_3, narr:KeyPhrase_4). These terms appear consistently across samples with precise technical phrasing (narr:StyleObs_1, narr:StyleObs_2, narr:StyleObs_9).
-
----
-### Cadence
-# Short. Punchy. Direct.[][#cadence]
-	[#cadence]: Style observations show "Short declarative sentence; imperative tone" (narr:StyleObs_7), "Single-word answer 'You.' after setup; punchy, direct, confident" (narr:StyleObs_ShortPunchy_1), and "Formula-style cadence; punchy equation" (narr:StyleObs_1). Average sentence length ranges from 12.3 to 22.3 words across samples.
-
----
-###### Voice
-### Active voice dominant
-# Second-person address
-## Conversational yet authoritative[][#voice]
-	[#voice]: Rubric assessments consistently score 4.0–4.5 on register fit, noting "Conversational yet authoritative; second-person direct address; technical register fits audience; concise and confident" (narr:RubricAssess_Register_Conj). Active voice ratio ranges from 0.75 to 0.85 across samples.
-
----
-## Conviction Levels
-
----
-### Notion
-# Exploratory
-## Open graph edges
-
----
-### Stake
-# Proposed
-## Connected nodes
-# Still moveable
-
----
-### Boulder
-# Settled
-## Hard to move
-# Requires consensus
-
----
-### Foundation
-# Underpinning
-## Effectively permanent[][#conviction]
-	[#conviction]: The Conviction ontology provides four levels (Notion, Stake, Boulder, Foundation) with sequential relationships via xkos:next/previous. Claims link to conviction levels via hasConvictionLevel property. The immutability thesis is Foundation-level (narr:Theme_ImmutableIdentity related to narr:Conviction_Foundation).
-
-```mermaid
-graph LR
-    A[Notion] -->|xkos:next| B[Stake]
-    B -->|xkos:next| C[Boulder]
-    C -->|xkos:next| D[Foundation]
-    D -.->|supports| E[Core Narratives]
-```
+	What we gave up: distributed writes. Why worth it: consistency, provenance, auditability[][#tradeoff]. The transactor is just adding triples; all business logic lives in pure handlers at the edge.
+	[#tradeoff]: narr:DesignTradeoff_1 (Tx_20251111T214920Z_immutable_selves).
 
 ---
 ## Current State
 
 ---
 ### Tools & Capabilities
-	Compile (replay transactions to Turtle snapshot), extract (RDF from input), diff (semantic comparison), tx (propose transaction), commit (append-only to Git), story generation (YAML front matter + prompt to model outputs)[][#tools].
-	[#tools]: Module capabilities from storybase.synthetic-identity.co/module/storybase-capabilities. The system includes MCP server, Open WebUI at as written.ai, and GitHub Actions for story generation.
+# 
+#### compile • extract • diff • tx • commit
 
----
-### Integration Points
-	GitHub (OAuth, webhooks, Actions), Open Router (API proxy via Helicone), Outseta (OIDC, billing), MCP protocol (tool exposure), future GitHub Apps with scoped credentials[][#integrations].
-	[#integrations]: Integration points from storybase.synthetic-identity.co/integration/points-storybase. Dependencies include n8n workflows, Apache Jena/Riot (future RDF ops), Docker Compose, Open WebUI.
-
----
-### System Topology
-	n8n agent orchestrates tools; MCP server exposes to frontends (Agent.ai, ChatGPT, Open WebUI); transactions in .storybase directories; hierarchical compile; Docker Compose on Digital Ocean[][#topology].
-	[#topology]: System topology from storybase.synthetic-identity.co/architecture/topology-storybase. The architecture follows "SSoT → query → render → interact → event → transact → append log → recompile SSoT" (narr:Flow_1).
+	Compile (replay transactions to Turtle snapshot), extract (RDF from input), diff (semantic comparison), tx (propose transaction), commit (append-only to Git), story generation (YAML front matter + prompt to model outputs)[][#capabilities].
+	[#capabilities]: storybase.synthetic-identity.co/module/storybase-capabilities (Tx_2025-01-29T000000Z_sic-storybase-checkin).
 
 ```mermaid
-graph TB
-    subgraph Frontends
-        A[Agent.ai]
-        B[ChatGPT]
-        C[Open WebUI]
-    end
-    
-    subgraph Orchestration
-        D[n8n Agent]
-        E[MCP Server]
-    end
-    
-    subgraph Storage
-        F[.storyBASE dirs]
-        G[Git Repository]
-    end
-    
-    A --> E
-    B --> E
-    C --> E
-    E --> D
-    D --> F
-    F --> G
-    G -.compile.-> H[Turtle Snapshot]
+graph LR
+    Input[Input] --> Extract
+    Extract --> Diff
+    Diff --> TX[tx]
+    TX --> Review{Review}
+    Review -->|approve| Commit
+    Commit --> Git[(Git)]
+    Git --> Compile
+    Compile --> Snapshot[Snapshot.ttl]
+    Snapshot --> Story[.story files]
+    Story --> Generate[Generate Output]
 ```
 
 ---
-## Samples & Extraction
+### Integrations
+# 
+#### GitHub • Open Router • Outseta • Helicone
+
+	n8n workflows, MCP server, GitHub (version control), Apache Jena/Riot (future RDF ops), Docker Compose, Open WebUI, Outseta (auth/billing), Helicone (API monitoring), Open Router (model access)[][#integrations].
+	[#integrations]: storybase.synthetic-identity.co/dependency/storybase-integrations (Tx_2025-01-29T000000Z_sic-storybase-checkin).
 
 ---
-### Voice Memo
-# 11,800 characters
-## Transcribed narrative architecture[][#sample1]
-	[#sample1]: Sample_1 from "Voice memo: Punch talk conceptual framing" (narr:Sample_1), created 2025-01-15, 11,800 characters. Source for Theme_ImmutableIdentity and Actor_ScarletDame. Rubric scores: Register 4.0, Strategic Alignment 4.5, Resonance 4.5.
+## The Roadmap
 
 ---
-### Conj Presentation
-# 6,847 characters
-## Functional identity talk[][#conj]
-	[#conj]: Sample_ConjPresentation_2025 from "Clojure/conj 2025 presentation: Immutable Selves" (narr:Sample_ConjPresentation_2025), created 2025-01-01. Source for Narrative_ImmutableIdentity, Theme_FunctionalIdentity, and Tagline_AsWritten. Rubric scores: Strategic Alignment 5.0, Tailoring 5.0, Novelty 4.5.
+### Next
+# 
+#### SPARQL → TriG (named graphs)
+#### SHACL validation
+#### File ingestion via GitHub
+
+	Move transactions from SPARQL to named graphs (TriG); add SHACL validation; implement evolved individuation pipeline (snapshot + message to transaction); file ingestion via GitHub; storyBASE marketplace; cost pass-through billing[][#roadmap].
+	[#roadmap]: storybase.synthetic-identity.co/roadmap/narrative-storybase (Tx_2025-01-29T000000Z_sic-storybase-checkin).
 
 ---
-### Product Check-in
-# 18,437 characters
-## Strategy & roadmap transcript[][#checkin]
-	[#checkin]: Sample from "SIC / storyBASE / as written.ai Product & Strategy Check-in" (storybase.synthetic-identity.co/sample/2025-01-29T000000Z_sic-storybase-checkin), 18,437 characters. Source for market opportunity, timing thesis, positioning thesis, and detailed product overview. Rubric scores: Strategic Alignment 4.0, Accuracy 4.0.
+## Who It's For
 
 ---
-## Style Observations
+### Primary Actors
+# 
+#### Programming-literate entrepreneurs
+#### Designers who manipulate worldview
+#### Developers who see perspective changes
+
+	Programming-literate entrepreneurs, designers, developers, consultants who manipulate worldview and see perspective changes[][#actors]. The positioning thesis: extend software development rigor (versioning, branching, collaboration) into strategy, content, marketing, organizational operations via RDF narrative source of truth[][#positioning].
+	[#actors]: storybase.synthetic-identity.co/actor/primary-storybase (Tx_2025-01-29T000000Z_sic-storybase-checkin).
+	[#positioning]: storybase.synthetic-identity.co/thesis/positioning-storybase (Tx_2025-01-29T000000Z_sic-storybase-checkin).
 
 ---
-### Metaphor
-# "Identity systems = Backbone.js"
-## "Experience → log → identity"[][#metaphor]
-	[#metaphor]: Core analogies include "identity systems = Backbone.js (mutable DOM)" (narr:StyleObs_5) and "experience → log → compiled identity; maps human to Datomic model" (narr:StyleObs_Analogy_1). These technical metaphors resonate with functional programming audiences.
+## The Proof
 
 ---
-### Rhetorical Questions
-# "Where is the identity here?"
-## "Who is the authority?"[][#rhetoric]
-	[#rhetoric]: Triadic rhetorical questions frame problem space and invite audience reasoning (narr:StyleObs_RhetoricalQuestion_1). Also "My AI doesn't give the same answers as your AI?" frames AI memory problem (narr:StyleObs_4).
+### This Talk
+# 
+## Meta-demonstration
+
+	The talk itself exemplifies the reified change architecture and storyBASE workflow, showing iterative refinement from raw inputs to polished outputs[][#proof]. Every slide is compiled from the graph; every citation traces back to a transaction.
+	[#proof]: narr:Proof_1 (Tx_20251113T033534Z_claude45); related to narr:CaseStudies and narr:Outcomes.
 
 ---
-### Anaphora
-# "Make state explicit"
-## "Append only log → Single source of truth"
-# "Everyone sees the same thing"[][#anaphora]
-	[#anaphora]: Repeated structural frame "principle → pattern" creates rhythm and memorability (narr:StyleObs_Anaphora_1). Also "Then you" structure for rhetorical emphasis (narr:StyleObs_3).
+### Transaction History
+# 
+#### 13 transactions
+#### 1,943 triples inserted
+#### 689 duplicates deduplicated
 
----
-## Rubric Performance
-
----
-### Strategic Alignment
-# 4.5–5.0
-## Directly advances narrative[][#strategy-score]
-	[#strategy-score]: Strategic alignment scores range from 4.5 to 5.0 across samples. "Entire presentation is a narrative anchor: 'Immutable Selves' thesis; two solution archetypes; clear mission/vision alignment" (narr:RubricAssess_Strategy_Conj). Explicitly ties architecture to case studies and system outcomes.
-
----
-### Tailoring
-# 4.0–5.0
-## Deeply audience-specific[][#tailoring-score]
-	[#tailoring-score]: Tailoring scores 4.0–5.0. "Deeply tailored to Clojure/conj audience: references Backbone.js, Om, Datomic, re-frame; assumes functional programming literacy" (narr:RubricAssess_Tailoring_Conj). Programming-literate entrepreneurs, designers, developers, consultants (storybase.synthetic-identity.co/actor/primary-storybase).
-
----
-### Resonance
-# 4.0–4.5
-## Strong analogies & examples[][#resonance-score]
-	[#resonance-score]: Resonance scores 4.0–4.5. "Strong analogies (experience→log→identity); metaphors (Backbone.js as anti-pattern); personal story (gender transition) adds emotional resonance" (narr:RubricAssess_Resonance_Conj). Concrete examples like North Korea deepfakes and employee lifecycle strengthen narrative proof.
-
----
-### Accuracy
-# 4.0
-## Technical terms correct
-# Citations present[][#accuracy-score]
-	[#accuracy-score]: Accuracy scores 4.0 across samples. "Technical terms used correctly; citation marker present; workflow steps verifiable; no falsifiable claims detected" (narr:RubricAssess_9). Named entities (berecognized.id, aswritten.ai, Vouch, North Korea) are specific and correct.
-
----
-## Transactions
-
----
-### Deduplication (2025-11-13)
-	Consolidated 539 duplicate triples into 1,613 canonical records. Merged Sample_1 metadata, deduplicated narrative concepts with owl:sameAs, consolidated style observations, merged rubric assessments, aggregated style metrics with rolling averages[][#dedupe].
-	[#dedupe]: Transaction narr:Tx_Deduplication_20251113 at 2025-11-13T04:17:05.187Z by pleasetrythisathome. Marked deprecated versions with prov:wasRevisionOf and owl:deprecated true. Created canonical consolidated records for Sample_1, Narrative_1, StyleObs, RubricAssess, and Metrics.
-
----
-### Sample 1 Concepts (2025-11-13)
-	Initial extraction from clojure-conj-2025 repo README and voice memo. Added Narrative_1 (Identity as Compiled from Immutable History), Flow_1 (Content Production Workflow), Behavior_1 (Normalize Transcription), Milestone_1 (Initial storyBASE Graph), Proof_1 (Meta-Demonstration)[][#sample1-tx].
-	[#sample1-tx]: Transaction narr:Tx_20251113T033534Z_claude45 by storyTWIN (anthropic/claude-sonnet-4.5). Generated 9 rubric assessments, 7 style observations, and style metrics (avg sentence length 22.3, active voice 0.78, jargon density 0.12).
-
----
-### Sample 1 Narrative (2025-11-13)
-	Refinements for reified change design pattern section. Added Claim_ReifiedChangePattern, SystemProperty_ImmutabilityProvenance, SystemProperty_DistributedDecentralization, CaseStudy_BeRecognizedID, CaseStudy_AsWrittenAI, Risk_GhostLabor, Flow_EmployeeLifecycle[][#narrative-tx].
-	[#narrative-tx]: Transaction narr:Tx_20251113T032552Z_sample1 from user message, 4,237 characters. Added 10 style observations including 'ghost labor' metaphor, 'as-of T' terminology, parallel structure. Generated 9 rubric assessments with Strategy 4.5, Resonance 4.5.
-
----
-### Conj Presentation (2025-11-13)
-	Clojure/conj 2025 presentation extraction. Added Narrative_ImmutableIdentity, Theme_FunctionalIdentity, Actor_Human, Actor_AI, SolutionArchetype_BeRecognized, SolutionArchetype_AsWritten, Tagline_AsWritten ("AI that tells your story, as written")[][#conj-tx].
-	[#conj-tx]: Transaction narr:Tx_20251113T030805Z_conj2025 from 6,847-character presentation transcript. Generated 9 style observations (brand stylization, metaphor, anaphora, rhetorical questions) and 9 rubric assessments. Scores: Strategic Alignment 5.0, Tailoring 5.0, Novelty 4.5.
-
----
-### Immutable Selves Talk (2025-11-11)
-	Added narrative anchors: Tagline_1 ("Immutable Selves: A Functional Approach to Digital Identity"), Mission_1, Vision_1, KeyPhrase_1–4. Product ladder: Primitive_1–3, Behavior_1, Flow_1, Narrative_1. Solution archetypes with problem context, approach patterns, required capabilities[][#talk-tx].
-	[#talk-tx]: Transaction narr:Tx_20251111T214920Z_immutable_selves generated 38 entities including technical explainers (LeverageProfile_1, DesignTradeoff_1, ComparativeAnalysis_1), case studies, style observations, and rubric assessments. Source: "Immutable Selves talk", 5,847 characters.
-
----
-### Sample 1 Architecture (2025-11-10)
-	Voice memo extraction outlining narrative architecture for identity-as-append-only-log talk. Added Theme_ImmutableIdentity, Theme_TransitionAsStateChange, Actor_ScarletDame (with altLabels Dylan Butman, Scarlet Spectacular), Anchor_NarrativeArchitecture[][#arch-tx].
-	[#arch-tx]: Transaction narr:Tx_20251110T184512Z_sample1 from "Voice memo: Punch talk conceptual framing", 11,800 characters. Generated 6 style observations (storyBASE brand, append-only log phrasing, UI state machine metaphor, transition analogy) and 8 rubric assessments. Speaker: Scarlet Dame.
-
----
-### Product Check-in (2025-11-09)
-	SIC / storyBASE / as written.ai product & strategy check-in. Added market opportunity, timing thesis (2024-2026 window), positioning thesis, moat leverage, product overview, modules capabilities, dependencies, roadmap, system topology, data lifecycle, integration points, role topology, process[][#checkin-tx].
-	[#checkin-tx]: Transaction storybase.synthetic-identity.co/transaction/2025-01-29T000000Z_sic-storybase-checkin by n8n.storyTWIN/MCP. Generated 10 style observations and 9 rubric assessments. Input length 18,437 characters. Attributed to actor scarlet-dame.
-
----
-### Conj Talk Extraction (2025-11-09)
-	First extraction for Conj Talk 2025 proposal. Captured narrative architecture (Opportunity, Strategy, Product, Proof, Architecture, Organization), style observations, rubric assessments, and style metrics. Added opportunity (Identity Vulnerability Crisis), strategy (Functional Immutable Identity Architecture), products (Vouch.io, Sic)[][#first-tx].
-	[#first-tx]: Transaction narr:Tx_20251109T223928Z_conj2025 by storyTWIN (anthropic/claude-sonnet-4.5). Generated sample record (3,421 characters), architecture (immutable identity system patterns), organizations (Sic, Vouch.io), 11 style observations, 4 rubric assessments. Scores: Clarity 4.5, Technical Depth 4.8, Narrative Coherence 4.6.
-
----
-## Roadmap
-
----
-### Near-term
-# Named graphs (TriG)
-## SHACL validation
-# Evolved individuation pipeline[][#roadmap-near]
-	[#roadmap-near]: Move transactions from SPARQL to named graphs (TriG); add SHACL validation; implement evolved individuation pipeline (snapshot + message to transaction) (storybase.synthetic-identity.co/roadmap/narrative-storybase).
-
----
-### Mid-term
-# File ingestion via GitHub
-## storyBASE marketplace
-# Cost pass-through billing[][#roadmap-mid]
-	[#roadmap-mid]: File ingestion via GitHub; storyBASE marketplace; cost pass-through billing (storybase.synthetic-identity.co/roadmap/narrative-storybase). Related to narrative expansion (storybase.synthetic-identity.co/core/narrative-expansion).
-
----
-### Vision
-# Deterministic AI queries
-## Billion-node graphs
-# Shareable perspectives[][#roadmap-vision]
-	[#roadmap-vision]: Future vision includes "deterministic AI perspective 'as-of T' for graph queries" with examples: full talk as query, section of talk, talk evolution over time, any accessible graph subset within billion-node graph (narr:FutureVision_DeterministicAI). Close with chat for participants to engage with narrative source of truth.
-
----
-## Proof
-
----
-### Meta-Demonstration
-# This talk
-## Created with storyBASE[][#meta]
-	[#meta]: "The talk itself exemplifies the reified change architecture and storyBASE workflow, showing iterative refinement from raw inputs to polished outputs" (narr:Proof_1). Meta-narrative closing demonstrates storyBASE workflow via talk creation process (narr:Sample_1 note).
-
----
-### Case Studies
-# berecognized.id
-## aswritten.ai
-# Vouch.io[][#cases]
-	[#cases]: Three case studies demonstrate the pattern: berecognized.id (human identity via reified change), aswritten.ai (AI memory via reified change), and Vouch.io (enterprise identity platform using immutable event logs). All share the same architectural primitives: append-only log, SSoT, pure function render.
-
----
-### Metrics
-# 1,613 canonical records
-## 539 duplicates consolidated
-# 9 transactions[][#metrics]
-	[#metrics]: Current snapshot contains 1,613 inserted triples after deduplication (539 skipped duplicates). Generated from 9 transactions spanning 2025-11-09 to 2025-11-13. Style metrics show consistent voice: active voice ratio 0.75–0.85, average sentence length 12.3–22.3, jargon density 0.12–0.18.
-
----
-## The Pattern
-
----
-###### Immutability
-### Enables equality
-# Provenance
-## Versioning
-# Decentralization[][#leverage]
-	[#leverage]: "Immutability enables equality, provenance, versioning, branching, generative testing, decentralization, and infinite read scale—for free" (narr:LeverageProfile_1). Small choice (append-only) creates outsized effects across system.
-
----
-###### Trade-offs
-### Bottleneck at transactor
-# All logic in event clients
-## Transact is just adding triples[][#tradeoffs]
-	[#tradeoffs]: "Bottleneck at single transactor; all logic in event clients; transact is just adding triples" (narr:DesignTradeoff_1). What we gave up: distributed writes. Why worth it: consistency, provenance, auditability.
-
----
-###### When to Use
-### Provenance matters
-# Auditability required
-## Equality by design[][#when]
-	[#when]: "When to use: when provenance, auditability, and equality matter more than write throughput" (narr:ComparativeAnalysis_1). Backbone.js (query DOM, mutate picture) vs. Om/React (state machine, pure function render). Identity systems today are Backbone; this is Om for identity.
-
----
-## Now Go Build
-
----
-### Your narrative
-# As written
-## With provenance[][#cta]
-	[#cta]: The tagline "AI that tells your story, as written" (narr:Tagline_AsWritten) encodes the promise: 7-word tagline encoding promise and brand. Mission: "Move identity from mutable documents and profiles to compiled surfaces rendered from append-only logs and single sources of truth" (narr:Mission_1).
-
----
-###### Get Started
-### Chat with this storyBASE
-# Query the narrative graph
-## See the pattern in action
-
-For more: [as written.ai](https://aswritten.ai)
-
----
-## Appendix: Transaction History
+	The storyBASE snapshot was compiled from 13 transactions across 9 days (2025-11-09 to 2025-11-13). Key transactions: initial extraction (Tx_20251109T223928Z_conj2025), voice memo analysis (Tx_20251110T184512Z_sample1), deduplication (dedupe.sparql), and final observations (Tx_20251113T200138Z_immutable_selves)[][#txhistory].
+	[#txhistory]: Derived from SNAPSHOT transaction metadata; 1,943 triples inserted, 689 skipped duplicates, 0 deleted (compile stats).
 
 ```mermaid
-gantt
-    title storyBASE Transaction Timeline
-    dateFormat YYYY-MM-DD
-    section Extraction
-    Conj Talk Extraction           :2025-11-09, 1d
-    Sample 1 Architecture          :2025-11-10, 1d
-    Immutable Selves Talk          :2025-11-11, 1d
-    section Refinement
-    Sample 1 Narrative             :2025-11-13, 1d
-    Sample 1 Concepts              :2025-11-13, 1d
-    Conj Presentation              :2025-11-13, 1d
-    section Consolidation
-    Deduplication                  :2025-11-13, 1d
+gitGraph
+    commit id: "Initial extraction (conj-talk-2025)"
+    commit id: "Voice memo (sample1)"
+    commit id: "Narrative anchors"
+    commit id: "Product ladder"
+    commit id: "Solution archetypes"
+    branch dedup
+    commit id: "Deduplication (539→1613)"
+    checkout main
+    merge dedup
+    commit id: "Case study refinements"
+    commit id: "Final observations"
 ```
 
 ---
-###### Provenance
-### Every claim
-# Traceable to transaction
-## Auditable by design
+## Style Profile
 
-This presentation was generated from storyBASE snapshot compiled 2025-11-13T20:09:09.385Z, containing 1,613 triples from 9 transactions, attributed to pleasetrythisathome, using anthropic/claude-sonnet-4.5.
+---
+### Measured Characteristics
+# 
+#### Avg sentence: 18.5 words
+#### Active voice: 82%
+#### Jargon density: 15%
+
+	Style metrics from narr:Metrics_Sample_1: average sentence ~18.5 words; 82% active voice; 15% jargon (domain terms); 78% conciseness (low filler)[][#metrics]. Short, punchy cadence with arrow notation; canonical terms enforced (append-only log, as-of T, render target)[][#style].
+	[#metrics]: narr:Metrics_Sample_1 (Tx_20251113T200138Z_immutable_selves).
+	[#style]: narr:StyleObs_Cadence_Loop, narr:Obs_KeyPhrase_AppendOnlyLog, narr:Obs_KeyPhrase_SnapshotAsOfT (Tx_20251113T200138Z_immutable_selves).
+
+---
+### Rubric Scores (0–5)
+# 
+#### Strategic Alignment: 5.0
+#### Cadence: 4.5
+#### Phrasing: 4.0
+
+	Rubric assessment for Sample_1: Strategic Alignment 5.0 (thesis, mission, vision, key phrases all align to core narrative)[][#strategy]; Cadence 4.5 (short, punchy sentences; arrow notation; 'say it in one breath' flow)[][#cadence]; Phrasing 4.0 (domain verbs; stock phrases; canonical key phrases enforced)[][#phrasing].
+	[#strategy]: narr:Assess_StrategicAlignment_Sample_1 (Tx_20251113T200138Z_immutable_selves).
+	[#cadence]: narr:Assess_Cadence_Sample_1 (Tx_20251113T200138Z_immutable_selves); related to narr:StyleObs_Cadence_Loop.
+	[#phrasing]: narr:Assess_Phrasing_Sample_1 (Tx_20251113T200138Z_immutable_selves); related to narr:Obs_KeyPhrase_AppendOnlyLog, narr:Obs_KeyPhrase_SnapshotAsOfT.
+
+---
+## Repository Structure
+
+---
+### .storyBASE/
+# 
+#### Transaction log (SPARQL)
+#### Compiled snapshot (Turtle)
+
+	Transactions stored as timestamped SPARQL files in .storyBASE/ directory; snapshot.ttl compiled by replaying sorted transactions; provenance tracked via prov:wasGeneratedBy linking to transaction activities[][#structure].
+	[#structure]: Inferred from transaction file paths and storybase.synthetic-identity.co/model/data-lifecycle-storybase.
+
+---
+### .story files
+# 
+#### YAML front matter + prompt
+#### Triggers GitHub Actions
+
+	Story files contain YAML front matter (id, title, version, description, destination, model) plus prompt body; changes trigger GitHub Actions for story generation[][#stories]. Current stories: README.story, presenter.story, conj-talk-2025.story.
+	[#stories]: From STORIES array in snapshot; related to storybase.synthetic-identity.co/module/storybase-capabilities.
+
+---
+## Key Transactions
+
+---
+### 2025-11-13T20:01:38Z
+# Latest observations
+
+	Tx_20251113T200138Z_immutable_selves: Added comprehensive observations for Immutable Selves talk—tagline, mission, vision, key phrases (append-only log, snapshot as-of T, identity surface), core loop flow, case studies (berecognized.id, aswritten.ai), sales deck story arc, rubric assessments, style metrics[][#latest].
+	[#latest]: narr:Tx_20251113T200138Z_immutable_selves; generated 40+ nodes including narr:Obs_Tagline_1, narr:Obs_Mission_1, narr:Obs_Vision_1, narr:CaseStudy_berecognized, narr:CaseStudy_aswritten.
+
+---
+### 2025-11-13T04:17:05Z
+# Deduplication
+
+	Consolidated 539 duplicate triples into 1,613 canonical records[][#dedup]. Merged Sample_1 metadata; linked equivalent narratives with owl:sameAs; consolidated style observations by linguistic feature; aggregated metrics (rolling average); marked deprecated versions.
+	[#dedup]: dedupe.sparql transaction; narr:Tx_Deduplication_20251113 metadata.
+
+---
+### 2025-11-13T03:08:05Z
+# Conj presentation extraction
+
+	First extraction from Clojure/conj 2025 presentation transcript (6,847 chars)[][#conj]. Captured narrative (Immutable Selves), themes (Functional Identity), actors (Human, AI), solution archetypes (berecognized.id, aswritten.ai), tagline, style observations (brand stylization, metaphors, anaphora, rhetorical questions), rubric assessments, metrics.
+	[#conj]: narr:Tx_20251113T030805Z_conj2025; generated narr:Sample_ConjPresentation_2025, narr:Narrative_ImmutableIdentity, narr:Theme_FunctionalIdentity, narr:Actor_Human, narr:Actor_AI.
+
+---
+### 2025-11-10T18:45:12Z
+# Voice memo analysis
+
+	Transcribed voice memo outlining narrative architecture for identity-as-append-only-log talk; speaker: Scarlet Dame[][#voice]. Extracted themes (Immutable Identity, Transition as State Machine), actors (Scarlet Dame, Luke Vanderhart), anchor concept (Narrative Architecture), style observations (storyBASE brand, append-only log idiom, UI state machine metaphor), rubric assessments.
+	[#voice]: narr:Tx_20251110T184512Z_sample1; generated narr:Sample_1, narr:Theme_ImmutableIdentity, narr:Actor_ScarletDame, narr:Anchor_NarrativeArchitecture.
+
+---
+## The Stories
+
+---
+### README.story
+# State, Stories, Assets, Transactions
+
+	Autogenerated README tracking storyBASE as written. Summarizes current state, each story's intent and relationship to whole, repository structure, and transaction history (sorted newest first)[][#readme].
+	[#readme]: From STORIES[0]; destination: /, model: anthropic/claude-sonnet-4.5.
+
+---
+### presenter.story
+# Repo presentation
+
+	IA presenter template for talk presentation of the storyBASE. Focus on clear narrative statements in slide copy with brief talk tracks; use mermaid charts for flows/sequences/architecture[][#presenter].
+	[#presenter]: From STORIES[1]; this presentation is the output of presenter.story.
+
+---
+### conj-talk-2025.story
+# Immutable Selves Talk
+
+	IA presenter template for the Immutable Selves Clojure/conj 2025 talk. Drafts the talk using storyBASE with clear narrative statements, talk tracks, and mermaid charts[][#conjtalk].
+	[#conjtalk]: From STORIES[2]; related to narr:Sample_ConjPresentation_2025 and narr:Narrative_ImmutableIdentity.
+
+---
+## The Mission
+
+---
+# Move identity from mutable documents
+## to compiled surfaces
+
+	Move identity from mutable documents and profiles to compiled surfaces rendered from append-only logs and single sources of truth[][#mission]. Durable purpose: make identity deterministic, provable, and decentralized.
+	[#mission]: narr:Mission_1 (Tx_20251111T214920Z_immutable_selves); related to narr:Obs_Mission_1 "Generalize append-only log pattern to identity" (Tx_20251113T200138Z_immutable_selves).
+
+---
+## The Vision
+
+---
+# Identity—human, synthetic, AI—
+## rendered from immutable history
+
+	A world where identity—human, synthetic, AI—is rendered from immutable history, enabling equality, provenance, and trust by design[][#vision]. Future state: identity systems that inherit Clojure's guarantees.
+	[#vision]: narr:Vision_1 (Tx_20251111T214920Z_immutable_selves); related to narr:Obs_Vision_1 "Engineers apply the pattern in their domain" (Tx_20251113T200138Z_immutable_selves).
+
+---
+## Canonical Terms
+
+---
+### Key Phrases
+# 
+#### append-only log
+#### snapshot (as-of T)
+#### render target / identity surface
+
+	Canonical terminology enforced across the graph: "Append-only log (single source of truth)" is the immutable event stream; "Snapshot (as-of T)" is the compiled view derived from log at specific time/commit; "Render target / Identity surface" is what gets shown/issued (ID, privileges, AI memory/perspective)[][#terms].
+	[#terms]: narr:Obs_KeyPhrase_AppendOnlyLog, narr:Obs_KeyPhrase_SnapshotAsOfT, narr:Obs_KeyPhrase_IdentitySurface (Tx_20251113T200138Z_immutable_selves); avoid calling snapshot 'SSoT'.
+
+---
+## The Moat
+
+---
+### Git-native, versionable, branchable
+# AI memory encoding style, conviction, narrative metrics
+
+	Git-native, versionable, branchable AI memory encoding style, conviction, narrative metrics; replaces brittle role prompts with deep, operable persona descriptions[][#moat]. Clojure ecosystem (Datomic, datalog, re-frame) as proof-of-concept; 13 years of production experience; provenance and equality by design[][#moat2].
+	[#moat]: storybase.synthetic-identity.co/leverage/moat-storybase (Tx_2025-01-29T000000Z_sic-storybase-checkin).
+	[#moat2]: narr:MoatLeverage_1 (Tx_20251111T214920Z_immutable_selves).
+
+---
+## Timing Thesis
+
+---
+### Why Now
+# 
+#### Prompt engineering maturity
+#### Multi-agent workflows
+#### Demand for organizational AI memory
+
+	Convergence of prompt engineering maturity, multi-agent workflows, and demand for organizational AI memory creates window for narrative-driven context management[][#timing]. High-quality AI output requires extensive context; current models use search, but RDF-based narrative source of truth enables specific, controllable, versionable AI memory[][#opportunity].
+	[#timing]: storybase.synthetic-identity.co/thesis/timing-storybase (Tx_2025-01-29T000000Z_sic-storybase-checkin); timestamp window 2024-2026.
+	[#opportunity]: storybase.synthetic-identity.co/opportunity/storybase-market (Tx_2025-01-29T000000Z_sic-storybase-checkin).
+
+---
+## From Backbone to Om
+
+---
+### Identity is not mutable state
+# Yet we're treating it like Backbone.js
+
+	Core analogy: identity systems today are Backbone.js (query DOM, mutate picture); this is Om for identity (state machine, pure function render)[][#comparison]. When to use: when provenance, auditability, and equality matter more than write throughput.
+	[#comparison]: narr:ComparativeAnalysis_1 (Tx_20251111T214920Z_immutable_selves); related to narr:StyleObs_Metaphor_1 (Tx_20251113T030805Z_conj2025).
+
+---
+### The Evolution
+# 
+#### 2012: Backbone.js (mutate DOM)
+#### 2013: Om (state machine)
+#### 2025: Immutable Selves
+
+	Speaker's 13-year career in Clojure; evolution from Backbone.js (2012) to Om (2013) to production systems at scale[][#case]. Applied Clojure principles (immutability, pure functions, single source of truth) to UI, then identity systems (berecognized.id, aswritten.ai). Results: provenance, equality, versioning, decentralization, infinite read scale achieved; systems in production[][#results].
+	[#case]: narr:CaseStudy_1, narr:CaseContext_1, narr:CaseIntervention_1 (Tx_20251111T214920Z_immutable_selves).
+	[#results]: narr:CaseResults_1 (Tx_20251111T214920Z_immutable_selves).
+
+---
+## The Pattern Applied
+
+---
+### Reified Change
+# 
+#### Make state explicit
+#### Append-only log → Single source of truth
+#### Render as pure function → Deterministic UIs
+
+	Reified change design pattern from Clojure principles: immutability and explicit state management enable provenance, equality, and offline capability[][#pattern]. System properties: immutability provides equality and provenance (transaction log ensures auditability)[][#property1]; distributed decentralization (reads scale linearly; data model exists off-server)[][#property2].
+	[#pattern]: narr:Claim_ReifiedChangePattern (Tx_20251113T032552Z_sample1); supports narr:DataModelLifecycle and narr:ReliabilityResilience.
+	[#property1]: narr:SystemProperty_ImmutabilityProvenance (Tx_20251113T032552Z_sample1); evidenced by narr:CaseStudy_BeRecognizedID and narr:CaseStudy_AsWrittenAI.
+	[#property2]: narr:SystemProperty_DistributedDecentralization (Tx_20251113T032552Z_sample1).
+
+---
+## Future Vision
+
+---
+### Deterministic AI perspective 'as-of T'
+# for graph queries
+
+	Examples: full talk as query, section of talk, talk evolution over time, any accessible graph subset within billion-node graph[][#future]. Close with examples of such queries, then link to chat for participants to engage with narrative source of truth.
+	[#future]: narr:FutureVision_DeterministicAI (Tx_20251113T032552Z_sample1); supports narr:CaseStudy_AsWrittenAI.
+
+---
+## Risk: Ghost Labor
+
+---
+### Bad actors deepfaking candidates
+# passing interviews, collecting paychecks
+
+	Ghost labor & impersonation risk: bad actors (individuals or state actors like North Korea) deepfaking candidates, passing interviews, collecting paychecks on behalf of fake identities[][#risk]. Mitigated by continuous identity establishment via append-only log.
+	[#risk]: narr:Risk_GhostLabor (Tx_20251113T032552Z_sample1); challenges narr:CaseStudy_BeRecognizedID.
+
+---
+## Employee Lifecycle
+
+---
+### Continuous Identity
+# 
+#### Endorsement → Zoom → in-person → state ID
+#### → assigned role → 'as-of' query → device snapshot
+
+	Endorsement by interviewer → Zoom calls → in-person meetings → state ID uploads → assigned role with privileges → 'as-of' query compiles snapshot (digital identification) on device[][#lifecycle]. This flow supports berecognized.id case study.
+	[#lifecycle]: narr:Flow_EmployeeLifecycle (Tx_20251113T032552Z_sample1); related to narr:Behaviors and narr:Storyboards.
+
+```mermaid
+sequenceDiagram
+    participant Interviewer
+    participant Candidate
+    participant System as Datomic Log
+    participant Device
+    
+    Interviewer->>System: Endorse (event)
+    Candidate->>System: Zoom verification (event)
+    Candidate->>System: In-person meeting (event)
+    Candidate->>System: State ID upload (event)
+    System->>System: Assign role + privileges (event)
+    System->>System: Compile as-of T
+    System->>Device: Render identification snapshot
+    Device->>Device: Hash (proof of provenance)
+```
+
+---
+## Now Go and Build
+
+---
+### Apply the pattern in your domain
+# 
+#### Model events
+#### Write pure handlers
+#### Transact to append-only store
+#### Compile as-of T
+#### Render surface
+
+	The vision: engineers apply the pattern in their domain—model events, write handlers, transact to append-only store, compile as-of T, render surface[][#vision-action]. Same principles apply across UI, identity, and AI; immutability is the unlock; single transactor is acceptable bottleneck[][#lessons].
+	[#vision-action]: narr:Obs_Vision_1 (Tx_20251113T200138Z_immutable_selves).
+	[#lessons]: narr:CaseLessons_1 (Tx_20251111T214920Z_immutable_selves).
+
+---
+## Chat with the storyBASE
+
+For more, explore the graph at [aswritten.ai](https://aswritten.ai)
+
+	This presentation was compiled from storyBASE snapshot generated 2025-11-13T20:17:58.972Z; 1,943 triples; 13 transactions; provenance traceable to source samples and style observations[][#meta].
+	[#meta]: Snapshot metadata; demonstrates narr:Proof_1 "Meta-Demonstration: Talk Creation Process" (Tx_20251113T033534Z_claude45).
