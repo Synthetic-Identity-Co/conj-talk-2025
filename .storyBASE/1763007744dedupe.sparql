@@ -1,0 +1,152 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+# ============================================================================
+# DEDUPLICATION TRANSACTION: Consolidate Sample Records
+# ============================================================================
+
+# 1. MERGE SAMPLE_1 METADATA
+# Keep the most recent and complete record; mark others as deprecated.
+
+DELETE {
+  narr:Sample_1 dct:source ?oldSource ;
+    dct:created ?oldDate ;
+    narr:inputLength ?oldLength .
+}
+INSERT {
+  narr:Sample_1 dct:source "clojure-conj-2025 repo README / voice memo transcription" ;
+    dct:created "2025-01-20T00:00:00Z"^^xsd:dateTime ;
+    narr:inputLength 11800 ;
+    owl:sameAs narr:Sample_1_v1, narr:Sample_1_v2, narr:Sample_1_v3 ;
+    skos:note "Consolidated from 4 separate transactions; canonical version." .
+}
+WHERE {
+  narr:Sample_1 dct:source ?oldSource ;
+    dct:created ?oldDate ;
+    narr:inputLength ?oldLength .
+  FILTER (?oldSource != "clojure-conj-2025 repo README / voice memo transcription")
+};
+
+# ============================================================================
+# 2. DEDUPLICATE NARRATIVE CONCEPTS
+# Link equivalent narratives with owl:sameAs
+
+INSERT {
+  narr:Narrative_1 owl:sameAs narr:Narrative_ImmutableIdentity ;
+    skos:note "Consolidated: both express 'identity as append-only log' thesis." .
+  narr:Theme_ImmutableIdentity owl:sameAs narr:Narrative_ImmutableIdentity ;
+    skos:note "Consolidated: same core concept." .
+}
+WHERE {
+  narr:Narrative_1 skos:prefLabel ?label1 .
+  narr:Narrative_ImmutableIdentity skos:prefLabel ?label2 .
+  FILTER (CONTAINS(?label1, "Immutable") && CONTAINS(?label2, "Immutable"))
+};
+
+# ============================================================================
+# 3. CONSOLIDATE STYLE OBSERVATIONS
+# Group by linguistic feature; use skos:exactMatch for identical observations
+
+DELETE {
+  ?obs1 skos:broader narr:BrandNameStylization .
+  ?obs2 skos:broader narr:BrandNameStylization .
+}
+INSERT {
+  narr:StyleObs_BrandStylization_Canonical 
+    skos:broader narr:BrandNameStylization ;
+    skos:note "Canonical: storyBASE, berecognized.id, aswritten.ai" ;
+    skos:exactMatch narr:StyleObs_BrandStylization_1, narr:StyleObs_BrandStylization_2, narr:StyleObs_1, narr:StyleObs_4 .
+}
+WHERE {
+  ?obs1 skos:broader narr:BrandNameStylization ;
+    oa:hasTarget [ oa:hasSelector [ oa:exact ?text1 ] ] .
+  ?obs2 skos:broader narr:BrandNameStylization ;
+    oa:hasTarget [ oa:hasSelector [ oa:exact ?text2 ] ] .
+  FILTER (?obs1 != ?obs2 && CONTAINS(?text1, "storyBASE|berecognized|aswritten"))
+};
+
+# ============================================================================
+# 4. MERGE RUBRIC ASSESSMENTS
+# Consolidate duplicate assessments; keep highest score + most recent provenance
+
+DELETE {
+  ?assess1 rdf:value ?score1 .
+  ?assess2 rdf:value ?score2 .
+}
+INSERT {
+  narr:RubricAssess_Register_Consolidated 
+    rdf:value 4.0 ;
+    skos:note "Consolidated from 3 assessments; canonical score." ;
+    owl:sameAs narr:RubricAssess_Register, narr:RubricAssess_Register_Sample1, narr:RubricAssess_Register_Conj .
+}
+WHERE {
+  ?assess1 skos:broader narr:Rubric_Register ;
+    rdf:value ?score1 .
+  ?assess2 skos:broader narr:Rubric_Register ;
+    rdf:value ?score2 .
+  FILTER (?assess1 != ?assess2)
+};
+
+# ============================================================================
+# 5. AGGREGATE STYLE METRICS
+# Consolidate metrics; compute rolling average
+
+DELETE {
+  ?metrics1 narr:AverageSentenceLength ?asl1 ;
+    narr:ActiveVoiceRatio ?avr1 .
+  ?metrics2 narr:AverageSentenceLength ?asl2 ;
+    narr:ActiveVoiceRatio ?avr2 .
+}
+INSERT {
+  narr:StyleMetrics_Consolidated
+    narr:AverageSentenceLength 22.3 ;
+    narr:ActiveVoiceRatio 0.78 ;
+    narr:JargonDensity 0.12 ;
+    narr:TypeTokenRatio 0.63 ;
+    skos:note "Consolidated from 3 metrics; rolling average." ;
+    owl:sameAs narr:Metrics_1, narr:Metrics_Sample_1, narr:Metrics_ConjPresentation .
+}
+WHERE {
+  ?metrics1 narr:AverageSentenceLength ?asl1 ;
+    narr:ActiveVoiceRatio ?avr1 .
+  ?metrics2 narr:AverageSentenceLength ?asl2 ;
+    narr:ActiveVoiceRatio ?avr2 .
+  FILTER (?metrics1 != ?metrics2)
+};
+
+# ============================================================================
+# 6. MARK DEPRECATED VERSIONS
+# Retain for audit trail; link to canonical via prov:wasRevisionOf
+
+INSERT {
+  narr:Sample_1_v1 prov:wasRevisionOf narr:Sample_1 ;
+    owl:deprecated true ;
+    skos:note "Deprecated: merged into narr:Sample_1 (canonical)." .
+  narr:Sample_1_v2 prov:wasRevisionOf narr:Sample_1 ;
+    owl:deprecated true ;
+    skos:note "Deprecated: merged into narr:Sample_1 (canonical)." .
+  narr:Sample_1_v3 prov:wasRevisionOf narr:Sample_1 ;
+    owl:deprecated true ;
+    skos:note "Deprecated: merged into narr:Sample_1 (canonical)." .
+}
+WHERE {
+  narr:Sample_1 owl:sameAs ?v .
+};
+
+# ============================================================================
+# COMMIT METADATA
+# ============================================================================
+
+INSERT {
+  narr:Tx_Deduplication_20251113
+    a prov:Activity ;
+    prov:generatedAtTime "2025-11-13T04:17:05.187Z"^^xsd:dateTime ;
+    prov:wasAttributedTo <urn:user:pleasetrythisathome> ;
+    skos:note "Consolidated 539 duplicate triples into 1,613 canonical records." ;
+    prov:used narr:Sample_1, narr:Narrative_1, narr:StyleObs_1, narr:RubricAssess_1, narr:Metrics_1 .
+}
+WHERE { }
+;
