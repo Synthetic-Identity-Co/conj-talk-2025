@@ -1,0 +1,19 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+DELETE {
+  narr:Sample_1 dct:source ?oldSource ;
+    dct:created ?oldCreated ;
+    narr:inputLength ?oldLength .
+}
+INSERT {
+  narr:Sample_1 dct:source "Immutable Selves Talk Brief (Normalized)" ;
+    dct:created "2025-10-29"^^xsd:date ;
+    narr:inputLength 12847 .
+}
+WHERE {
+  OPTIONAL { narr:Sample_1 dct:source ?oldSource . }
+  OPTIONAL { narr:Sample_1 dct:created ?oldCreated . }
+  OPTIONAL { narr:Sample_1 narr:inputLength ?oldLength . }
+}
