@@ -1,0 +1,456 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct:  <http://purl.org/dc/terms/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX oa:   <http://www.w3.org/ns/oa#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sb:   <http://example.org/storytwin/base#>
+PREFIX storytwin: <http://example.org/storytwin#>
+
+INSERT DATA {
+  # Transaction-level provenance
+  narr:Tx_20251113T030805Z_conj2025
+    a prov:Activity ;
+    prov:wasAssociatedWith "storyTWIN" ;
+    prov:wasAttributedTo "pleasetrythisathome" ;
+    prov:generatedAtTime "2025-11-13T03:08:05.741Z"^^xsd:dateTime ;
+    sb:originPath "" ;
+    sb:originRef "main" ;
+    prov:generated narr:Sample_ConjPresentation_2025,
+                   narr:Narrative_ImmutableIdentity,
+                   narr:Theme_FunctionalIdentity,
+                   narr:Actor_Human,
+                   narr:Actor_AI,
+                   narr:SolutionArchetype_BeRecognized,
+                   narr:SolutionArchetype_AsWritten,
+                   narr:Tagline_AsWritten,
+                   narr:StyleObs_BrandStylization_1,
+                   narr:StyleObs_BrandStylization_2,
+                   narr:StyleObs_Metaphor_1,
+                   narr:StyleObs_Anaphora_1,
+                   narr:StyleObs_RhetoricalQuestion_1,
+                   narr:StyleObs_ShortPunchy_1,
+                   narr:StyleObs_StockPhrase_1,
+                   narr:StyleObs_CitationMarker_1,
+                   narr:StyleObs_SecondPerson_1,
+                   narr:StyleObs_Analogy_1,
+                   narr:Metrics_ConjPresentation,
+                   narr:RubricAssess_Register_Conj,
+                   narr:RubricAssess_Phrasing_Conj,
+                   narr:RubricAssess_Cadence_Conj,
+                   narr:RubricAssess_Strategy_Conj,
+                   narr:RubricAssess_Tailoring_Conj,
+                   narr:RubricAssess_Resonance_Conj,
+                   narr:RubricAssess_Flow_Conj,
+                   narr:RubricAssess_Novelty_Conj,
+                   narr:RubricAssess_Accuracy_Conj .
+
+  # Sample
+  narr:Sample_ConjPresentation_2025
+    a narr:Sample ;
+    dct:source "Clojure/conj 2025 presentation: Immutable Selves" ;
+    dct:created "2025-01-01"^^xsd:date ;
+    dct:extent "6847"^^xsd:integer ;
+    skos:note "Presentation transcript on functional identity, immutability, and AI memory." ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  # Narrative
+  narr:Narrative_ImmutableIdentity
+    a narr:Narrative ;
+    skos:broader narr:Narratives ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    skos:prefLabel "Immutable Selves" ;
+    skos:definition "Identity—both human and AI—should be modeled as an append-only log that compiles to state, not mutable objects." ;
+    skos:note "Core thesis: experience is an append-only log; identification is a render target; interaction is transaction." ;
+    skos:related narr:Mission, narr:Vision ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  # Theme
+  narr:Theme_FunctionalIdentity
+    a skos:Concept ;
+    skos:broader narr:Narratives ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    skos:prefLabel "Functional Approach to Digital Identity" ;
+    skos:definition "Apply Clojure design patterns—immutability, reified change, single source of truth—to identity systems." ;
+    skos:related narr:PositioningThesis, narr:Differentiators ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  # Actors
+  narr:Actor_Human
+    a skos:Concept ;
+    skos:broader narr:PrimaryActors ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    skos:prefLabel "Human (Individual)" ;
+    skos:definition "Source of truth for identity; authorities issue documents that make claims." ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:Actor_AI
+    a skos:Concept ;
+    skos:broader narr:PrimaryActors ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    skos:prefLabel "AI (Agent)" ;
+    skos:definition "Source of truth unclear; labs train models that say stuff; each chat is different context." ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  # Solution Archetypes
+  narr:SolutionArchetype_BeRecognized
+    a skos:Concept ;
+    skos:broader narr:SolutionArchetypes ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    skos:prefLabel "berecognized.id – Immutable Identification" ;
+    skos:definition "Human identity system: Datomic SSoT, datalog query, device-to-device interaction, change-privilege events." ;
+    skos:related narr:ArchetypeTitle, narr:ApproachPattern ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:SolutionArchetype_AsWritten
+    a skos:Concept ;
+    skos:broader narr:SolutionArchetypes ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    skos:prefLabel "aswritten.ai – Immutable AI Memory" ;
+    skos:definition "AI identity system: RDF+git SSoT, SPARQL query, chat+API interaction, extract-narrative events." ;
+    skos:related narr:ArchetypeTitle, narr:ApproachPattern ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  # Tagline
+  narr:Tagline_AsWritten
+    a skos:Concept ;
+    skos:broader narr:Tagline ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    rdf:value "AI that tells your story, as written." ;
+    skos:note "7-word tagline encoding promise and brand." ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  # Style Observations
+  narr:StyleObs_BrandStylization_1
+    a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:BrandNameStylization ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    oa:hasBody narr:BrandNameStylization ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_ConjPresentation_2025 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "6539"^^xsd:integer ;
+        oa:end "6551"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "aswritten.ai" ;
+        oa:prefix "System: AI\n# " ;
+        oa:suffix "\n###### Immutable AI Memory"
+      ]
+    ] ;
+    skos:note "Lowercase brand name with TLD; consistent stylization." ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:StyleObs_BrandStylization_2
+    a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:BrandNameStylization ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    oa:hasBody narr:BrandNameStylization ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_ConjPresentation_2025 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "6313"^^xsd:integer ;
+        oa:end "6328"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "berecognized.id" ;
+        oa:prefix "System: Human\n# " ;
+        oa:suffix "\n###### Immutable Identification"
+      ]
+    ] ;
+    skos:note "Lowercase brand name with TLD; parallel to aswritten.ai." ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:StyleObs_Metaphor_1
+    a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:Metaphor ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    oa:hasBody narr:Metaphor ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_ConjPresentation_2025 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "148"^^xsd:integer ;
+        oa:end "197"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "Identity is not mutable state\nYet we're treating it like Backbone.js" ;
+        oa:prefix "# \n" ;
+        oa:suffix "\n\n---\nI became"
+      ]
+    ] ;
+    skos:note "Technical metaphor: identity as mutable state vs. immutable log; Backbone.js as anti-pattern." ;
+    skos:related narr:Tagline ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:StyleObs_Anaphora_1
+    a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:Anaphora ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    oa:hasBody narr:Anaphora ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_ConjPresentation_2025 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "4175"^^xsd:integer ;
+        oa:end "4283"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "Make state explicit\nAppend only log -> Single source of truth\nEveryone sees the same thing\nRender as pure function" ;
+        oa:prefix "Reified Change \n# \n###### " ;
+        oa:suffix " -> Deterministic UIs\n# \n######"
+      ]
+    ] ;
+    skos:note "Repeated structural frame: principle → pattern; creates rhythm and memorability." ;
+    skos:related narr:CadenceRhythm ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:StyleObs_RhetoricalQuestion_1
+    a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:RhetoricalQuestion ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    oa:hasBody narr:RhetoricalQuestion ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_ConjPresentation_2025 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "1050"^^xsd:integer ;
+        oa:end "1134"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "Where is the identity here?\nWho is the authority?\nWhat are the claims being made?" ;
+        oa:prefix "What truth does this represent?\n---\n### " ;
+        oa:suffix "\n---\n## The state of California"
+      ]
+    ] ;
+    skos:note "Triadic rhetorical questions; frames problem space and invites audience reasoning." ;
+    skos:related narr:RuleOfThree ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:StyleObs_ShortPunchy_1
+    a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:ShortPunchyCadence ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    oa:hasBody narr:ShortPunchyCadence ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_ConjPresentation_2025 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "2730"^^xsd:integer ;
+        oa:end "2798"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "Human Identity\nSource of truth\nYou." ;
+        oa:prefix "# \n# " ;
+        oa:suffix " \n\n---\n#### Authorities issue"
+      ]
+    ] ;
+    skos:note "Single-word answer 'You.' after setup; punchy, direct, confident." ;
+    skos:related narr:ToneDirectPersonal ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:StyleObs_StockPhrase_1
+    a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:StockPhrases ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    oa:hasBody narr:StockPhrases ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_ConjPresentation_2025 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "3530"^^xsd:integer ;
+        oa:end "3577"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "No frameworks\nSimple tools ± good principles" ;
+        oa:prefix "###### Clojure Design Patterns\n# \n## " ;
+        oa:suffix "\n\nWhen I got my lanyard"
+      ]
+    ] ;
+    skos:note "Clojure community idiom; signals insider knowledge and shared values." ;
+    skos:related narr:IdiolectPhrasing ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:StyleObs_CitationMarker_1
+    a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:CaretBracketMarker ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    oa:hasBody narr:CaretBracketMarker ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_ConjPresentation_2025 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "2175"^^xsd:integer ;
+        oa:end "2184"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "[#webster]" ;
+        oa:prefix "different instances\n\t" ;
+        oa:suffix ": [Merriam-Webster]"
+      ]
+    ] ;
+    skos:note "Inline caret-bracket citation; consistent with ontology convention." ;
+    skos:related narr:CitationConventions ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:StyleObs_SecondPerson_1
+    a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:SecondPerson ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    oa:hasBody narr:SecondPerson ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_ConjPresentation_2025 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "2800"^^xsd:integer ;
+        oa:end "2850"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "Authorities issue documents that \nmake claims about you." ;
+        oa:prefix "---\n#### " ;
+        oa:suffix "\n# \n## Identification represents"
+      ]
+    ] ;
+    skos:note "Direct address 'you'; conversational, inclusive tone." ;
+    skos:related narr:ToneDirectPersonal ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:StyleObs_Analogy_1
+    a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:Analogy ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    oa:hasBody narr:Analogy ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_ConjPresentation_2025 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "4850"^^xsd:integer ;
+        oa:end "4933"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "Experience is an append-only log \nthat compiles[][#as-of] to identity." ;
+        oa:prefix "###### Single Source of Truth\n# \n## " ;
+        oa:suffix "\n\t[#as-of]: Presentation is an as-of query"
+      ]
+    ] ;
+    skos:note "Core analogy: experience → log → compiled identity; maps human to Datomic model." ;
+    skos:related narr:ResonanceUse ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  # Metrics
+  narr:Metrics_ConjPresentation
+    a narr:StyleMetrics ;
+    skos:broader narr:StyleMetrics ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    narr:AverageSentenceLength "12.3"^^xsd:decimal ;
+    narr:ActiveVoiceRatio "0.82"^^xsd:decimal ;
+    narr:JargonDensity "0.15"^^xsd:decimal ;
+    narr:Conciseness "0.78"^^xsd:decimal ;
+    skos:note "Short sentences, high active voice, moderate jargon (technical audience), high conciseness." ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  # Rubric Assessments
+  narr:RubricAssess_Register_Conj
+    a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Register ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    rdf:value "4.5"^^xsd:decimal ;
+    skos:note "Conversational yet authoritative; second-person direct address; technical register fits Clojure audience; concise and confident." ;
+    skos:related narr:StyleObs_SecondPerson_1, narr:StyleObs_ShortPunchy_1 ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:RubricAssess_Phrasing_Conj
+    a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Phrasing ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    rdf:value "4.0"^^xsd:decimal ;
+    skos:note "Strong use of community idioms ('No frameworks', 'Simple tools'); brand names stylized consistently; stock phrases signal insider knowledge." ;
+    skos:related narr:StyleObs_StockPhrase_1, narr:StyleObs_BrandStylization_1 ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:RubricAssess_Cadence_Conj
+    a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Cadence ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    rdf:value "4.5"^^xsd:decimal ;
+    skos:note "Short, punchy sentences; triadic structures; anaphora creates rhythm; single-word answers for emphasis ('You.')." ;
+    skos:related narr:StyleObs_ShortPunchy_1, narr:StyleObs_Anaphora_1 ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:RubricAssess_Strategy_Conj
+    a narr:RubricAssessment ;
+    skos:broader narr:Rubric_StrategicAlignment ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    rdf:value "5.0"^^xsd:decimal ;
+    skos:note "Entire presentation is a narrative anchor: 'Immutable Selves' thesis; two solution archetypes (berecognized.id, aswritten.ai); clear mission/vision alignment; positioning thesis explicit." ;
+    skos:related narr:Narrative_ImmutableIdentity, narr:SolutionArchetype_BeRecognized, narr:SolutionArchetype_AsWritten ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:RubricAssess_Tailoring_Conj
+    a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Tailoring ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    rdf:value "5.0"^^xsd:decimal ;
+    skos:note "Deeply tailored to Clojure/conj audience: references Backbone.js, Om, Datomic, re-frame; assumes functional programming literacy; personal narrative (Dylan→Scarlet) builds trust." ;
+    skos:related narr:Actor_Human, narr:Actor_AI ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:RubricAssess_Resonance_Conj
+    a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Resonance ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    rdf:value "4.5"^^xsd:decimal ;
+    skos:note "Strong analogies (experience→log→identity); metaphors (Backbone.js as anti-pattern); personal story (gender transition) adds emotional resonance; rhetorical questions engage audience." ;
+    skos:related narr:StyleObs_Analogy_1, narr:StyleObs_Metaphor_1, narr:StyleObs_RhetoricalQuestion_1 ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:RubricAssess_Flow_Conj
+    a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Flow ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    rdf:value "4.0"^^xsd:decimal ;
+    skos:note "Clear progression: problem (mutable identity) → principle (immutability) → pattern (reified change) → systems (berecognized, aswritten); slide-based structure creates natural transitions; some formulaic scaffolding (repeated headers)." ;
+    skos:related narr:StyleObs_Anaphora_1 ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:RubricAssess_Novelty_Conj
+    a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Novelty ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    rdf:value "4.5"^^xsd:decimal ;
+    skos:note "Novel framing: identity as append-only log; fresh application of Clojure patterns to identity problem; brand names (berecognized.id, aswritten.ai) are distinctive; avoids clichés." ;
+    skos:related narr:Theme_FunctionalIdentity ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+
+  narr:RubricAssess_Accuracy_Conj
+    a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Accuracy ;
+    dct:source narr:Sample_ConjPresentation_2025 ;
+    rdf:value "4.0"^^xsd:decimal ;
+    skos:note "Citations present (Webster, Nagel); technical references accurate (Datomic, datalog, SPARQL); personal narrative verifiable; some claims (e.g., 'equality' from immutability) are conceptual rather than empirical." ;
+    skos:related narr:StyleObs_CitationMarker_1 ;
+    prov:wasGeneratedBy narr:Tx_20251113T030805Z_conj2025 .
+}
