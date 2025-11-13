@@ -1,0 +1,488 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX oa: <http://www.w3.org/ns/oa#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+INSERT DATA {
+  narr:Obs_Tagline_1 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:Tagline ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:Tagline ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 127 ;
+        oa:end 172
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "Identity as compiled from immutable history" ;
+        oa:prefix "Thesis: " ;
+        oa:suffix "\n\n1) Why"
+      ]
+    ] ;
+    skos:note "Tagline encodes core thesis: identity = compiled snapshot from append-only log." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Obs_Mission_1 a narr:Concept ;
+    skos:broader narr:Mission ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "Generalize append-only log pattern to identity" ;
+    skos:definition "Abstract Datomic's as-of T pattern: identity is a compiled surface, not mutable state." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Obs_Vision_1 a narr:Concept ;
+    skos:broader narr:Vision ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "Engineers apply the pattern in their domain" ;
+    skos:definition "Audience models events, writes handlers, transacts to append-only store, compiles as-of T, renders surface." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Obs_KeyPhrase_AppendOnlyLog a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:KeyPhrases ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:TerminologyControl ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1062 ;
+        oa:end 1107
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "Append-only log (single source of truth)" ;
+        oa:prefix "3) Non-negotiable vocabulary (consistency guardrails)\n" ;
+        oa:suffix ": The immutable"
+      ]
+    ] ;
+    skos:note "Canonical term; avoid calling snapshot 'SSoT'." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Obs_KeyPhrase_SnapshotAsOfT a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:KeyPhrases ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:TerminologyControl ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1217 ;
+        oa:end 1234
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "Snapshot (as-of T)" ;
+        oa:prefix "commits)\n" ;
+        oa:suffix ": The compiled"
+      ]
+    ] ;
+    skos:note "Compiled view derived from log at specific time/commit." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Obs_KeyPhrase_IdentitySurface a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:KeyPhrases ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:TerminologyControl ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1308 ;
+        oa:end 1349
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "Render target / Identity surface" ;
+        oa:prefix "commit\n" ;
+        oa:suffix ": What gets"
+      ]
+    ] ;
+    skos:note "Render target = identity surface; mediates next interaction." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Obs_Flow_CoreLoop a narr:Concept ;
+    skos:broader narr:Flows ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "Immutable Identity Loop" ;
+    skos:definition "interact → event → handler → transactor → append → compile as-of T → query → render → interact" ;
+    skos:note "Sequenced behaviors delivering end-to-end identity compilation." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Obs_Narrative_ImmutableIdentity a narr:Concept ;
+    skos:broader narr:Narratives ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "Identity as compiled surface" ;
+    skos:definition "Story frame: identity is not mutable state but a snapshot compiled from append-only log." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:CaseStudy_berecognized a narr:Concept ;
+    skos:broader narr:CaseStudies ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "berecognized.id – Human identification" ;
+    skos:definition "Device-to-device verification; identification/privileges change over time via Datomic append-only log." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:CaseStudy_berecognized_Context a narr:Concept ;
+    skos:broader narr:CaseContext ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "Device-to-device verification" ;
+    skos:definition "Identification and privileges evolve; need provenance and offline capability." ;
+    skos:related narr:CaseStudy_berecognized ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:CaseStudy_berecognized_Intervention a narr:Concept ;
+    skos:broader narr:CaseIntervention ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "Datomic (append-only log) → Datalog (query) → Identification (render target)" ;
+    skos:definition "Change-privilege event → pure handler → tx-data → transactor appends to Datomic → compile as-of T → Datalog queries → render Identification." ;
+    skos:related narr:CaseStudy_berecognized ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:CaseStudy_berecognized_Results a narr:Concept ;
+    skos:broader narr:CaseResults ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "Provenance, Equality, Offline" ;
+    skos:definition "Provenance ← append-only log; Equality (snapshot hashes) ← compile as-of + deterministic render; Offline ← render targets travel." ;
+    skos:related narr:CaseStudy_berecognized ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:CaseStudy_aswritten a narr:Concept ;
+    skos:broader narr:CaseStudies ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "aswritten.ai – AI memory/identity" ;
+    skos:definition "Chat ± API; deterministic AI perspective via RDF+git append-only log." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:CaseStudy_aswritten_Context a narr:Concept ;
+    skos:broader narr:CaseContext ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "Chat ± API; 'why does the AI answer differ?'" ;
+    skos:definition "Need versioning, branching, and deterministic perspective as-of T." ;
+    skos:related narr:CaseStudy_aswritten ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:CaseStudy_aswritten_Intervention a narr:Concept ;
+    skos:broader narr:CaseIntervention ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "RDF+git (append-only log) → SPARQL (query) → AI memory (render target)" ;
+    skos:definition "Extract-narrative event → pure handler → triples/commit tx-data → transactor appends to RDF+git → compile as-of commit → SPARQL queries → render AI memory." ;
+    skos:related narr:CaseStudy_aswritten ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:CaseStudy_aswritten_Results a narr:Concept ;
+    skos:broader narr:CaseResults ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "Versioning/Branching, Deterministic perspective, Provenance" ;
+    skos:definition "Versioning/Branching ← git log; Deterministic perspective as-of T ← compile + pure render; Provenance ← commit history + citations." ;
+    skos:related narr:CaseStudy_aswritten ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Obs_SalesDeck_StoryArc a narr:Concept ;
+    skos:broader narr:SalesDecks ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "Four-act story arc" ;
+    skos:definition "Act I: Hook (what's broken); Act II: Pattern (how it works); Act III: Case studies (how to do it); Act IV: Trade-offs & CTA." ;
+    skos:note "Deck structure aligned to narrative progression." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:StyleObs_Brand_berecognized a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:BrandNameStylization ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:BrandNameStylization ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 3086 ;
+        oa:end 3102
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "berecognized.id" ;
+        oa:prefix "A) " ;
+        oa:suffix " — Human"
+      ]
+    ] ;
+    skos:note "Lowercase brand with .id TLD; consistent stylization." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:StyleObs_Brand_aswritten a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:BrandNameStylization ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:BrandNameStylization ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 4682 ;
+        oa:end 4695
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "aswritten.ai" ;
+        oa:prefix "B) " ;
+        oa:suffix " — AI memory"
+      ]
+    ] ;
+    skos:note "Lowercase brand with .ai TLD; consistent stylization." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:StyleObs_Metaphor_Backbone a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:Metaphor ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:Metaphor ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1730 ;
+        oa:end 1781
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "Backbone metaphor: mutating pictures ≈ mutating identity" ;
+        oa:prefix "Act I – Hook & intuition (what's broken)\n\n" ;
+        oa:suffix "\nPersonal timeline"
+      ]
+    ] ;
+    skos:note "Metaphor anchors hook: mutating pictures ≈ mutating identity." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:StyleObs_Analogy_DatomicPattern a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:Analogy ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:Analogy ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 176 ;
+        oa:end 349
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "Canonical example: Datomic demonstrates how an append-only log[^3] compiles into a snapshot as-of T. We can time-travel, audit, and deterministically render UI from pure functions[^4]." ;
+        oa:prefix "1) Why this talk exists\n" ;
+        oa:suffix "\n\nAbstract the pattern"
+      ]
+    ] ;
+    skos:note "Analogy: Datomic's as-of T pattern generalizes to identity." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:StyleObs_Cadence_Loop a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:ShortPunchyCadence ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:ShortPunchyCadence ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1418 ;
+        oa:end 1562
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "Loop: interact → event → handler → transactor → append → compile as-of T → query → render → interact[^9]" ;
+        oa:prefix "Identity surface: What gets shown/issued (ID, privileges, AI memory/perspective)\n" ;
+        oa:suffix "\nAvoid drift"
+      ]
+    ] ;
+    skos:note "Short, punchy cadence with arrow notation; encodes entire loop in one line." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:StyleObs_Idiolect_SingleTransactor a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:StockPhrases ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:StockPhrases ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 3267 ;
+        oa:end 3285
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "Single transactor" ;
+        oa:prefix "Events: Change-privilege; " ;
+        oa:suffix "\nFlow (say it"
+      ]
+    ] ;
+    skos:note "Repeated phrase: 'Single transactor' appears in both case studies." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:StyleObs_RhetoricalQ_WhyDiffer a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:RhetoricalQuestion ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:RhetoricalQuestion ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 4720 ;
+        oa:end 4757
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "'why does the AI answer differ?'" ;
+        oa:prefix "Domain: Chat ± API; " ;
+        oa:suffix "\nSolution: RDF+git"
+      ]
+    ] ;
+    skos:note "Implicit rhetorical question frames problem context." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:StyleObs_ActiveVoice_Emit a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:VoiceActive ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:VoiceActive ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 3287 ;
+        oa:end 3330
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "A device interaction emits Change-privilege" ;
+        oa:prefix "Flow (say it in one breath):\n\"" ;
+        oa:suffix " → a pure"
+      ]
+    ] ;
+    skos:note "Active voice: 'interaction emits'; subject performs action." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:StyleObs_VerbChoice_Compile a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:VerbChoice ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:VerbChoice ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1234 ;
+        oa:end 1247
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "compiled view" ;
+        oa:prefix "Snapshot (as-of T): The " ;
+        oa:suffix " derived from"
+      ]
+    ] ;
+    skos:note "Verb 'compile' (as-of T) is canonical; repeated throughout." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:StyleObs_Citation_CaretBracket a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:CaretBracketMarker ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:CaretBracketMarker ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 95 ;
+        oa:end 99
+      ], [
+        a oa:TextQuoteSelector ;
+        oa:exact "[^1]" ;
+        oa:prefix "Speaker: Scarlet Dame" ;
+        oa:suffix "\nThesis: Identity"
+      ]
+    ] ;
+    skos:note "Caret-bracket citation markers used throughout (e.g., [^1], [^2])." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Metrics_Sample_1 a narr:StyleMetrics ;
+    skos:broader narr:StyleMetrics ;
+    dct:source narr:Sample_1 ;
+    narr:AverageSentenceLength 18.5 ;
+    narr:ActiveVoiceRatio 0.82 ;
+    narr:JargonDensity 0.15 ;
+    narr:Conciseness 0.78 ;
+    skos:note "Metrics: avg sentence ~18.5 words; 82% active voice; 15% jargon (domain terms); 78% conciseness (low filler)." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Rubric_Assessment_Sample_1 a narr:RubricAssessment ;
+    dct:source narr:Sample_1 ;
+    dct:created "2025-10-29"^^xsd:date ;
+    skos:note "Rubric scores (0–5) for Immutable Selves Talk Brief." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Assess_Register_Sample_1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Register ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.5 ;
+    skos:note "Direct, authoritative; second-person 'you' in speaker notes; active voice dominant; concise." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Assess_Phrasing_Sample_1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Phrasing ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.0 ;
+    skos:note "Domain verbs (compile, append, render); stock phrases ('single transactor', 'as-of T'); canonical key phrases enforced." ;
+    skos:related narr:Obs_KeyPhrase_AppendOnlyLog, narr:Obs_KeyPhrase_SnapshotAsOfT ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Assess_Cadence_Sample_1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Cadence ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.5 ;
+    skos:note "Short, punchy sentences; arrow notation for loop; 'say it in one breath' flow instructions." ;
+    skos:related narr:StyleObs_Cadence_Loop ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Assess_StrategicAlignment_Sample_1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_StrategicAlignment ;
+    dct:source narr:Sample_1 ;
+    rdf:value 5.0 ;
+    skos:note "Thesis, mission, vision, and key phrases all align to core narrative: identity as compiled surface from append-only log." ;
+    skos:related narr:Obs_Tagline_1, narr:Obs_Mission_1, narr:Obs_Vision_1 ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Assess_Tailoring_Sample_1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Tailoring ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.5 ;
+    skos:note "Audience (Clojure/conj engineers, identity architects, product leads) explicitly named; outcome tied to their domain application." ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Assess_Resonance_Sample_1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Resonance ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.0 ;
+    skos:note "Backbone metaphor, Datomic analogy, two case studies with user flows; could add more emblematic examples." ;
+    skos:related narr:StyleObs_Metaphor_Backbone, narr:StyleObs_Analogy_DatomicPattern ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Assess_Flow_Sample_1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Flow ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.5 ;
+    skos:note "Four-act story arc; contiguous loop placement; case studies follow consistent structure (Domain, Solution, Flow, Outcomes); natural transitions." ;
+    skos:related narr:Obs_SalesDeck_StoryArc ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Assess_Novelty_Sample_1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Novelty ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.0 ;
+    skos:note "Fresh framing (identity as compiled surface); brand stylization distinct; some domain jargon common but necessary; low cliché density." ;
+    skos:related narr:StyleObs_Brand_berecognized, narr:StyleObs_Brand_aswritten ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+
+  narr:Assess_Accuracy_Sample_1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Accuracy ;
+    dct:source narr:Sample_1 ;
+    rdf:value 4.5 ;
+    skos:note "Factual claims tied to Datomic/RDF+git; citation markers present ([^1]–[^15]); named entities (berecognized.id, aswritten.ai) accurate; outcomes mapped to loop steps." ;
+    skos:related narr:StyleObs_Citation_CaretBracket ;
+    prov:wasGeneratedBy narr:Tx_20251113T200138Z_immutable_selves .
+}
