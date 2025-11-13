@@ -1,0 +1,14 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+DELETE {
+  narr:Sample_1 narr:inputLength ?oldLength .
+}
+INSERT {
+  narr:Sample_1 narr:inputLength 1847 ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+}
+WHERE {
+  OPTIONAL { narr:Sample_1 narr:inputLength ?oldLength . }
+}
