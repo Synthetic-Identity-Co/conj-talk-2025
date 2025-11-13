@@ -18,6 +18,6 @@ Create a section for each story. Summarize the intent of the story, it's relatio
 Briefly summarize the repository structure and a description of each asset.
 
 ### Transactions
-Briefly summarize each transaction and its significant to the storyBASE graph, stories, and assets.
+Briefly summarize each transaction (sort by newest first) and its significant to the storyBASE graph, stories, and assets.
 
 Include mermaid charts where helpful.
