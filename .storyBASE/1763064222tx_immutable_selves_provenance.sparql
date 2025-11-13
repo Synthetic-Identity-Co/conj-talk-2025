@@ -1,0 +1,15 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sb: <http://example.org/storytwin/vocab#>
+PREFIX storytwin: <http://example.org/storytwin/vocab#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT DATA {
+  narr:Tx_20251113T200138Z_immutable_selves a prov:Activity ;
+    prov:wasAssociatedWith <http://example.org/agent/storyTWIN#anthropic-claude-sonnet-4.5> ;
+    prov:wasAttributedTo <http://example.org/user/pleasetrythisathome> ;
+    prov:generatedAtTime "2025-11-13T20:01:38.277Z"^^xsd:dateTime ;
+    sb:originPath "" ;
+    sb:originRef "pro-iteration" ;
+    storytwin:sourceMessageHash "" .
+}
