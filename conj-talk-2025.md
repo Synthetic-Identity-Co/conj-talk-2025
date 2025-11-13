@@ -1,394 +1,436 @@
-#### sic[theme][#theme]
+#### sic[#theme]
 # 
 ## Immutable Selves
 ### A Functional Approach to Digital Identity
 # 
 #### Scarlet Dame
 ###### Founder, Sic · Former Chief Strategist, Vouch.io
-	[#theme]: Custom theme for Sic brand. Source: narr:Sample_ConjPresentation_2025, narr:Tagline_1, narr:Actor_ScarletDame (speaker identity history exemplifies append-only log model).
+	[#theme]: Custom theme for Sic brand. Source: narr:Sample_ConjPresentation_2025, narr:Tagline_1, narr:Actor_ScarletDame with alternate labels Dylan Butman and Scarlet Spectacular.
 
 ---
 # Identity is not mutable state
 ## Yet we're treating it like Backbone.js
 
-This talk argues that we model identity—both human and AI—as mutable objects when we should treat them as append-only logs that compile to state[][#thesis].
+The core metaphor frames identity systems as mutable DOM manipulation—an anti-pattern we solved in UI a decade ago.[#metaphor]
 
-[#thesis]: Core narrative from narr:Narrative_ImmutableIdentity: "experience is an append-only log; identification is a render target; interaction is transaction." Related to narr:Theme_FunctionalIdentity applying Clojure design patterns to identity systems.
-
----
-### I became a software engineer
-# because someone told me
-## "Your code was shit. Let me refactor it for you."
-
-That was 2012. My introduction to UI programming was Backbone.js[][#backbone].
-
-[#backbone]: narr:StyleObs_2 captures this as characteristic blunt phrasing and speaker idiolect. narr:ComparativeAnalysis_1 positions Backbone.js as the anti-pattern: "query DOM, mutate picture" vs. functional rendering.
+	[#metaphor]: narr:StyleObs_Metaphor_1 from narr:Sample_ConjPresentation_2025; technical metaphor positions identity as mutable state vs. immutable log, with Backbone.js as the anti-pattern.
 
 ---
-###### 2012
-# You saw a picture (the DOM)
-# 
-###### Then
-# You queried the picture with a selector
-# 
-###### Then
-# You mutated the picture
-
-This is how we built UIs. And this is how we still build identity systems[][#mutation].
-
-[#mutation]: narr:StyleObs_3 notes the anaphora ("Then you...") as rhetorical device for emphasis. narr:StyleObs_8 highlights "mutated" as technical verb carrying negative connotation in functional paradigm.
-
----
-## 2013
-### Luke Vanderhart showed us Om
-
-We started seeing UI as a state machine that was the result of a functional transformation[][#om].
-
-[#om]: narr:Actor_LukeVanderhart related to narr:TechnicalExplainers. narr:StyleObs_UIStateMachine identifies this as core analogy linking UI rendering to immutable state paradigm.
-
----
-###### Clojure Design Patterns
-# 
-## No frameworks
-# Simple tools ± good principles
-
-When I got my lanyard at my first Clojure/conj, this is what I learned[][#principles].
-
-[#principles]: narr:StyleObs_StockPhrase_1 notes this as Clojure community idiom signaling insider knowledge and shared values. Related to narr:MoatLeverage_1: "Clojure ecosystem as proof-of-concept; 13 years of production experience."
-
----
-### Who am I?
-# I'm scarlet dame
-## But I was scarlet spectacular
+###### Who am I?
+# I became Scarlet Dame
+## But I was Scarlet Spectacular
 ### And before that, Dylan Butman
 
-My identity is not a mutable object. It's an append-only log[][#identity-log].
+Personal transition as lived proof of identity as append-only log: each name is a snapshot compiled from immutable history.[#transition]
 
-[#identity-log]: narr:Actor_ScarletDame with altLabels "Dylan Butman" and "Scarlet Spectacular" exemplifies the model. narr:Theme_TransitionAsStateChange: "Personal transition as functional transformation from immutable past states."
+	[#transition]: narr:Actor_ScarletDame with altLabels; narr:Theme_TransitionAsStateChange defines personal transition as functional transformation from immutable past states.
+
+---
+### Where is the identity here?
+# Who is the authority?
+## What are the claims being made?
+
+Triadic rhetorical questions frame the problem space and invite the audience to reason through the architecture.[#rhetoric]
+
+	[#rhetoric]: narr:StyleObs_RhetoricalQuestion_1 from narr:Sample_ConjPresentation_2025; triadic structure engages audience reasoning.
 
 ---
 ## The Problem
+###### with human identity
 
 ---
-### What is identity?
+### Human Identity
+# Source of truth
+# You.
 
-```mermaid
-graph LR
-    A[Authority] -->|issues| B[Document]
-    B -->|makes claims about| C[You]
-    C -->|presents| D[Identification]
-```
+Single-word answer after setup: punchy, direct, confident.[#punchy]
 
-Where is the identity here? Who is the authority? What are the claims being made[][#questions]?
-
-[#questions]: narr:StyleObs_RhetoricalQuestion_1 captures triadic rhetorical questions that frame problem space and invite audience reasoning. Related to narr:RuleOfThree.
+	[#punchy]: narr:StyleObs_ShortPunchy_1 from narr:Sample_ConjPresentation_2025; characteristic short, emphatic cadence.
 
 ---
-###### The state of California
-# issues a driver's license
+#### Authorities issue documents that 
+# make claims about you.
 # 
-## that makes claims about
-# Dylan Butman
+## Identification represents
+# a snapshot of those claims
 
-Authorities issue documents that make claims about you[][#claims].
+Human as source of truth; authorities issue documents; identification is the render target.[#human-actor]
 
-[#claims]: narr:Actor_Human: "Source of truth for identity; authorities issue documents that make claims." narr:StyleObs_SecondPerson_1 notes direct address "you" as conversational, inclusive tone.
+	[#human-actor]: narr:Actor_Human defines humans as source of truth with authorities issuing claim documents.
 
 ---
-## Identification represents
-# a snapshot of claims
-## compiled at a point in time
+## The Problem
+###### with AI identity
 
-But we treat it like mutable state[][#snapshot].
+---
+### AI Identity
+# Source of truth
+# Unclear.
 
-[#snapshot]: narr:StyleObs_9 identifies "'as-of T' snapshot" as canonical term appearing multiple times. Related to narr:CaseStudy_BeRecognizedID and narr:CaseStudy_AsWrittenAI.
+Labs train models. Each chat is different context. No provenance.[#ai-actor]
+
+	[#ai-actor]: narr:Actor_AI defines AI source of truth as unclear; labs train models that say stuff; each chat is different context.
+
+---
+### My AI doesn't give the same answers as your AI?
+
+Rhetorical question frames the AI memory problem that aswritten.ai solves.[#ai-problem]
+
+	[#ai-problem]: narr:StyleObs_4 from narr:Sample_1; rhetorical question frames AI memory problem, related to narr:CaseStudy_AsWrittenAI.
 
 ---
 ## The Pattern
+###### Clojure Design Patterns
 
 ---
-###### Immutability
-# Make state explicit
+# No frameworks
+## Simple tools ± good principles
+
+Clojure community idiom signals insider knowledge and shared values.[#idiom]
+
+	[#idiom]: narr:StyleObs_StockPhrase_1 from narr:Sample_ConjPresentation_2025; Clojure community stock phrase.
+
+---
+### I became a Clojure developer in 2012
+# Backbone.js was my introduction
+
+You saw a picture (the DOM). Then you queried the picture with a selector. Then you mutated the picture.[#backbone]
+
+	[#backbone]: narr:StyleObs_3 from narr:Sample_1; anaphora with repeated "Then you" structure for rhetorical emphasis.
+
+---
+### Then came Om in 2013
+# UI as a state machine
+## Rendered by pure function
+
+First time seeing UI as state machine resulting from functional transformation.[#om]
+
+	[#om]: narr:StyleObs_UIStateMachine from narr:Sample_1; core analogy linking UI rendering to immutable state paradigm.
+
+---
+## Reified Change
 # 
-###### Reified Change
+###### Make state explicit
 # Append only log → Single source of truth
-# 
-###### Pure Functions
 # Everyone sees the same thing
-# 
-###### Deterministic UIs
 # Render as pure function → Deterministic UIs
 
-These are the principles we use to build reliable systems[][#patterns].
+Repeated structural frame: principle → pattern creates rhythm and memorability.[#anaphora]
 
-[#patterns]: narr:StyleObs_Anaphora_1 notes repeated structural frame "principle → pattern" creates rhythm and memorability. Related to narr:CadenceRhythm and narr:Primitive_1, narr:Primitive_2, narr:Primitive_3.
+	[#anaphora]: narr:StyleObs_Anaphora_1 from narr:Sample_ConjPresentation_2025; repeated structural frame creates rhythm.
 
 ---
 ###### Single Source of Truth
 # 
 ## Experience is an append-only log 
-# that compiles[][#as-of] to identity
+# that compiles[][#as-of] to identity.
+	[#as-of]: Presentation is an as-of query of the storyBASE graph at transaction narr:Tx_20251113T030805Z_conj2025.
 
-[#as-of]: narr:StyleObs_Analogy_1 identifies core analogy: "experience → log → compiled identity; maps human to Datomic model." Related to narr:ResonanceUse and narr:KeyPhrase_2 "append-only log."
+Core analogy: experience → log → compiled identity maps human experience to Datomic model.[#analogy]
+
+	[#analogy]: narr:StyleObs_Analogy_1 from narr:Sample_ConjPresentation_2025; core analogy maps experience to append-only log compiled to identity.
 
 ---
-## Two Systems
+## The Pattern Applied
+###### Two Systems
 
 ---
 ## System: Human
 # berecognized.id
 ###### Immutable Identification
 
+Lowercase brand name with TLD; consistent stylization.[#brand-be]
+
+	[#brand-be]: narr:StyleObs_BrandStylization_2 from narr:Sample_ConjPresentation_2025; lowercase brand name parallel to aswritten.ai.
+
+---
+### berecognized.id
+# Datomic SSoT
+## Datalog query
+### Device-to-device interaction
+#### Change-privilege events
+
+Human identity system architecture from narr:SolutionArchetype_BeRecognized.[#be-arch]
+
+	[#be-arch]: narr:SolutionArchetype_BeRecognized defines human identity system: Datomic SSoT, datalog query, device-to-device interaction, change-privilege events.
+
+---
+### The Flow
+###### Employee Lifecycle
+
 ```mermaid
-sequenceDiagram
-    participant I as Interviewer
-    participant C as Candidate
-    participant S as System
-    participant D as Device
-    
-    I->>S: Endorsement
-    C->>S: Zoom calls (events)
-    C->>S: In-person meetings (events)
-    C->>S: State ID upload (event)
-    S->>S: Assign role with privileges
-    S->>D: Compile 'as-of T' snapshot
-    D->>D: Render identification
+graph LR
+    A[Interviewer Endorsement] --> B[Zoom Calls]
+    B --> C[In-Person Meetings]
+    C --> D[State ID Upload]
+    D --> E[Role Assignment]
+    E --> F['as-of' Query]
+    F --> G[Device Snapshot]
 ```
 
-Digital identification enables recognition and delegates authority[][#berecognized].
+Endorsement → interactions → documents → role → compiled snapshot on device.[#flow-employee]
 
-[#berecognized]: narr:CaseStudy_BeRecognizedID intervention: "Append-only log of facts about a person over time; device-rendered snapshot compiled at specific point in time." Results: "Provenance for individual transactions; referential equality for free; offline transactions enabled." Related to narr:Flow_EmployeeLifecycle.
+	[#flow-employee]: narr:Flow_EmployeeLifecycle from narr:Sample_1; employee lifecycle with continuous identity establishment.
 
 ---
 ### The Risk
-# Ghost Labor & Impersonation
+# Ghost Labor
 
-Bad actors—individuals or state actors like North Korea—deepfaking candidates, passing interviews, collecting paychecks on behalf of fake identities[][#ghost-labor].
+Bad actors—individuals or state actors like North Korea—deepfaking candidates, passing interviews, collecting paychecks.[#ghost]
 
-[#ghost-labor]: narr:Risk_GhostLabor definition and narr:StyleObs_5 noting "'Ghost labor' metaphor for impersonation risk." Mitigated by continuous identity establishment via append-only log.
-
----
-### The Solution
-# Continuous Identity Establishment
-
-```mermaid
-graph TD
-    A[Endorsement] --> B[Zoom Events]
-    B --> C[In-Person Events]
-    C --> D[ID Upload Events]
-    D --> E[Role Assignment Event]
-    E --> F[Append-Only Log]
-    F --> G[As-of T Query]
-    G --> H[Device Snapshot]
-    H --> I[Digital Identification]
-```
-
-Each interaction is an event. Identity is the compiled result[][#continuous].
-
-[#continuous]: narr:Flow_EmployeeLifecycle: "Endorsement by interviewer → Zoom calls → in-person meetings → state ID uploads → assigned role with privileges → 'as-of' query compiles snapshot on device." Related to narr:Behaviors and narr:Storyboards.
+	[#ghost]: narr:Risk_GhostLabor from narr:Sample_1; 'ghost labor' metaphor for impersonation risk, mitigated by continuous identity via append-only log.
 
 ---
-###### System Breakdown
-# 
-## SSoT: Datomic
-## Query: Datalog
-## Interaction: Device-to-device
-## Events: Change-privilege transactions
+### The Mitigation
+# Continuous identity establishment
+## via append-only log
 
-Required capabilities from the Clojure ecosystem[][#capabilities-human].
+Each interaction adds facts. Snapshot compiled at each time point proves provenance.[#mitigation]
 
-[#capabilities-human]: narr:RequiredCapabilities_1: "Datomic (SSoT), datalog (query), multimodal renderer, event system, single transactor." Related to narr:Archetype_1 and narr:MoatLeverage_1.
+	[#mitigation]: narr:Risk_GhostLabor note: "Mitigated by continuous identity establishment via append-only log."
 
 ---
 ## System: AI
 # aswritten.ai
 ###### Immutable AI Memory
 
-```mermaid
-sequenceDiagram
-    participant P as Person
-    participant A as AI
-    participant E as Extractor
-    participant L as Log
-    participant S as Snapshot
-    
-    P->>A: Chat / share docs
-    A->>E: Extract to RDF
-    E->>L: Append narrative events
-    L->>S: Compile 'as-of T'
-    S->>A: AI memory (pure function)
-```
+Lowercase brand name with TLD; consistent stylization.[#brand-as]
 
-AI memory as narrative source of truth[][#aswritten].
-
-[#aswritten]: narr:CaseStudy_AsWrittenAI context: "AI memory problem: 'My AI doesn't give the same answers as your AI'; need for narrative source of truth." Intervention: "person talks to AI → extract chats/docs to RDF → save to append-only log → AI memory as 'as-of T' snapshot (pure function)." Results: "Provenance, equality, decentralization/offline scale; deterministic AI perspective."
+	[#brand-as]: narr:StyleObs_BrandStylization_1 from narr:Sample_ConjPresentation_2025; lowercase brand name with TLD.
 
 ---
-### The Problem
-# "My AI doesn't give the same answers as your AI"
+### aswritten.ai
+# RDF + git SSoT
+## SPARQL query
+### Chat + API interaction
+#### Extract-narrative events
 
-AI models are black boxes. Persona prompts mutate rendered state. No provenance or version control for AI identity[][#ai-problem].
+AI identity system architecture from narr:SolutionArchetype_AsWritten.[#as-arch]
 
-[#ai-problem]: narr:StyleObs_4 captures this as rhetorical question framing AI memory problem. narr:ProblemContext_2: "AI models are black boxes; persona prompts mutate rendered state; no provenance or version control for AI identity. Stakes: narrative manipulation, embedded propaganda, deepfakes."
+	[#as-arch]: narr:SolutionArchetype_AsWritten defines AI identity system: RDF+git SSoT, SPARQL query, chat+API interaction, extract-narrative events.
 
 ---
-### The Solution
-# Narrative Source of Truth
+### The Flow
+###### AI Memory as Pure Function
 
 ```mermaid
-graph TD
+graph LR
     A[Person talks to AI] --> B[Extract chats/docs to RDF]
     B --> C[Save to append-only log]
-    C --> D[AI memory as 'as-of T' snapshot]
-    D --> E[Pure function render]
-    E --> F[Deterministic AI perspective]
+    C --> D['as-of T' snapshot]
+    D --> E[AI memory compiled]
 ```
 
-Same pattern, different stack: RDF instead of Datomic[][#ai-pattern].
+Person → extract → log → snapshot → deterministic AI perspective.[#flow-ai]
 
-[#ai-pattern]: narr:ApproachPattern_2: "SSoT (RDF + git) → SPARQL query → render to AI memory/identity → event-driven transactions → append-only log → recompile." narr:StyleObs_10 notes parallel structure in transaction sequence.
-
----
-###### System Breakdown
-# 
-## SSoT: RDF + git
-## Query: SPARQL
-## Interaction: Chat + API
-## Events: Extract-narrative transactions
-
-Leverages semantic web + version control[][#capabilities-ai].
-
-[#capabilities-ai]: narr:RequiredCapabilities_2: "RDF graph, git versioning, SPARQL, multimodal renderer, event system, transactor." Related to narr:Archetype_2 and narr:SolutionArchetype_AsWritten.
+	[#flow-ai]: narr:CaseStudy_AsWrittenAI intervention: "Transaction sequence: person talks to AI → extract chats/docs to RDF → save to append-only log → AI memory as 'as-of T' snapshot (pure function)."
 
 ---
-## The Payoff
+### The Tagline
+# AI that tells your story, as written.
+
+Seven-word tagline encoding promise and brand.[#tagline]
+
+	[#tagline]: narr:Tagline_AsWritten from narr:Sample_ConjPresentation_2025; 7-word tagline encoding promise and brand.
+
+---
+## The Properties
+###### What Immutability Gives You
 
 ---
 # Provenance
-## For every interaction
+## Equality
+### Decentralization
 
-Transaction log ensures auditability[][#provenance].
+Triadic list of system benefits from immutability.[#triad]
 
-[#provenance]: narr:SystemProperty_ImmutabilityProvenance: "Transaction log ensures auditability for every interaction." Evidence: narr:CaseStudy_BeRecognizedID and narr:CaseStudy_AsWrittenAI. Conviction level: Boulder.
-
----
-# Equality
-## For free
-
-Immutable facts enable referential equality without custom logic[][#equality].
-
-[#equality]: narr:LeverageProfile_1: "Immutability enables equality, provenance, versioning, branching, generative testing, decentralization, and infinite read scale—for free." Small choice (append-only) creates outsized effects.
+	[#triad]: narr:StyleObs_8 from narr:Sample_1; triadic list of system benefits.
 
 ---
-# Offline Capability
-## Decentralized by design
+### Provenance
+# Transaction log ensures
+## auditability for every interaction
 
-Reads scale linearly. Data model exists off-server. Transactions submitted later[][#offline].
+Immutability provides equality and provenance; transaction log ensures auditability.[#provenance]
 
-[#offline]: narr:SystemProperty_DistributedDecentralization: "Reads scale linearly; data model exists off-server, with transactions submitted later." Evidence: both case studies. Conviction level: Boulder.
+	[#provenance]: narr:SystemProperty_ImmutabilityProvenance from narr:Sample_1; evidenced by both case studies.
+
+---
+### Equality
+# Referential equality
+## for free
+
+Same log state = same identity snapshot. No drift.[#equality]
+
+	[#equality]: narr:CaseStudy_BeRecognizedID results: "Provenance for individual transactions; referential equality for free; offline transactions enabled."
+
+---
+### Decentralization
+# Reads scale linearly
+## Data model exists off-server
+
+Distributed decentralization enables offline capability; transactions submitted later.[#decentral]
+
+	[#decentral]: narr:SystemProperty_DistributedDecentralization from narr:Sample_1; reads scale linearly; data model exists off-server.
+
+---
+## The Leverage
+###### Small Choice, Outsized Effects
+
+---
+# Immutability enables
+## equality, provenance, versioning, branching, generative testing, decentralization, infinite read scale
+### for free.
+
+Small choice (append-only) creates outsized effects across system.[#leverage]
+
+	[#leverage]: narr:LeverageProfile_1 from narr:Sample_1; immutability enables multiple system properties for free.
 
 ---
 ## The Tradeoff
+###### What We Gave Up
 
 ---
-### What we gave up
-# Distributed writes
+# Bottleneck at single transactor
+## All logic in event clients
+### Transact is just adding triples
 
-Bottleneck at single transactor. All logic in event clients. Transact is just adding triples[][#tradeoff].
+What we gave up: distributed writes. Why worth it: consistency, provenance, auditability.[#tradeoff]
 
-[#tradeoff]: narr:DesignTradeoff_1: "Bottleneck at single transactor; all logic in event clients; transact is just adding triples. What we gave up: distributed writes. Why worth it: consistency, provenance, auditability."
-
----
-### What we gained
-# Consistency, provenance, auditability
-
-When provenance and equality matter more than write throughput, this is the pattern[][#when-to-use].
-
-[#when-to-use]: narr:ComparativeAnalyses: "When to use: when provenance, auditability, and equality matter more than write throughput." Related to narr:TechnicalExplainers.
+	[#tradeoff]: narr:DesignTradeoff_1 from narr:Sample_1; design tradeoffs of single transactor architecture.
 
 ---
-## The Vision
+## The Comparison
+###### When to Use This Pattern
 
 ---
-###### Deterministic AI
-# 
-## Query the graph 'as-of T'
-### Full talk as query
-### Section of talk
-### Talk evolution over time
-### Any accessible subset within billion-node graph
-
-AI perspective becomes a pure function of narrative state[][#deterministic-ai].
-
-[#deterministic-ai]: narr:FutureVision_DeterministicAI: "Deterministic AI perspective 'as-of T' for graph queries. Examples: full talk as query, section of talk, talk evolution over time, any accessible graph subset within billion-node graph." Supports narr:CaseStudy_AsWrittenAI. Conviction: Stake.
+### Backbone.js
+# Query DOM
+## Mutate picture
 
 ---
-## The Invitation
+### Om/React
+# State machine
+## Pure function render
 
 ---
 # Identity systems today are Backbone
 ## This is Om for identity
 
-We move from mutable documents to compiled selves[][#comparison].
+When provenance, auditability, and equality matter more than write throughput.[#comparison]
 
-[#comparison]: narr:ComparativeAnalysis_1: "Backbone.js (query DOM, mutate picture) vs. Om/React (state machine, pure function render). Identity systems today are Backbone; this is Om for identity." narr:Narrative_1: "From mutable documents to compiled selves."
+	[#comparison]: narr:ComparativeAnalysis_1 from narr:Sample_1; comparative analysis of Backbone vs. Om/React pattern applied to identity.
 
 ---
-### Takeaways
+## The Future
+###### Deterministic AI Perspective
+
+---
+### Deterministic AI perspective
+# 'as-of T' for graph queries
+
+Examples: full talk as query, section of talk, talk evolution over time, any accessible graph subset within billion-node graph.[#future]
+
+	[#future]: narr:FutureVision_DeterministicAI from narr:Sample_1; deterministic AI perspective 'as-of T' for graph queries.
+
+---
+### This talk is a query
+# Against the storyBASE graph
+## Compiled at this moment
+
+Close with examples of such queries, then link to chat for participants to engage with narrative source of truth.[#meta]
+
+	[#meta]: narr:FutureVision_DeterministicAI note: "Close with examples of such queries, then link to chat for participants to engage with narrative source of truth."
+
+---
+## The Primitives
+###### Product Ladder
+
+```mermaid
+graph TD
+    A[Append-only transaction log] --> B[Single source of truth]
+    B --> C[Pure function renderer]
+    C --> D[Event-driven transaction submission]
+    D --> E[SSoT → query → render → interact → event → transact → append log → recompile SSoT]
+```
+
+Foundational primitives compose into end-to-end loop.[#primitives]
+
+	[#primitives]: narr:Primitive_1, narr:Primitive_2, narr:Primitive_3, narr:Behavior_1, narr:Flow_1 from narr:Sample_1; product ladder from primitives to flows.
+
+---
+## The Mission
 # 
-## Model identity as append-only log
-## Compile state as pure function
-## Prove provenance by design
+### Move identity from mutable documents
+# to compiled surfaces
+## rendered from append-only logs
 
-Same principles apply across UI, identity, and AI[][#lessons].
+Durable purpose: make identity deterministic, provable, and decentralized.[#mission]
 
-[#lessons]: narr:CaseLessons_1: "Same principles apply across UI, identity, and AI; immutability is the unlock; single transactor is acceptable bottleneck." Related to narr:CaseStudy_1 spanning 13-year career applying Clojure principles.
+	[#mission]: narr:Mission_1 from narr:Sample_1; mission statement for functional identity paradigm.
 
 ---
-###### Human Identity
+## The Vision
 # 
-# Source of truth
-# You.
-
-Authorities issue documents that make claims about you[][#human-source].
-
-[#human-source]: narr:Actor_Human: "Source of truth for identity; authorities issue documents that make claims." narr:StyleObs_ShortPunchy_1 notes single-word answer "You." as punchy, direct, confident.
-
----
-###### AI Identity
-# 
-# Source of truth
-# Unclear.
-
-Labs train models that say stuff. Each chat is different context[][#ai-source].
-
-[#ai-source]: narr:Actor_AI: "Source of truth unclear; labs train models that say stuff; each chat is different context." Contrast establishes problem space for narr:SolutionArchetype_AsWritten.
-
----
-## A world where identity—human, synthetic, AI—
+### A world where identity—human, synthetic, AI—
 # is rendered from immutable history
 ## enabling equality, provenance, and trust by design
 
-This is the vision[][#vision].
+Future state: identity systems that inherit Clojure's guarantees.[#vision]
 
-[#vision]: narr:Vision_1: "A world where identity—human, synthetic, AI—is rendered from immutable history, enabling equality, provenance, and trust by design. Future state: identity systems that inherit Clojure's guarantees."
-
----
-### Try it yourself
-# 
-## berecognized.id
-## aswritten.ai
-###### AI that tells your story, as written.
-
-Chat with the narrative source of truth that generated this talk[][#tagline].
-
-[#tagline]: narr:Tagline_AsWritten: "AI that tells your story, as written." 7-word tagline encoding promise and brand. narr:StyleObs_BrandStylization_1 and narr:StyleObs_BrandStylization_2 note lowercase domain-style brand names.
+	[#vision]: narr:Vision_1 from narr:Sample_1; vision for identity systems with Clojure guarantees.
 
 ---
-## Thank you
+## The Proof
+###### 13 Years in Production
 
-Questions?
+---
+### My Journey
+# Backbone.js (2012)
+## Om (2013)
+### Production systems at scale
 
-	This presentation was compiled from an append-only log of narrative events in storyBASE—a Git-native RDF knowledge graph. Every claim is traceable to its source transaction[][#meta].
-	
-	[#meta]: narr:Sample_ConjPresentation_2025 (6,847 characters, created 2025-01-01) generated by narr:Tx_20251113T030805Z_conj2025. Rubric assessments: Strategic Alignment 5.0/5, Tailoring 5.0/5, Resonance 4.5/5, Novelty 4.5/5. Style metrics: avg sentence length 12.3, active voice 0.82, jargon density 0.15, conciseness 0.78.
+Speaker's 13-year career validates the pattern across UI, identity, and AI domains.[#proof]
+
+	[#proof]: narr:CaseStudy_1 with narr:CaseContext_1, narr:CaseIntervention_1, narr:CaseResults_1 from narr:Sample_1; speaker's career as case study.
+
+---
+### The Results
+# Provenance, equality, versioning
+## Decentralization, infinite read scale
+### Systems in production
+
+Quantified impact: architectural guarantees delivered.[#results]
+
+	[#results]: narr:CaseResults_1 from narr:Sample_1; provenance, equality, versioning, decentralization, infinite read scale achieved.
+
+---
+### The Lesson
+# Same principles apply
+## across UI, identity, and AI
+
+Immutability is the unlock. Single transactor is acceptable bottleneck.[#lesson]
+
+	[#lesson]: narr:CaseLessons_1 from narr:Sample_1; insights that same principles apply across domains.
+
+---
+## Now
+# Apply these patterns
+## to your identity systems
+
+---
+### Takeaways
+	1. Model identity as append-only log
+	2. Compile state with pure functions
+	3. Accept single transactor bottleneck
+	4. Get provenance and equality for free
+
+Actionable takeaways use parallel construction.[#takeaways]
+
+	[#takeaways]: urn:uuid:style-obs-10 from Conj Talk 2025 extraction; parallel construction in actionable takeaways.
+
+---
+# Questions?
+## Chat with this talk's storyBASE
+
+	Link to interactive storyBASE query interface where participants can ask questions against the narrative source of truth that generated this presentation.
