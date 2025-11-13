@@ -1,0 +1,427 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX oa: <http://www.w3.org/ns/oa#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sb: <http://example.org/storyboard#>
+PREFIX storytwin: <http://example.org/storytwin#>
+
+INSERT DATA {
+  # Transaction-level provenance
+  narr:Tx_20251113T032552Z_sample1 a prov:Activity ;
+    prov:wasAssociatedWith <http://example.org/agent/storyTWIN> ;
+    prov:wasAttributedTo <http://example.org/user/pleasetrythisathome> ;
+    prov:generatedAtTime "2025-11-13T03:25:52.818Z"^^xsd:dateTime ;
+    sb:originPath ""^^xsd:string ;
+    sb:originRef "main"^^xsd:string ;
+    storytwin:model "anthropic/claude-sonnet-4.5"^^xsd:string .
+
+  # Sample entity
+  narr:Sample_1 a narr:Sample ;
+    dct:source "user message" ;
+    dct:extent "4237"^^xsd:integer ;
+    dct:created "2025-01-20T00:00:00Z"^^xsd:dateTime ;
+    skos:note "Refinements for reified change design pattern section; case studies: berecognized.id and aswritten.ai." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  # Claims
+  narr:Claim_ReifiedChangePattern a narr:Claim ;
+    skos:broader narr:Architecture ;
+    narr:aboutNode narr:ArchitectureOverview ;
+    narr:hasConvictionLevel narr:Conviction_Stake ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "Reified change design pattern from Clojure principles" ;
+    skos:definition "Immutability and explicit state management enable provenance, equality, and offline capability." ;
+    narr:supports narr:DataModelLifecycle ;
+    narr:supports narr:ReliabilityResilience ;
+    skos:note "Adequate but needs stronger transition to leader benefits and system outcomes." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:SystemProperty_ImmutabilityProvenance a narr:Claim ;
+    skos:broader narr:ArchitectureOverview ;
+    narr:aboutNode narr:DataModelLifecycle ;
+    narr:hasConvictionLevel narr:Conviction_Boulder ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "Immutability provides equality and provenance" ;
+    skos:definition "Transaction log ensures auditability for every interaction." ;
+    narr:supports narr:Claim_ReifiedChangePattern ;
+    narr:evidencedBy narr:CaseStudy_BeRecognizedID ;
+    narr:evidencedBy narr:CaseStudy_AsWrittenAI ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:SystemProperty_DistributedDecentralization a narr:Claim ;
+    skos:broader narr:ArchitectureOverview ;
+    narr:aboutNode narr:ScalabilityPerformance ;
+    narr:hasConvictionLevel narr:Conviction_Boulder ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "Distributed decentralization (offline capability)" ;
+    skos:definition "Reads scale linearly; data model exists off-server, with transactions submitted later." ;
+    narr:supports narr:Claim_ReifiedChangePattern ;
+    narr:evidencedBy narr:CaseStudy_BeRecognizedID ;
+    narr:evidencedBy narr:CaseStudy_AsWrittenAI ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:FutureVision_DeterministicAI a narr:Claim ;
+    skos:broader narr:TrendForecasting ;
+    narr:aboutNode narr:InflectionPoints ;
+    narr:hasConvictionLevel narr:Conviction_Stake ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "Deterministic AI perspective 'as-of T' for graph queries" ;
+    skos:definition "Examples: full talk as query, section of talk, talk evolution over time, any accessible graph subset within billion-node graph." ;
+    narr:supports narr:CaseStudy_AsWrittenAI ;
+    skos:note "Close with examples of such queries, then link to chat for participants to engage with narrative source of truth." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  # Case Studies
+  narr:CaseStudy_BeRecognizedID a narr:CaseStudy ;
+    skos:broader narr:CaseStudies ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "berecognized.id: Human Identity via Reified Change" ;
+    narr:CaseContext "Digital identification enables recognition and delegates authority to access/use/transact with shared technology." ;
+    narr:CaseIntervention "Append-only log of facts about a person over time (employment, access, roles, interactions); device-rendered snapshot compiled at specific point in time." ;
+    narr:CaseResults "Provenance for individual transactions; referential equality for free; offline transactions enabled." ;
+    narr:supports narr:Claim_ReifiedChangePattern ;
+    skos:related narr:DataModelLifecycle ;
+    skos:related narr:GovernanceSafetyTrust ;
+    skos:note "Contrasts static IDs with append-only log compiled to privileges as-of T." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:CaseStudy_AsWrittenAI a narr:CaseStudy ;
+    skos:broader narr:CaseStudies ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "aswritten.ai: AI Memory via Reified Change" ;
+    narr:CaseContext "AI memory problem: 'My AI doesn't give the same answers as your AI'; need for narrative source of truth." ;
+    narr:CaseIntervention "Transaction sequence: person talks to AI → extract chats/docs to RDF → save to append-only log → AI memory as 'as-of T' snapshot (pure function)." ;
+    narr:CaseResults "Provenance, equality, decentralization/offline scale; deterministic AI perspective for specific graph queries." ;
+    narr:supports narr:Claim_ReifiedChangePattern ;
+    skos:related narr:DataModelLifecycle ;
+    skos:related narr:TechnologiesSocialSystems ;
+    skos:note "Formalized architecture from manual process at Vouch; now automated." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  # Risk & Flow
+  narr:Risk_GhostLabor a narr:FrictionFailure ;
+    skos:broader narr:ActorIncentiveAnalysis ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "Ghost Labor & Impersonation Risk" ;
+    skos:definition "Bad actors (individuals or state actors like North Korea) deepfaking candidates, passing interviews, collecting paychecks on behalf of fake identities." ;
+    narr:challenges narr:CaseStudy_BeRecognizedID ;
+    skos:note "Mitigated by continuous identity establishment via append-only log." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:Flow_EmployeeLifecycle a narr:Flows ;
+    skos:broader narr:ProductLadder ;
+    dct:source narr:Sample_1 ;
+    skos:prefLabel "Employee Lifecycle with Continuous Identity" ;
+    skos:definition "Endorsement by interviewer → Zoom calls → in-person meetings → state ID uploads → assigned role with privileges → 'as-of' query compiles snapshot (digital identification) on device." ;
+    narr:supports narr:CaseStudy_BeRecognizedID ;
+    skos:related narr:Behaviors ;
+    skos:related narr:Storyboards ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  # Style Observations (Annotations)
+  narr:StyleObs_1 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:BrandNameStylization ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:BrandNameStylization ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "398"^^xsd:integer ;
+        oa:end "414"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "berecognized.id" ;
+        oa:prefix "case studies: " ;
+        oa:suffix " and aswritten.ai"
+      ]
+    ] ;
+    skos:related narr:CaseStudy_BeRecognizedID ;
+    skos:note "Lowercase domain-style brand name." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:StyleObs_2 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:BrandNameStylization ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:BrandNameStylization ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "419"^^xsd:integer ;
+        oa:end "431"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "aswritten.ai" ;
+        oa:prefix "berecognized.id and " ;
+        oa:suffix ").[^1]"
+      ]
+    ] ;
+    skos:related narr:CaseStudy_AsWrittenAI ;
+    skos:note "Lowercase domain-style brand name." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:StyleObs_3 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:CaretBracketMarker ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:CaretBracketMarker ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "432"^^xsd:integer ;
+        oa:end "437"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "[^1]" ;
+        oa:prefix "aswritten.ai)." ;
+        oa:suffix "\n\n- **Introduce"
+      ]
+    ] ;
+    rdf:value true ;
+    skos:note "Caret-bracket citation marker; appears 14 times throughout text." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:StyleObs_4 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:RhetoricalQuestion ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:RhetoricalQuestion ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "2754"^^xsd:integer ;
+        oa:end "2809"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "My AI doesn't give the same answers as your AI?" ;
+        oa:prefix "problematic: \"" ;
+        oa:suffix "\" While at Vouch"
+      ]
+    ] ;
+    skos:related narr:CaseStudy_AsWrittenAI ;
+    skos:note "Rhetorical question frames AI memory problem." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:StyleObs_5 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:Metaphor ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:Metaphor ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "1518"^^xsd:integer ;
+        oa:end "1600"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "ghost labor (e.g., bad actors—individuals or state actors like North Korea" ;
+        oa:prefix "and " ;
+        oa:suffix "—deepfaking candidates"
+      ]
+    ] ;
+    skos:related narr:Risk_GhostLabor ;
+    skos:note "'Ghost labor' metaphor for impersonation risk." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:StyleObs_6 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:VerbChoice ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:VerbChoice ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "1601"^^xsd:integer ;
+        oa:end "1623"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "deepfaking candidates" ;
+        oa:prefix "like North Korea—" ;
+        oa:suffix ", passing interviews"
+      ]
+    ] ;
+    skos:note "Gerund 'deepfaking' as active verb; contemporary tech jargon." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:StyleObs_7 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:ShortPunchyCadence ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:ShortPunchyCadence ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "1710"^^xsd:integer ;
+        oa:end "1783"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "Establish continuous identity at each time point via an append-only log." ;
+        oa:prefix "The need: " ;
+        oa:suffix "[^6]\n    - Process"
+      ]
+    ] ;
+    skos:note "Short declarative sentence; imperative tone." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:StyleObs_8 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:RuleOfThree ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:RuleOfThree ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "2398"^^xsd:integer ;
+        oa:end "2464"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "Provenance, equality, decentralization/offline scale." ;
+        oa:prefix "mirror human system: " ;
+        oa:suffix "[^12]\n- **Future Vision"
+      ]
+    ] ;
+    skos:note "Triadic list of system benefits." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:StyleObs_9 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:TerminologyControl ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:TerminologyControl ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "2050"^^xsd:integer ;
+        oa:end "2073"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "'as-of T' snapshot" ;
+        oa:prefix "Outcome: Assigned role carries privileges; an \"" ;
+        oa:suffix " query compiles the snapshot"
+      ]
+    ] ;
+    skos:related narr:CaseStudy_BeRecognizedID ;
+    skos:related narr:CaseStudy_AsWrittenAI ;
+    skos:note "Canonical term for point-in-time query; appears multiple times." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:StyleObs_10 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:Parallelism ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:Parallelism ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start "3175"^^xsd:integer ;
+        oa:end "3293"^^xsd:integer
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "1. Person talks to AI, shares documents/messages.\n    2. Extract chats/documents to RDF (narrative events)." ;
+        oa:prefix "Interactions**:\n    " ;
+        oa:suffix "\n    3. Save to append"
+      ]
+    ] ;
+    skos:note "Numbered list with parallel structure; imperative/declarative mix." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  # Style Metrics
+  narr:Metrics_Sample_1 a narr:StyleMetrics ;
+    skos:broader narr:StyleMetrics ;
+    dct:source narr:Sample_1 ;
+    narr:AverageSentenceLength "22.3"^^xsd:decimal ;
+    narr:ActiveVoiceRatio "0.78"^^xsd:decimal ;
+    narr:JargonDensity "0.12"^^xsd:decimal ;
+    narr:TypeTokenRatio "0.61"^^xsd:decimal ;
+    narr:Conciseness "0.72"^^xsd:decimal ;
+    skos:note "Metrics computed from full message; moderate jargon density reflects technical domain." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  # Rubric Assessments
+  narr:RubricAssess_Register_Sample1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Register ;
+    dct:source narr:Sample_1 ;
+    rdf:value "4.0"^^xsd:decimal ;
+    skos:note "Technical but accessible; second-person 'your AI'; active voice dominant; appropriate for architecture discussion." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:RubricAssess_Phrasing_Sample1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Phrasing ;
+    dct:source narr:Sample_1 ;
+    rdf:value "4.5"^^xsd:decimal ;
+    skos:note "Strong domain vocabulary ('append-only log', 'as-of T', 'reified change'); canonical terms consistent; 'ghost labor' metaphor effective. See narr:StyleObs_9." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:RubricAssess_Cadence_Sample1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Cadence ;
+    dct:source narr:Sample_1 ;
+    rdf:value "4.0"^^xsd:decimal ;
+    skos:note "Mix of short punchy sentences and longer explanatory clauses; bullet structure aids rhythm. See narr:StyleObs_7." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:RubricAssess_Strategy_Sample1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_StrategicAlignment ;
+    dct:source narr:Sample_1 ;
+    rdf:value "4.5"^^xsd:decimal ;
+    skos:note "Explicitly ties architecture to case studies and system outcomes; aligns with narrative-driven roadmap and proof concepts; strong transition guidance." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:RubricAssess_Tailoring_Sample1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Tailoring ;
+    dct:source narr:Sample_1 ;
+    rdf:value "4.0"^^xsd:decimal ;
+    skos:note "Tailored for technical audience (leaders, architects); references to 'participants' and 'chat' suggest presentation context; could strengthen persona-specific framing." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:RubricAssess_Resonance_Sample1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Resonance ;
+    dct:source narr:Sample_1 ;
+    rdf:value "4.5"^^xsd:decimal ;
+    skos:note "Strong use of concrete examples (North Korea deepfakes, employee lifecycle); rhetorical question engages; case studies provide narrative proof. See narr:StyleObs_4, narr:StyleObs_5." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:RubricAssess_Flow_Sample1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Flow ;
+    dct:source narr:Sample_1 ;
+    rdf:value "3.5"^^xsd:decimal ;
+    skos:note "Logical progression from pattern → case studies → system properties → future vision; transitions explicit ('Set the stage', 'Close with'); some sections feel list-heavy; could smooth connective tissue." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:RubricAssess_Novelty_Sample1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Novelty ;
+    dct:source narr:Sample_1 ;
+    rdf:value "4.0"^^xsd:decimal ;
+    skos:note "'Ghost labor' metaphor fresh; 'as-of T' terminology distinctive; avoids boilerplate; some standard architectural language expected in domain." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+
+  narr:RubricAssess_Accuracy_Sample1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Accuracy ;
+    dct:source narr:Sample_1 ;
+    rdf:value "4.0"^^xsd:decimal ;
+    skos:note "Specific named entities (berecognized.id, aswritten.ai, Vouch, North Korea); citation markers present [^1]–[^14]; claims about system properties (provenance, equality) supported by case context; would benefit from explicit evidence links." ;
+    prov:wasGeneratedBy narr:Tx_20251113T032552Z_sample1 .
+}
