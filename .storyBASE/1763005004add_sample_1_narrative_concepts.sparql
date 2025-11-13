@@ -1,0 +1,308 @@
+PREFIX narr: <http://example.org/narrative#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX oa: <http://www.w3.org/ns/oa#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+INSERT DATA {
+  # Transaction-level provenance
+  narr:Tx_20251113T033534Z_claude45 a prov:Activity ;
+    prov:wasAssociatedWith <urn:agent:storyTWIN:anthropic/claude-sonnet-4.5> ;
+    prov:wasAttributedTo <urn:user:pleasetrythisathome> ;
+    prov:generatedAtTime "2025-11-13T03:35:34.567Z"^^xsd:dateTime ;
+    prov:used narr:Sample_1 ;
+    rdfs:comment "Initial extraction from clojure-conj-2025 repo README and voice memo transcription" .
+
+  # Sample
+  narr:Sample_1 dct:source "clojure-conj-2025 repo README / voice memo transcription" ;
+    skos:note "Meta-narrative closing: demonstrating storyBASE workflow via talk creation process." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  # Narrative
+  narr:Narrative_1 a skos:Concept ;
+    skos:broader narr:CoreNarratives ;
+    skos:prefLabel "Identity as Compiled from Immutable History"@en ;
+    dct:source narr:Sample_1 ;
+    skos:definition "Core thesis: identity and content derive from append-only log with as-of-T snapshots, enabling provenance and deterministic evolution." ;
+    skos:related narr:Proof, narr:Architecture ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  # Flow
+  narr:Flow_1 a skos:Concept ;
+    skos:broader narr:Flows ;
+    skos:prefLabel "Content Production Workflow"@en ;
+    dct:source narr:Sample_1 ;
+    skos:definition "User inputs → initial storyBASE → normalization/iteration → polished outputs with embedded provenance." ;
+    skos:related narr:ProductLadder, narr:Storyboards ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  # Behavior
+  narr:Behavior_1 a skos:Concept ;
+    skos:broader narr:Behaviors ;
+    skos:prefLabel "Normalize Transcription Against storyBASE"@en ;
+    dct:source narr:Sample_1 ;
+    skos:definition "Clean and refine raw transcription using entity's established style and terminology to fix errors, inconsistencies, and filler." ;
+    skos:related narr:StyleProfiles, narr:TerminologyControl ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  # Milestone
+  narr:Milestone_1 a skos:Concept ;
+    skos:broader narr:Milestones ;
+    skos:prefLabel "Initial storyBASE Graph"@en ;
+    dct:source narr:Sample_1 ;
+    skos:definition "First structured graph built from user-generated inputs, bootstrapped with structured data to avoid early noise." ;
+    skos:related narr:ProductLadder ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  # Proof
+  narr:Proof_1 a skos:Concept ;
+    skos:broader narr:Proof ;
+    skos:prefLabel "Meta-Demonstration: Talk Creation Process"@en ;
+    dct:source narr:Sample_1 ;
+    skos:definition "The talk itself exemplifies the reified change architecture and storyBASE workflow, showing iterative refinement from raw inputs to polished outputs." ;
+    skos:related narr:CaseStudies, narr:Outcomes ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  # Style Observations
+  narr:StyleObs_1 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:TerminologyControl ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:TerminologyControl ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1005 ;
+        oa:end 1021
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "append-only log" ;
+        oa:prefix "precise terms like \"" ;
+        oa:suffix "\" and \"as-of T\""
+      ]
+    ] ;
+    skos:related narr:KeyPhrases ;
+    rdf:value true ;
+    skos:note "Domain-specific term; canonical phrasing for immutable history." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  narr:StyleObs_2 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:TerminologyControl ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:TerminologyControl ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1028 ;
+        oa:end 1044
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "as-of T snapshots" ;
+        oa:prefix "append-only log\" and \"" ;
+        oa:suffix "\"\\) to fix errors"
+      ]
+    ] ;
+    skos:related narr:KeyPhrases ;
+    rdf:value true ;
+    skos:note "Temporal query idiom; precise technical phrasing." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  narr:StyleObs_3 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:BrandNameStylization ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:BrandNameStylization ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 195 ;
+        oa:end 204
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "storyBASE" ;
+        oa:prefix "This meta-layer highlights " ;
+        oa:suffix " as a practical tool"
+      ]
+    ] ;
+    skos:related narr:Tagline ;
+    rdf:value true ;
+    skos:note "CamelCase with uppercase suffix; consistent brand stylization." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  narr:StyleObs_4 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:Metaphor ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:Metaphor ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1554 ;
+        oa:end 1607
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "identity \\(and content\\) as compiled from immutable history" ;
+        oa:prefix "This workflow embodies the core thesis: " ;
+        oa:suffix ", enabling provenance"
+      ]
+    ] ;
+    skos:related narr:Narratives ;
+    rdf:value true ;
+    skos:note "Compilation metaphor for identity construction; technical analogy." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  narr:StyleObs_5 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:VoiceActive ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:VoiceActive ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 820 ;
+        oa:end 869
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "we show how to clean and normalize a transcription" ;
+        oa:prefix "Once the initial storyBASE exists, " ;
+        oa:suffix " \\(e.g., this voice memo\\)"
+      ]
+    ] ;
+    rdf:value true ;
+    skos:note "Active voice; first-person plural; direct action." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  narr:StyleObs_6 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:CaretBracketMarker ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:CaretBracketMarker ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1651 ;
+        oa:end 1656
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "\\[^1\\]" ;
+        oa:prefix "deterministic evolution." ;
+        oa:suffix ""
+      ]
+    ] ;
+    rdf:value true ;
+    skos:note "Inline citation marker; caret-bracket notation for provenance." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  narr:StyleObs_7 a narr:StyleObservation, oa:Annotation ;
+    skos:broader narr:ShortPunchyCadence ;
+    dct:source narr:Sample_1 ;
+    oa:hasBody narr:ShortPunchyCadence ;
+    oa:hasTarget [
+      a oa:SpecificResource ;
+      oa:hasSource narr:Sample_1 ;
+      oa:hasSelector [
+        a oa:TextPositionSelector ;
+        oa:start 1318 ;
+        oa:end 1395
+      ] ;
+      oa:hasSelector [
+        a oa:TextQuoteSelector ;
+        oa:exact "for free, as a byproduct of the reified change process" ;
+        oa:prefix "embedded provenance—" ;
+        oa:suffix "."
+      ]
+    ] ;
+    rdf:value true ;
+    skos:note "Short clause; punchy phrasing; em-dash for emphasis." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  # Rubric Assessments
+  narr:RubricAssess_1 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Register ;
+    dct:source narr:Sample_1 ;
+    rdf:value "4.0"^^xsd:decimal ;
+    skos:note "Technical register with conversational framing; first-person plural 'we'; active voice dominant." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  narr:RubricAssess_2 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Phrasing ;
+    dct:source narr:Sample_1 ;
+    rdf:value "4.5"^^xsd:decimal ;
+    skos:note "Strong domain terminology ('append-only log', 'as-of T snapshots'); precise technical phrasing; consistent brand stylization." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  narr:RubricAssess_3 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Cadence ;
+    dct:source narr:Sample_1 ;
+    rdf:value "3.5"^^xsd:decimal ;
+    skos:note "Mix of short and medium sentences; some complex clauses; generally clear rhythm." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  narr:RubricAssess_4 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_StrategicAlignment ;
+    dct:source narr:Sample_1 ;
+    rdf:value "4.5"^^xsd:decimal ;
+    skos:note "Directly demonstrates core narrative (identity from immutable history); meta-layer reinforces storyBASE value proposition." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  narr:RubricAssess_5 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Tailoring ;
+    dct:source narr:Sample_1 ;
+    rdf:value "4.0"^^xsd:decimal ;
+    skos:note "Technical audience assumed; appropriate depth for developer/architect personas; workflow steps clearly sequenced." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  narr:RubricAssess_6 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Resonance ;
+    dct:source narr:Sample_1 ;
+    rdf:value "4.0"^^xsd:decimal ;
+    skos:note "Compilation metaphor resonates with technical audience; meta-demonstration (talk about talk creation) is memorable." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  narr:RubricAssess_7 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Flow ;
+    dct:source narr:Sample_1 ;
+    rdf:value "4.0"^^xsd:decimal ;
+    skos:note "Logical progression from overview → workflow → normalization → thesis; clear section markers; natural transitions." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  narr:RubricAssess_8 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Novelty ;
+    dct:source narr:Sample_1 ;
+    rdf:value "4.0"^^xsd:decimal ;
+    skos:note "Meta-narrative approach (demonstrating tool via its own creation) is fresh; technical phrasing precise but not clichéd." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  narr:RubricAssess_9 a narr:RubricAssessment ;
+    skos:broader narr:Rubric_Accuracy ;
+    dct:source narr:Sample_1 ;
+    rdf:value "4.0"^^xsd:decimal ;
+    skos:note "Technical terms used correctly; citation marker present; workflow steps verifiable; no falsifiable claims detected." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+
+  # Metrics
+  narr:Metrics_1 a narr:StyleMetrics ;
+    skos:broader narr:StyleMetrics ;
+    dct:source narr:Sample_1 ;
+    narr:AverageSentenceLength "22.3"^^xsd:decimal ;
+    narr:ActiveVoiceRatio "0.78"^^xsd:decimal ;
+    narr:JargonDensity "0.12"^^xsd:decimal ;
+    narr:TypeTokenRatio "0.68"^^xsd:decimal ;
+    skos:note "Moderate sentence length; high active voice; controlled jargon; good lexical diversity." ;
+    prov:wasGeneratedBy narr:Tx_20251113T033534Z_claude45 .
+}
