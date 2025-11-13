@@ -1,0 +1,30 @@
+# .github/workflows/pages.yml
+name: Publish deck
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/*'
+permissions: { pages: write, id-token: write, contents: write }
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    concurrency: ci-${{ github.ref }}
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+      # Inject build metadata into /docs/index.html
+      - name: Add build metadata
+        run: |
+          SHORT=${GITHUB_SHA::7}
+          sed -i "s/__SHA__/${GITHUB_SHA}/g" docs/index.html
+          sed -i "s/__SHORT__/${SHORT}/g" docs/index.html
+          sed -i "s/__REPO_NAME__/${{ github.event.repository.name }}/g" docs/index.html	  
+      # Keep Markdown alongside the HTML for traceability
+      - name: Copy Markdown
+        run: |
+          [ -f src/deck.md ] && cp -f src/deck.md docs/deck.md || true
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: docs # The folder the action should deploy.
