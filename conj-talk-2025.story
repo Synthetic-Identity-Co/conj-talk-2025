@@ -3,14 +3,13 @@ id: conj-talk-2025
 title: "Immutable Selves Talk"
 version: 0.1.0
 description: "IA presenter template for the immutable selves clojure conj 2025 talk presentation"
-destination: /
-model: 
+model:
   - anthropic/claude-sonnet-4.5
 ---
 
 Use the storyBASE to draft the clojure conj 2025 talk.
 Focus on presenting clear narrative statements in the slide copy and provide a brief talk track for each slide.
-Use mermaid charts to describe flows, sequences, architecture, etc as appropriate. 
+Use mermaid charts to describe flows, sequences, architecture, etc as appropriate.
 
 Always include direct citations that explain human readable provenance including adjacent nodes as context from the storyBASE graph in your responses.
 
@@ -19,19 +18,19 @@ Output in the IA presenter presentation template format below.
 ---
 
 #### sic[theme][#citation]
-# 
+#
 ## Presentation Title
 ### Subtitle
-# 
+#
 #### Presenter Name
 ###### Role and context
 	[#citation]: this is a custom theme for sic. citations are important, only give them titles (in this case, “theme”) to disambiguate multiple citations.
 
 ---
-# Big statement 
+# Big statement
 
 ---
-# Big statement 
+# Big statement
 ## Substatement
 
 ---
@@ -44,18 +43,18 @@ Output in the IA presenter presentation template format below.
 
 ---
 ###### Slide title
-# 
+#
 ### preamble to
 # Big statement
 
-Only give slides titles to signal section shifts or changes in domain. 
+Only give slides titles to signal section shifts or changes in domain.
 
 An empty h1 in required to separate the sections
 ---
 
 #### preamble to
 ## An initial statement
-# 
+#
 #### that sets up a
 # Big statement
 
@@ -68,31 +67,31 @@ An empty h1 in required to separate the sections
 ###### with subtitle
 
 ---
- 
+
 ### subsection title
 
 ---
- 
-###### with context 
+
+###### with context
 ### Subsection Title
 
 ---
- 
-###### with context 
+
+###### with context
 ### section header
 
 These are speaker notes
 ---
- 
-###### with context 
+
+###### with context
 ### section header
 	All slide content must either be indented or have a markdown tag (#, ##, etc), Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt[][#citation] ut labore et dolore magna aliqua.
-	[#citation]: always cite provenance from the storyBASE and explain context. 
+	[#citation]: always cite provenance from the storyBASE and explain context.
 
 ---
 ### Lorem ipsum dolor
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt[][#citation] ut labore et dolore magna aliqua.
-	[#citation]: always cite provenance from the storyBASE and explain context. 
+	[#citation]: always cite provenance from the storyBASE and explain context.
 
 https://in-app.ia.net/separator.png
 
@@ -134,22 +133,22 @@ https://in-app.ia.net/15.jpg
 Text
 
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  
----    
+
+---
 ### Table of Contents
 	1. Write
-	2. Structure 
+	2. Structure
 	3. Iterate
 	4. Design
 	5. Action
- 
+
 Separating the different layers of a presentation allows you to focus on one task at a time.
- 
+
 ---
 ## 1. Write
 	Start With a Script
 
-Start with an outline, paste from a document, or write from scratch. Don’t get distracted by layout, fonts, or colors. 
+Start with an outline, paste from a document, or write from scratch. Don’t get distracted by layout, fonts, or colors.
 
 ---
 
@@ -166,16 +165,16 @@ Most presentation tools ask you to choose a design and then adjust your story to
 	From DMs to articles, any existing text can become a presentation in no time. Paste your instant messages, a work chat, or a Mastodon thread.
 
 Bonus points if your text is written in Markdown already. Presenter turns it into a structured presentation, instantly.
- 
+
 ---
 ### Use Placeholder Images
-	You will be tempted to add images while writing. Resist the temptation. To move fast, use placeholders. Search, choose and place images with the same concentration as a separate task.	
+	You will be tempted to add images while writing. Resist the temptation. To move fast, use placeholders. Search, choose and place images with the same concentration as a separate task.
 
 Don’t waste hours online hunting for the perfect image before you’ve written your story. Even if you already have great visuals, don’t let them overpower your message. Focus on the content. Get the order right. Save images for later.
 
 Write until you run out of words. Then organize. Then refine. Repeat until the story is tight.
 
-/Theme/image2.webp 
+/Theme/image2.webp
 title: placeholder
 
 ---
@@ -191,7 +190,7 @@ Writing and structure go hand in hand. But try not to bounce back and forth. You
 https://in-app.ia.net/separator.png
 x: left
 
-Stick to one idea per slide. Use three dashes (---) to break your story into clean sections. 
+Stick to one idea per slide. Use three dashes (---) to break your story into clean sections.
 
 ---
 
@@ -222,14 +221,14 @@ By default, paragraphs, lists and block quotes are invisible. Adding a tab at th
 https://in-app.ia.net/image1.png
 
 ### Visuals
-	Images, videos, and tables are shown by default. Images can be fine-tuned using filters, positioning, etc. 
- 
+	Images, videos, and tables are shown by default. Images can be fine-tuned using filters, positioning, etc.
+
 Images can be dragged and dropped on the editor. You can use the photo library, search Unsplash, or hot link images and video from the net.
 
 ---
 	**Most people don't like stuffed slides.** Sometimes, you need to show more on a slide. You may want to discuss a whole paragraph of text. But if you do, be careful. No one likes having slides read aloud word-for-word. We read faster than we can speak, so we get bored hearing what we have already read. Don’t do to your audience what you wouldn't want done to you.
 
-Most of the above text should be put here, in the speaker notes. 
+Most of the above text should be put here, in the speaker notes.
 
 ---
 ## 3. Iterate
@@ -270,7 +269,7 @@ x: left
 y: top
 
 Clicking on Play will turn the editor into a teleprompter and activate the presentation view on the presentation device. You can't edit in the teleprompter. To go back to the editor press the Play/Stop button again.
- 
+
 
 ---
 ## 4. Design
@@ -290,7 +289,7 @@ https://in-app.ia.net/15.jpg
 
 https://in-app.ia.net/13.jpg
 
-Images are a powerful storytelling tool. Make sure you get meaningful hi-res images for full impact. 
+Images are a powerful storytelling tool. Make sure you get meaningful hi-res images for full impact.
 
 Presenter slides adapt automatically to different screens. But images need a bit more care. Make sure key parts are always visible. Use the dropdown next to each image to tweak filters, position, and background.
 
@@ -313,7 +312,7 @@ https://in-app.ia.net/thumbnails.png
 x: left
 y: top
 
-If your slide includes two or more elements, some layouts may work better than others. Use the layout picker to test your options. Want a comparison? Stack or split. Need more structure? Try a grid or columns. 
+If your slide includes two or more elements, some layouts may work better than others. Use the layout picker to test your options. Want a comparison? Stack or split. Need more structure? Try a grid or columns.
 
 ---
 
@@ -322,13 +321,13 @@ y: top
 
 ### Select From a Wide Range of Powerful Designs
 
-We encourage you to choose the right design at the very end. Colors and images are great, but when you work on message and structure, the can be distracting. 
+We encourage you to choose the right design at the very end. Colors and images are great, but when you work on message and structure, the can be distracting.
 
-And just as much as it helps to just focus on the script when you write the script, to find the perfect order when you focus on structure, it helps to just focus on design, when you design. Take youyr time to get the perfect fonts, colors and layouts, at the very end. 
+And just as much as it helps to just focus on the script when you write the script, to find the perfect order when you focus on structure, it helps to just focus on design, when you design. Take youyr time to get the perfect fonts, colors and layouts, at the very end.
 
 When you switch themes—colors, fonts, or layout—Presenter updates everything automatically. No dragging boxes. No readjusting. It just works.
 
-Once your story is clear and your layout is locked in, pick a font, color scheme, and fine-tune. Every theme supports light and dark mode. 
+Once your story is clear and your layout is locked in, pick a font, color scheme, and fine-tune. Every theme supports light and dark mode.
 
 ---
 
@@ -352,13 +351,13 @@ If you are well prepared, you won't need speaker notes. But you walk the tightro
 ### Your Audience Sees the Slides
 	You See both Thumbnail and Script
 
-Swipe up and down to navigate slides. Swipe left and right to navigate through the script. 
+Swipe up and down to navigate slides. Swipe left and right to navigate through the script.
 
 https://in-app.ia.net/tell-your-story.png
 x: left
 
 ---
-### Share and Export: 
+### Share and Export:
 	When you’re done, share the presentation as a handout in article form, as a series of images for a Social Media gallery or as a simple PDF.
 
 https://in-app.ia.net/export.png
@@ -376,4 +375,4 @@ Presenter works across formats. Create, present, or share—right from your phon
 ## Now Go and Move Mountains
 
 And yes, you can edit this presentation in the Settings.
-For more, check our [How-To](https://ia.net/presenter/how-to) 
+For more, check our [How-To](https://ia.net/presenter/how-to)
